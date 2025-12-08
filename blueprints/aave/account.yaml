@@ -1,0 +1,34 @@
+protocol: "aavev3"
+
+inputs:
+  aave_token:
+    type: "address"
+  context_helper_address:
+    type: "address"
+
+actions:
+  account:
+    calls:
+      - description: "Get caliber's address"
+        target: ${inputs.context_helper_address}
+        selector: "msgSender()"
+        parameters: []
+        return:
+          name: "caliber_address"
+          type: "address"
+
+      - description: "Account the Aave token position"
+        target: ${inputs.aave_token}
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: ${returns.caliber_address}
+        return:
+          name: "aave_token_balance"
+          type: "uint256"
+
+    reserved_slots:
+      - type: "uint256"
+        value: ${returns.aave_token_balance}
+      - type: "uint256"
+        value: ${builtins.UINT256_MAX}

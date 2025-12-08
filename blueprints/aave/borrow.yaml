@@ -1,0 +1,44 @@
+protocol: "aavev3"
+
+inputs:
+  token:
+    type: "address"
+  interest_rate_mode:
+    type: "uint256"
+  referral_code:
+    type: "uint256"
+  aave_pool_instance:
+    type: "address"
+  context_helper_address:
+    type: "address"
+
+actions:
+  borrow_asset:
+    calls:
+      - description: "Get caliber's address"
+        target: ${inputs.context_helper_address}
+        selector: "msgSender()"
+        parameters: []
+        return:
+          name: "caliber_address"
+          type: "address"
+
+      - description: "Borrow an asset from the Aave pool"
+        target: ${inputs.aave_pool_instance}
+        selector: "borrow(address,uint256,uint256,uint16,address)"
+        parameters:
+          - type: "address"
+            value: ${inputs.token}
+          - type: "uint256"
+            value: ${input_slots.amount_to_borrow}
+          - type: "uint256"
+            value: ${inputs.interest_rate_mode}
+          - type: "uint256"
+            value: ${inputs.referral_code}
+          - type: "address"
+            value: ${returns.caliber_address}
+
+    input_slots:
+      amount_to_borrow:
+        type: "uint256"
+        description: "The amount of tokens to borrow"

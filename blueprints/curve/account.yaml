@@ -1,0 +1,98 @@
+protocol: "curve"
+
+inputs:
+  gauge_address:
+    type: "address"
+  lp_token_address:
+    type: "address"
+  pool_address:
+    type: "address"
+  unsigned_math_helper:
+    type: "address"
+  context_helper_address:
+    type: "address"
+
+actions:
+  account_balanced:
+    calls:
+      - description: "Get caliber's address"
+        target: ${inputs.context_helper_address}
+        selector: "msgSender()"
+        parameters: []
+        return:
+          name: "caliber_address"
+          type: "address"
+
+      - description: "Get the user's staked LP balance in gauge"
+        target: "${inputs.gauge_address}"
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+        return:
+          name: "gauge_balance"
+          type: "uint256"
+
+      - description: "Get total LP supply from pool"
+        target: "${inputs.pool_address}"
+        selector: "totalSupply()"
+        parameters: []
+        return:
+          name: "total_lp_supply"
+          type: "uint256"
+
+      - description: "Get pool balance of token A"
+        target: "${inputs.pool_address}"
+        selector: "balances(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "0"
+        return:
+          name: "pool_balance_token_a"
+          type: "uint256"
+
+      - description: "Get pool balance of token B"
+        target: "${inputs.pool_address}"
+        selector: "balances(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "1"
+        return:
+          name: "pool_balance_token_b"
+          type: "uint256"
+
+      - description: "Calculate pro-rata share of token A"
+        target: "${inputs.unsigned_math_helper}"
+        selector: "mulDiv(uint256,uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.pool_balance_token_a}"
+          - type: "uint256"
+            value: "${returns.gauge_balance}"
+          - type: "uint256"
+            value: "${returns.total_lp_supply}"
+        return:
+          name: "amount_token_a_out"
+          type: "uint256"
+
+      - description: "Calculate pro-rata share of token B"
+        target: "${inputs.unsigned_math_helper}"
+        selector: "mulDiv(uint256,uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.pool_balance_token_b}"
+          - type: "uint256"
+            value: "${returns.gauge_balance}"
+          - type: "uint256"
+            value: "${returns.total_lp_supply}"
+        return:
+          name: "amount_token_b_out"
+          type: "uint256"
+
+    reserved_slots:
+      - type: "uint256"
+        value: "${returns.amount_token_a_out}"
+      - type: "uint256"
+        value: "${returns.amount_token_b_out}"
+      - type: "uint256"
+        value: "${builtins.UINT256_MAX}"
