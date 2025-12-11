@@ -1,0 +1,52 @@
+config:
+  aave_core_address:
+    type: "address"
+    value: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+  context_helper_address:
+    type: "address"
+    value: "0x8590DECe61A3Feb53E87c499E0b30307684ED627"
+  aave_horizon_address:
+    type: "address"
+    value: "0xAe05Cd22df81871bc7cC2a04BeCfb516bFe332C8"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x836C9007DbD73fcFC473190304C72b7E39BaBb91"
+positions:
+  # Morpho Vault Positions
+  - id: "77590748279218246310796884579338401703"
+    group_id: "0"
+    description: "Morpho Vault USDC Smokehouse"
+    instructions: !include "./instructions/morpho-vault-usdc-smokehouse.yaml"
+  - id: "11232424494326814282538250204373920286"
+    group_id: "0"
+    description: "Morpho Vault USDC Gauntlet Frontier"
+    instructions: !include "./instructions/morpho-vault-usdc-gauntlet-frontier.yaml"
+  # Other Positions
+  - id: "777"
+    group_id: "0"
+    description: "Merkl Harvest"
+    instructions: !include "./instructions/merkl.yaml"
+  - id: "221614240530984971309101713062250192527"
+    group_id: "0"
+    description: "Curve crvUSD/USDT Pool"
+    instructions: !include "./instructions/curve-usdt-crvusd.yaml"
+  - id: "203336833608290082987101085377947340244"
+    group_id: "0"
+    description: "Curve crvUSD/USDC Pool"
+    instructions: !include "./instructions/curve-usdc-crvusd.yaml"
+
+  # Aave Core Positions
+  - id: "332697612920998824307877708016163852818"
+    group_id: "1"
+    description: "Aave Core Supply USDC"
+    instructions: !include "./instructions/aave-core-supply-usdc.yaml"
+  - id: "117961051486591206861124901427435972709"
+    group_id: "1"
+    description: "Aave Core Borrow USDT"
+    instructions: !include "./instructions/aave-core-borrow-usdt.yaml"
+
+  # Aave Horizon Positions
+  - id: "87224421864707228069930864185331520862"
+    group_id: "2"
+    description: "Aave Horizon Supply USDC"
+    instructions: !include "./instructions/aave-horizon-supply-usdc.yaml"
