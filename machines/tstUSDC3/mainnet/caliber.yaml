@@ -1,0 +1,100 @@
+config:
+  aave_core_address:
+    type: "address"
+    value: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+  context_helper_address:
+    type: "address"
+    value: "0x8590DECe61A3Feb53E87c499E0b30307684ED627"
+  aave_horizon_address:
+    type: "address"
+    value: "0xAe05Cd22df81871bc7cC2a04BeCfb516bFe332C8"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x836C9007DbD73fcFC473190304C72b7E39BaBb91"
+positions:
+  # Morpho Vault Positions
+  - id: "77590748279218246310796884579338401703"
+    group_id: "0"
+    description: "Morpho Vault Smokehouse USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Smokehouse USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xBEeFFF209270748ddd194831b3fa287a5386f5bC"
+  - id: "11232424494326814282538250204373920286"
+    group_id: "0"
+    description: "Morpho Vault Gauntlet Frontier USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Gauntlet USDC Frontier"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e"
+  - id: "66611926981936670390254275150328268836"
+    group_id: "0"
+    description: "Morpho Vault Steakhouse USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Steakhouse USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB"
+  - id: "70916134908032255601120639099846007004"
+    group_id: "0"
+    description: "Morpho Vault MEV Capital USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "MEV Capital USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xd63070114470f685b75B74D60EEc7c1113d33a3D"
+  - id: "21563051768953602021910485712501614878"
+    group_id: "0"
+    description: "Morpho Vault KPK USDC Prime"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "KPK USDC Prime"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xe108fbc04852B5df72f9E44d7C29F47e7A993aDd"
+  - id: "61686132468174721405286061630148775692"
+    group_id: "0"
+    description: "Morpho Vault Hakutora USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Hakutora USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9"
+  - id: "97117526985736930959313278378987120859"
+    group_id: "0"
+    description: "Morpho Vault Alpha USDC Core"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Alpha USDC Core"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xb0f05E4De970A1aaf77f8C2F823953a367504BA9"
+  - id: "93204526954152047231636260165125429585"
+    group_id: "0"
+    description: "Morpho Vault Clearstar USDC Reactor"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Clearstar USDC Reactor"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0x62fE596d59fB077c2Df736dF212E0AFfb522dC78"
+  - id: "58193596409546904127311079477022569725"
+    group_id: "0"
+    description: "Morpho Vault Clearstar High Yield USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "Clearstar High Yield USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0x9B5E92fd227876b4C07a8c02367E2CB23c639DfA"
+  - id: "49428575262887538812026731938871696909"
+    group_id: "0"
+    description: "Morpho Vault MEV Capital PTS USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      vault_label: "MEV Capital PTS USDC"
+      token_address: ${token_list.mainnet.USDC}
+      vault_address: "0xd41830d88dfD08678b0B886E0122193d54b02Acc"
+  # Other Positions
+  - id: "777"
+    group_id: "0"
+    description: "Merkl Harvest"
+    instructions: !include "./instructions/merkl.yaml"
