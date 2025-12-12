@@ -1,5 +1,5 @@
 # this is a generated file - do not edit manually
-# root: 0x8d81e80e6d04f7ae00a3f5fe808f324ccbf5c4a96f4e6b6153ee0104abca74cf
+# root: 0xc305db4535e00ae175bcbd3fe11c73e2b88beeb945ece4134705e7eb76258ba5
 
 [tokens."${token_list.mainnet.USDC}"]
 chainId = 1
