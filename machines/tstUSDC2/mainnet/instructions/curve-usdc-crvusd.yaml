@@ -5,7 +5,7 @@
     - ${token_list.mainnet.crvUSD}
   instruction:
     label: USDC/crvUSD
-    path: "../../blueprints/curve/deposit-v6.yaml:deposit_balanced"
+    path: "../../../blueprints/curve/deposit-v6.yaml:deposit_balanced"
     inputs:
       token_a_address:
         type: "address"
@@ -33,7 +33,7 @@
     - ${token_list.mainnet.crvUSD}
   instruction:
     label: USDC/crvUSD
-    path: "../../blueprints/curve/account.yaml:account_balanced"
+    path: "../../../blueprints/curve/account.yaml:account_balanced"
     inputs:
       gauge_address:
         type: "address"
@@ -58,7 +58,7 @@
     - ${token_list.mainnet.crvUSD}
   instruction:
     label: USDC/crvUSD
-    path: "../../blueprints/curve/withdraw-v6.yaml:withdraw_balanced"
+    path: "../../../blueprints/curve/withdraw-v6.yaml:withdraw_balanced"
     inputs:
       gauge_address:
         type: "address"
@@ -80,7 +80,7 @@
     - ${token_list.mainnet.crvUSD}
   instruction:
     label: USDC/crvUSD
-    path: "../../blueprints/curve/withdraw-v6.yaml:withdraw_balanced_relative"
+    path: "../../../blueprints/curve/withdraw-v6.yaml:withdraw_balanced_relative"
     inputs:
       gauge_address:
         type: "address"
@@ -100,7 +100,7 @@
   affected_tokens: []
   instruction:
     label: USDC/crvUSD
-    path: "../../blueprints/curve/harvest.yaml:harvest_from_minter"
+    path: "../../../blueprints/curve/harvest.yaml:harvest_from_minter"
     inputs:
       gauge_address:
         type: "address"

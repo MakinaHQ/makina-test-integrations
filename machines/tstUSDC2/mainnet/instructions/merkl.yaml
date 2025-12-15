@@ -3,7 +3,7 @@
   affected_tokens: []
   instruction:
     label: "Merkl"
-    path: "../../blueprints/merkl/harvest.yaml:harvest"
+    path: "../../../blueprints/merkl/harvest.yaml:harvest"
     inputs:
       merkl_distributor_address:
         type: "address"

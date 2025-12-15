@@ -4,7 +4,7 @@
     - ${token_list.mainnet.USDT}
   instruction:
     label: "USDT"
-    path: "../../blueprints/aave/borrow.yaml:borrow_asset"
+    path: "../../../blueprints/aave/borrow.yaml:borrow_asset"
     inputs:
       token:
         type: "address"
@@ -28,7 +28,7 @@
     - ${token_list.mainnet.USDT}
   instruction:
     label: "USDT"
-    path: "../../blueprints/aave/account.yaml:account"
+    path: "../../../blueprints/aave/account.yaml:account"
     inputs:
       aave_token:
         type: "address"
@@ -43,7 +43,7 @@
     - ${token_list.mainnet.USDT}
   instruction:
     label: "USDT"
-    path: "../../blueprints/aave/repay.yaml:repay_asset"
+    path: "../../../blueprints/aave/repay.yaml:repay_asset"
     inputs:
       token_address:
         type: "address"

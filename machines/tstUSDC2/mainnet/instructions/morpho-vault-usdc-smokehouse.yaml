@@ -4,7 +4,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "Smokehouse USDC"
-    path: "../../blueprints/morpho/deposit.yaml:deposit_vault"
+    path: "../../../blueprints/morpho/deposit.yaml:deposit_vault"
     inputs:
       asset_address:
         type: "address"
@@ -22,7 +22,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "Smokehouse USDC"
-    path: "../../blueprints/morpho/account.yaml:account_vault"
+    path: "../../../blueprints/morpho/account.yaml:account_vault"
     inputs:
       vault_address:
         type: "address"
@@ -37,7 +37,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "Smokehouse USDC"
-    path: "../../blueprints/morpho/withdraw.yaml:redeem_vault"
+    path: "../../../blueprints/morpho/withdraw.yaml:redeem_vault"
     inputs:
       vault_address:
         type: "address"
@@ -52,7 +52,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "Smokehouse USDC"
-    path: "../../blueprints/morpho/withdraw.yaml:redeem_vault_relative"
+    path: "../../../blueprints/morpho/withdraw.yaml:redeem_vault_relative"
     inputs:
       vault_address:
         type: "address"
