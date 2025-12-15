@@ -4,7 +4,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "USDC (Horizon)"
-    path: "../../blueprints/aave/deposit.yaml:add_collateral"
+    path: "../../../blueprints/aave/deposit.yaml:add_collateral"
     inputs:
       context_helper_address:
         type: "address"
@@ -22,7 +22,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "USDC (Horizon)"
-    path: "../../blueprints/aave/withdraw.yaml:withdraw_collateral"
+    path: "../../../blueprints/aave/withdraw.yaml:withdraw_collateral"
     inputs:
       context_helper_address:
         type: "address"
@@ -40,7 +40,7 @@
     - ${token_list.mainnet.USDC}
   instruction:
     label: "USDC (Horizon)"
-    path: "../../blueprints/aave/account.yaml:account"
+    path: "../../../blueprints/aave/account.yaml:account"
     inputs:
       aave_token:
         type: "address"
