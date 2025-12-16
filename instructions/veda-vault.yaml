@@ -15,6 +15,9 @@
       asset_address:
         type: "address"
         value: ${position.token_address}
+      context_helper_address:
+        type: "address"
+        value: ${config.context_helper_address}
 
 - is_debt: false
   instruction_type: "ACCOUNTING"
