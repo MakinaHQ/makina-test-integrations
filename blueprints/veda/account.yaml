@@ -31,7 +31,7 @@ actions:
         return:
           name: "vault_shares_balance"
           type: "uint256"
-
+      # TODO: change to using getRateInQuote()
       - description: "Get exchange rate from Accountant (in units of base tokens)"
         target: "${inputs.accountant_address}"
         selector: "getRate()"
