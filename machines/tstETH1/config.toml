@@ -1,0 +1,14 @@
+name = "tstETH1"
+chain = "mainnet"
+address = "0x96dC1AA2fC7D9bAb0B90a489ed91b7fA9e4dF44e"
+
+[calibers.mainnet]
+address = "0xB60F2c211b3622Af56eCA6e1DE130536897D85fb"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstETH1/mainnet/rootfiles"
+
+[calibers.mainnet.accounting_token]
+address = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+decimals = 18
+name = "Wrapped Ether"
+symbol = "WETH"
