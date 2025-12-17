@@ -37,7 +37,9 @@ positions:
       token_address: ${token_list.mainnet.USDC}
       vault_address: "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e"
   # Morpho Market Positions
-  - id: "671"
+
+  # Morpho tBTC/USDC — deposit/withdrawal collateral
+  - id: "671" 
     group_id: "0"
     description: "Morpho tBTC Collateral (market: 0xe4cf...3f08)"
     instructions: !include "../../../instructions/morpho-market-collateral.yaml"
@@ -45,6 +47,35 @@ positions:
       market_label: "tBTC/USDC (0xe4cf...3f08)"
       token_address: ${token_list.mainnet.tBTC}
       market_id: "0xe4cfbee9af4ad713b41bf79f009ca02b17c001a0c0e7bd2e6a89b1111b3d3f08"
+  # Morpho sUSDe/USDC — deposit/withdrawal collateral
+  - id: "672" 
+    group_id: "0"
+    description: "Morpho sUSDe Collateral (market: 0x85c7...fcab)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      market_label: "sUSDe/USDC (0x85c7...fcab)"
+      token_address: ${token_list.mainnet.sUSDe}
+      market_id: "0x85c7f4374f3a403b36d54cc284983b2b02bbd8581ee0f3c36494447b87d9fcab"     
+# Morpho tBTC/USDC — borrow/repay USDC
+- id: "673"
+  group_id: "0"
+  description: "Morpho USDC Debt (market: 0xe4cf...3f08)"
+  instructions: !include "../../../instructions/morpho-market-debt.yaml"
+  vars:
+    market_label: "tBTC/USDC (0xe4cf...3f08)"
+    token_address: ${token_list.mainnet.USDC}            
+    market_id: "0xe4cfbee9af4ad713b41bf79f009ca02b17c001a0c0e7bd2e6a89b1111b3d3f08"    
+
+# Morpho sUSDe/USDC — borrow/repay USDC
+- id: "674"
+  group_id: "0"
+  description: "Morpho USDC Debt (market: 0x85c7...fcab)"
+  instructions: !include "../../../instructions/morpho-market-debt.yaml"
+  vars:
+    market_label: "sUSDe/USDC (0x85c7...fcab)"
+    token_address: ${token_list.mainnet.USDC}            
+    market_id: "0x85c7f4374f3a403b36d54cc284983b2b02bbd8581ee0f3c36494447b87d9fcab"      
+
   # Other Positions
   - id: "777"
     group_id: "0"
