@@ -1,6 +1,6 @@
 name = "tstUSDC4"
 chain = "mainnet"
-address = "0x66d53A249cDB124Bc388b0f2c7E30DaB56BCEF01"
+address = "0x7c7Df75885b6fF604426a8CEED29493385f4669e"
 
 [calibers.mainnet]
 address = "0x855230C3714dD46836CdACE120e16d43dB00c1f7"
