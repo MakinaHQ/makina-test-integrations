@@ -12,3 +12,14 @@ address = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 decimals = 6
 name = "USD Coin"
 symbol = "USDC"
+
+[calibers.arbitrum]
+address = "0xAc9c5477Dd6f2e9D55D408Efe7dE826B8Cd30E67"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC3/arbitrum/rootfiles"
+
+[calibers.arbitrum.accounting_token]
+address = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
