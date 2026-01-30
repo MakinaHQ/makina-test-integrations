@@ -12,13 +12,6 @@
       },
       {
         "chainId": 1,
-        "address": "0x443df5eee3196e9b2dd77cabd3ea76c3dee8f9b2",
-        "name": "Gauntlet WBTC Core",
-        "decimals": 18,
-        "symbol": "gtWBTCc"
-      },
-      {
-        "chainId": 1,
         "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
         "name": "Coinbase Wrapped BTC",
         "decimals": 8,
