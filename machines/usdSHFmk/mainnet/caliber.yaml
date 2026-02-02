@@ -12,7 +12,7 @@ config:
 positions:
 
   # Morpho Vaults
-  - id: "1"
+  - id: "113381721232607674663021988927911303225850827259126640828557600167613363278037"
     group_id: "0"
     description: "Morpho - USDC High Yield Instant"
     instructions: !include "../../../instructions/morpho-vault.yaml"
@@ -21,7 +21,7 @@ positions:
       token_address: ${token_list.mainnet.USDC}
       vault_address: "0xbeeff2C5bF38f90e3482a8b19F12E5a6D2FCa757"
 
-  - id: "2" 
+  - id: "39797660953457105374830423398253205285669897754924558730787238398196430495798"
     group_id: "0"
     description: "Morpho - USDC Prime Instant"
     instructions: !include "../../../instructions/morpho-vault.yaml"
@@ -29,8 +29,8 @@ positions:
       vault_label: "USDC Prime Instant"
       token_address: ${token_list.mainnet.USDC}
       vault_address: "0xbeef088055857739C12CD3765F20b7679Def0f51"
-      
-  - id: "3" # 
+
+  - id: "90111934107120764488215438782625523227744095689206306783616705859046510364843" #
     group_id: "0"
     description: "Morpho - USDT High Yield Instant"
     instructions: !include "../../../instructions/morpho-vault.yaml"
@@ -39,7 +39,7 @@ positions:
       token_address: ${token_list.mainnet.USDT}
       vault_address: "0xbeeff07d991C04CD640DE9F15C08ba59c4FEDEb7"
 
-  - id: "4" # 
+  - id: "32430103287337956626058479770497091037110946852707663070116500586042339587768" #
     group_id: "0"
     description: "Morpho - USDT Prime Instant"
     instructions: !include "../../../instructions/morpho-vault.yaml"
@@ -48,7 +48,7 @@ positions:
       token_address: ${token_list.mainnet.USDT}
       vault_address: "0xbeef003C68896c7D2c3c60d363e8d71a49Ab2bf9"
 
-  - id: "5" # 
+  - id: "33042316902257038600902710305038603376636411589149405534493305034327944556012" #
     group_id: "0"
     description: "Morpho - USDC Term"
     instructions: !include "../../../instructions/morpho-vault.yaml"
@@ -57,7 +57,7 @@ positions:
       token_address: ${token_list.mainnet.USDC}
       vault_address: "0xBEEFFFC57A26fD8D3b693Ba025ead597DbECEBfe"
 
-  - id: "6" 
+  - id: "90921336893967830107325790067136229287057003113729923288594188276183277958283"
     group_id: "0"
     description: "Morpho - USDC Turbo"
     instructions: !include "../../../instructions/morpho-vault.yaml"
