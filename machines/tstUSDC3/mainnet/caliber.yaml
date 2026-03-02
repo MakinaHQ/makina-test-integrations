@@ -11,6 +11,10 @@ config:
   unsigned_math_helper_address:
     type: "address"
     value: "0x836C9007DbD73fcFC473190304C72b7E39BaBb91"
+  key_value_store_address:
+    type: "address"
+    value: "0x7f49f751dc90e54199def7098f9e7d491a1df41c"
+    
 positions:
   # Morpho Vault Positions
   - id: "77590748279218246310796884579338401703"
@@ -125,6 +129,30 @@ positions:
       vault_label: "Gauntlet Core eUSD"
       token_address: ${token_list.mainnet.eUSD}
       vault_address: "0xc080f56504e0278828a403269db945f6c6d6e014"
+
+  # ── InfiniFi Lockers ──────────────────────────────────────────────
+  - id: "2013457072841808719642938411712424809"
+    group_id: "0"
+    description: "InfiniFi liUSD 1-Week Lock"
+    instructions: !include "../../../instructions/infinifi-liusd.yaml"
+    position_tokens: ["0x12b004719fb632f1E7c010c6F5D6009Fb4258442"] # liUSD-1w
+    vars:
+      label: "liUSD 1-Week"
+      weeks: "1"
+      share_token_address: "0x12b004719fb632f1E7c010c6F5D6009Fb4258442" # liUSD-1w
+      kv_storage_key: "${keccak256(makina.mainnet.infinifi.liusd-1w)}"
+
+  - id: "326610073814749020074569224194987031604"
+    group_id: "0"
+    description: "InfiniFi liUSD 4-Week Lock"
+    instructions: !include "../../../instructions/infinifi-liusd.yaml"
+    position_tokens: ["0x66bCF6151D5558AfB47c38B20663589843156078"] # liUSD-4w
+    vars:
+      label: "liUSD 4-Week"
+      weeks: "4"
+      share_token_address: "0x66bCF6151D5558AfB47c38B20663589843156078" # liUSD-4w
+      kv_storage_key: "${keccak256(makina.mainnet.infinifi.liusd-4w)}"
+
   # Other Positions
   - id: "777"
     group_id: "0"

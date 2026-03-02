@@ -1,2 +1,10 @@
 **/.DS_Store
 CLAUDE.md
+
+# Env
+.
+.env
+.env.*
+
+# Local config files
+config-local.toml
