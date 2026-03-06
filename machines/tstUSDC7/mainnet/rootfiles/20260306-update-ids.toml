@@ -1,5 +1,5 @@
 # this is a generated file - do not edit manually
-# root: 0xac9b6ec3b8d898734aeef53a5664ebdec75cc7d394c227c49c63a46fbc825f3f
+# root: 0x022c8d00efbb0135c44a18e72e716846311c5e42dd6fdc4e09e996c8593d3acc
 
 [tokens."${token_list.mainnet.PYUSD}"]
 chainId = 1
