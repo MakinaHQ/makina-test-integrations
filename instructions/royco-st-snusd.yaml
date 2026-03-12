@@ -1,0 +1,85 @@
+# Royco Senior Tranche sNUSD
+# Multi-step deposit: USDC -> NUSD (Router) -> sNUSD (ERC4626) -> Senior Tranche shares
+# Multi-step withdraw: redeem ST -> cooldown sNUSD (10 days) -> unstake -> redeem NUSD to USDC
+#   - Instant: Router has enough USDC liquidity for immediate redemption
+#   - Queued: Router creates a redemption request, keeper fulfills later
+# Accounting: tracks 3 states (active ST, sNUSD in cooldown, pending queued redemption)
+#
+# Prerequisites:
+#   - AccessManager role 15192588971413990205 on 0xD567cCbb336Eb71eC2537057E2bCF6DB840bB71d
+#   - NUSD Router redeem whitelist for caliber (required for withdraw-snusd-usdc-*)
+#
+# KV store keys (keccak256):
+#   pending_flag: keccak256("makina.mainnet.royco-st-snusd.pending_flag")
+#   pending_request_id: keccak256("makina.mainnet.royco-st-snusd.pending_request_id")
+
+# DEPOSIT: USDC -> NUSD -> sNUSD -> Senior Tranche shares
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" # USDC
+  instruction:
+    label: "ROY-ST-sNUSD"
+    path: "../../../blueprints/royco/st-snusd/deposit.yaml:deposit"
+    inputs: {}
+
+# ACCOUNTING: Track position value across 3 states, convert to USDC
+- is_debt: false
+  instruction_type: "ACCOUNTING"
+  affected_tokens:
+    - "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" # USDC
+  instruction:
+    label: "ROY-ST-sNUSD"
+    path: "../../../blueprints/royco/st-snusd/account.yaml:account"
+    inputs:
+      key_value_store_address:
+        type: "address"
+        value: "${config.key_value_store_address}"
+      pending_flag_key:
+        type: "bytes32"
+        value: "${keccak256(makina.mainnet.royco-st-snusd.pending_flag)}"
+      request_id_key:
+        type: "bytes32"
+        value: "${keccak256(makina.mainnet.royco-st-snusd.pending_request_id)}"
+
+# REDEEM ST & COOLDOWN: Redeem ST shares + initiate sNUSD cooldown (10-day timer)
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" # USDC
+  instruction:
+    label: "ROY-ST-sNUSD"
+    path: "../../../blueprints/royco/st-snusd/redeem-st-and-cooldown-snusd.yaml:redeem_st_and_cooldown_snusd"
+    inputs: {}
+
+# WITHDRAW INSTANT: Unstake sNUSD + redeem NUSD to USDC (after 10-day cooldown)
+# Reverts if Router would queue the redemption
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" # USDC
+  instruction:
+    label: "ROY-ST-sNUSD"
+    path: "../../../blueprints/royco/st-snusd/withdraw-snusd-usdc-instant.yaml:withdraw_snusd_usdc_instant"
+    inputs: {}
+
+# WITHDRAW QUEUED: Unstake sNUSD + request queued NUSD redemption (after 10-day cooldown)
+# Used when Router doesn't have enough USDC liquidity for instant redemption
+# Stores request ID in KV store for accounting to track
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" # USDC
+  instruction:
+    label: "ROY-ST-sNUSD"
+    path: "../../../blueprints/royco/st-snusd/withdraw-snusd-usdc-queued.yaml:withdraw_snusd_usdc_queued"
+    inputs:
+      key_value_store_address:
+        type: "address"
+        value: "${config.key_value_store_address}"
+      pending_flag_key:
+        type: "bytes32"
+        value: "${keccak256(makina.mainnet.royco-st-snusd.pending_flag)}"
+      request_id_key:
+        type: "bytes32"
+        value: "${keccak256(makina.mainnet.royco-st-snusd.pending_request_id)}"

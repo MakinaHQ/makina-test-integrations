@@ -1,0 +1,312 @@
+protocol: "royco-st-snusd"
+
+# Royco Senior Tranche sNUSD Account Blueprint
+# Tracks position value across 3 states:
+#   1. Active ST shares in Senior Tranche -> stAssets (sNUSD) -> NUSD
+#   2. sNUSD in cooldown (locked, waiting for cooldown to expire) -> underlyingAmount (NUSD)
+#   3. Pending queued NUSD redemption request -> collateralAmount (USDC) from Router
+#
+# States 1+2 are summed as NUSD, converted to USDC via Router.quoteRedemption.
+# State 3 uses redemptionRequestStatus to check if request is still pending,
+# then reads collateralAmount from the order data.
+# On each run, clears KV entries if the request has been processed (status > 0).
+
+constants:
+  context_helper_address:
+    type: "address"
+    value: "0x0f431322E1fF2500D4C5a4E090A7Da7344F953BE"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x3D623B199E290358416415eA7e05B635E442e3c0"
+  caliber_helper_address:
+    type: "address"
+    value: "0x6E2ED2f457c41F38556Ab0c2b1185cc9e6563d8D"
+  usdc_address:
+    type: "address"
+    value: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  nusd_router_address:
+    type: "address"
+    value: "0xa052883ebEe7354FC2Aa0f9c727E657FdeCa744a"
+  snusd_address:
+    type: "address"
+    value: "0x08EFCC2F3e61185D0EA7F8830B3FEc9Bfa2EE313"
+  senior_tranche_address:
+    type: "address"
+    value: "0x3B2df77f0eaA0CA98aAabFFa96B03eaF08ec6c8e"
+
+inputs:
+  key_value_store_address:
+    type: "address"
+  pending_flag_key:
+    type: "bytes32"
+  request_id_key:
+    type: "bytes32"
+
+actions:
+  account:
+    calls:
+      # === STATE 1+2: ST shares + cooldown NUSD ===
+
+      # 1. Get caliber address
+      - description: "Get caliber's address"
+        target: ${constants.context_helper_address}
+        selector: "msgSender()"
+        parameters: []
+        return:
+          name: "caliber_address"
+          type: "address"
+
+      # 2. Get ST share balance
+      - description: "Get Senior Tranche share balance"
+        target: "${constants.senior_tranche_address}"
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+        return:
+          name: "st_shares"
+          type: "uint256"
+
+      # 3. Convert ST shares to asset claims tuple (stAssets, jtAssets, nav)
+      - description: "Convert ST shares to asset claims"
+        target: "${constants.senior_tranche_address}"
+        selector: "convertToAssets(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.st_shares}"
+        return:
+          name: "asset_claims"
+          type: "(uint256,uint256,uint256)"
+
+      # 4. Extract stAssets (index 0) from the tuple
+      - description: "Extract stAssets (sNUSD amount) from asset claims tuple"
+        target: "${constants.caliber_helper_address}"
+        selector: "extractElementFromStaticTuple(bytes,uint256)"
+        parameters:
+          - type: "(uint256,uint256,uint256)"
+            value: "${returns.asset_claims}"
+          - type: "uint256"
+            value: "0"
+        return:
+          name: "st_assets"
+          type: "uint256"
+
+      # 5. Get cooldown state tuple (cooldownEnd, underlyingAmount)
+      - description: "Get sNUSD cooldown state"
+        target: "${constants.snusd_address}"
+        selector: "cooldowns(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+        return:
+          name: "cooldown_data"
+          type: "(uint256,uint256)"
+
+      # 6. Extract underlyingAmount (index 1) from cooldown tuple
+      - description: "Extract NUSD amount locked in cooldown"
+        target: "${constants.caliber_helper_address}"
+        selector: "extractElementFromStaticTuple(bytes,uint256)"
+        parameters:
+          - type: "(uint256,uint256)"
+            value: "${returns.cooldown_data}"
+          - type: "uint256"
+            value: "1"
+        return:
+          name: "cooldown_nusd"
+          type: "uint256"
+
+      # 7. Convert ST's sNUSD claim (stAssets) to NUSD value
+      - description: "Convert stAssets (sNUSD) to NUSD value"
+        target: "${constants.snusd_address}"
+        selector: "convertToAssets(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.st_assets}"
+        return:
+          name: "nusd_from_st"
+          type: "uint256"
+
+      # 8. Sum: nusd_from_st + cooldown_nusd
+      - description: "Add NUSD from ST position and NUSD in cooldown"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "add(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.nusd_from_st}"
+          - type: "uint256"
+            value: "${returns.cooldown_nusd}"
+        return:
+          name: "total_nusd"
+          type: "uint256"
+
+      # 9. Convert total NUSD to USDC via Router quote
+      - description: "Convert total NUSD value to USDC via Router quote"
+        target: "${constants.nusd_router_address}"
+        selector: "quoteRedemption(address,uint256)"
+        parameters:
+          - type: "address"
+            value: "${constants.usdc_address}"
+          - type: "uint256"
+            value: "${returns.total_nusd}"
+        return:
+          name: "total_usdc_value"
+          type: "uint256"
+
+      # === STATE 3: Pending queued redemption request ===
+
+      # 10. Read stored request ID from KV store
+      - description: "Get pending redemption request ID from KV store"
+        target: "${inputs.key_value_store_address}"
+        selector: "get(bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: "${inputs.request_id_key}"
+        return:
+          name: "pending_request_id"
+          type: "uint256"
+
+      # 11. Get full order data from Router
+      # Returns: (uint8 orderType, uint256 expiry, address benefactor, address beneficiary,
+      #           address collateralAsset, uint256 collateralAmount, uint256 nusdAmount, bytes additionalData)
+      - description: "Get redemption request order data from Router"
+        target: "${constants.nusd_router_address}"
+        selector: "redemptionRequests(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.pending_request_id}"
+        return:
+          name: "order_data"
+          type: "(uint8,uint256,address,address,address,uint256,uint256,bytes)"
+
+      # 12. Extract collateralAmount (USDC) at index 5
+      - description: "Extract USDC collateral amount from order tuple"
+        target: "${constants.caliber_helper_address}"
+        selector: "extractElementFromStaticTuple(bytes,uint256)"
+        parameters:
+          - type: "(uint8,uint256,address,address,address,uint256,uint256,bytes)"
+            value: "${returns.order_data}"
+          - type: "uint256"
+            value: "5"
+        return:
+          name: "request_usdc"
+          type: "uint256"
+
+      # 13. Get redemption request status (PENDING=0, COMPLETED=1, CANCELLED=2)
+      - description: "Get redemption request status"
+        target: "${constants.nusd_router_address}"
+        selector: "redemptionRequestStatus(uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.pending_request_id}"
+        return:
+          name: "request_status"
+          type: "uint256"
+
+      # 14. Check if request has been processed (status > 0)
+      - description: "Check if request is processed (not pending)"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "gt(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.request_status}"
+          - type: "uint256"
+            value: "0"
+        return:
+          name: "request_processed"
+          type: "bool"
+
+      # 15. Conditional USDC: 0 if processed, else collateral amount
+      - description: "Zero out USDC if request already processed"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "ternary(bool,uint256,uint256)"
+        parameters:
+          - type: "bool"
+            value: "${returns.request_processed}"
+          - type: "uint256"
+            value: "0"
+          - type: "uint256"
+            value: "${returns.request_usdc}"
+        return:
+          name: "pending_usdc"
+          type: "uint256"
+
+      # 16. Final USDC value = position USDC + pending USDC
+      - description: "Add position USDC value and pending redemption USDC"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "add(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.total_usdc_value}"
+          - type: "uint256"
+            value: "${returns.pending_usdc}"
+        return:
+          name: "final_usdc_value"
+          type: "uint256"
+
+      # === KV CLEANUP: Clear entries if request has been processed ===
+
+      # 17. Conditional request ID: 0 if processed, else keep current
+      - description: "Compute new request ID (0 if processed, else unchanged)"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "ternary(bool,uint256,uint256)"
+        parameters:
+          - type: "bool"
+            value: "${returns.request_processed}"
+          - type: "uint256"
+            value: "0"
+          - type: "uint256"
+            value: "${returns.pending_request_id}"
+        return:
+          name: "new_id"
+          type: "uint256"
+
+      # 18. Write request ID to KV (no-op if value unchanged)
+      - description: "Update request ID in KV store"
+        target: "${inputs.key_value_store_address}"
+        selector: "set(bytes32,bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: "${inputs.request_id_key}"
+          - type: "uint256"
+            value: "${returns.new_id}"
+
+      # 19. Read pending flag, compute conditional clear
+      - description: "Get pending request flag from KV store"
+        target: "${inputs.key_value_store_address}"
+        selector: "get(bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: "${inputs.pending_flag_key}"
+        return:
+          name: "pending_flag"
+          type: "uint256"
+
+      - description: "Compute new flag (0 if processed, else unchanged)"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "ternary(bool,uint256,uint256)"
+        parameters:
+          - type: "bool"
+            value: "${returns.request_processed}"
+          - type: "uint256"
+            value: "0"
+          - type: "uint256"
+            value: "${returns.pending_flag}"
+        return:
+          name: "new_flag"
+          type: "uint256"
+
+      # 20. Write flag to KV (no-op if value unchanged)
+      - description: "Update pending flag in KV store"
+        target: "${inputs.key_value_store_address}"
+        selector: "set(bytes32,bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: "${inputs.pending_flag_key}"
+          - type: "uint256"
+            value: "${returns.new_flag}"
+
+    reserved_slots:
+      - type: "uint256"
+        value: "${returns.final_usdc_value}"
+      - type: "uint256"
+        value: "${builtins.UINT256_MAX}"
