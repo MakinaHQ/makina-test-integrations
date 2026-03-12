@@ -159,6 +159,18 @@ positions:
     description: "Royco ST sNUSD"
     instructions: !include "../../../instructions/royco-st-snusd.yaml"
 
+  # ── Royco Vaults ──────────────────────────────────────────────
+  - id: "77193269991661848876305867781403351919453812421838418318184272304145351554219" # keccak256("rocyo-vault-0xcd9f5907f92818bc06c9ad70217f089e190d2a32")
+    group_id: "0"
+    description: "Royco Senior USDC Vault"
+    instructions: !include "../../../instructions/royco-vault.yaml"
+    vars:
+      label: "Royco Senior USDC Vault"
+      vault_address: "0xcd9f5907f92818bc06c9ad70217f089e190d2a32"
+      asset_address: ${token_list.mainnet.USDC}
+      kv_storage_key: "${keccak256(makina.mainnet.royco-vault.0xcd9f5907f92818bc06c9ad70217f089e190d2a32)}"
+      kv_pending_shares_key: "${keccak256(makina.mainnet.royco-vault.0xcd9f5907f92818bc06c9ad70217f089e190d2a32.pending_shares)}"
+
   # Other Positions
   - id: "777"
     group_id: "0"
