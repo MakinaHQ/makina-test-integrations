@@ -1,0 +1,158 @@
+protocol: "royco-st-snusd"
+
+# Royco Senior Tranche sNUSD — Withdraw sNUSD to USDC (Instant)
+# Unstake sNUSD after cooldown expires, then redeem NUSD to USDC via Router
+# Reverts if Router would queue the redemption (not enough USDC liquidity)
+#
+# Flow: unstake sNUSD -> balance sandwich NUSD -> check instant mode -> approve NUSD -> Router.redeem
+#
+# Prerequisites:
+#   - block.timestamp >= cooldownEnd (10 days after redeem-st-and-cooldown-snusd)
+#   - Caliber must be whitelisted on NUSD Router for redeem
+#   - Router must have enough USDC liquidity for instant redemption
+
+constants:
+  context_helper_address:
+    type: "address"
+    value: "0x0f431322E1fF2500D4C5a4E090A7Da7344F953BE"
+  usdc_address:
+    type: "address"
+    value: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  nusd_address:
+    type: "address"
+    value: "0xE556ABa6fe6036275Ec1f87eda296BE72C811BCE"
+  nusd_router_address:
+    type: "address"
+    value: "0xa052883ebEe7354FC2Aa0f9c727E657FdeCa744a"
+  snusd_address:
+    type: "address"
+    value: "0x08EFCC2F3e61185D0EA7F8830B3FEc9Bfa2EE313"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x3D623B199E290358416415eA7e05B635E442e3c0"
+  boolean_helper_address:
+    type: "address"
+    value: "0x00c93e3b09Ca2f544487d4298339765EadCD8353"
+
+inputs: {}
+
+actions:
+  withdraw_snusd_usdc_instant:
+    calls:
+      # 1. Get caliber address
+      - description: "Get caliber's address"
+        target: ${constants.context_helper_address}
+        selector: "msgSender()"
+        parameters: []
+        return:
+          name: "caliber_address"
+          type: "address"
+
+      # 2. NUSD balance before unstake (balance sandwich)
+      - description: "Get NUSD balance before unstake"
+        target: "${constants.nusd_address}"
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+        return:
+          name: "nusd_balance_before"
+          type: "uint256"
+
+      # 3. Unstake sNUSD (transfers NUSD from silo to caliber)
+      - description: "Unstake sNUSD after cooldown to receive NUSD"
+        target: "${constants.snusd_address}"
+        selector: "unstake(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+
+      # 4. NUSD balance after unstake
+      - description: "Get NUSD balance after unstake"
+        target: "${constants.nusd_address}"
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+        return:
+          name: "nusd_balance_after"
+          type: "uint256"
+
+      # 5. Calculate NUSD received (after - before)
+      - description: "Calculate NUSD received from unstake"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "sub(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.nusd_balance_after}"
+          - type: "uint256"
+            value: "${returns.nusd_balance_before}"
+        return:
+          name: "nusd_balance"
+          type: "uint256"
+
+      # 6. Check redemption mode is INSTANT (0)
+      - description: "Check Router redemption mode for NUSD amount"
+        target: "${constants.nusd_router_address}"
+        selector: "getRedemptionMode(address,uint256)"
+        parameters:
+          - type: "address"
+            value: "${constants.usdc_address}"
+          - type: "uint256"
+            value: "${returns.nusd_balance}"
+        return:
+          name: "redemption_mode"
+          type: "uint256"
+
+      # 7. Verify mode is INSTANT (== 0)
+      - description: "Check redemption mode is INSTANT"
+        target: "${constants.unsigned_math_helper_address}"
+        selector: "eq(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: "${returns.redemption_mode}"
+          - type: "uint256"
+            value: "0"
+        return:
+          name: "is_instant"
+          type: "bool"
+
+      # 8. Revert if not instant (insufficient liquidity)
+      - description: "Revert if redemption would be queued"
+        target: "${constants.boolean_helper_address}"
+        selector: "revertIfFalse(bool)"
+        parameters:
+          - type: "bool"
+            value: "${returns.is_instant}"
+
+      # 9. Approve NUSD to Router
+      - description: "Approve NUSD spending by Neutrl Router"
+        target: "${constants.nusd_address}"
+        selector: "approve(address,uint256)"
+        parameters:
+          - type: "address"
+            value: "${constants.nusd_router_address}"
+          - type: "uint256"
+            value: "${returns.nusd_balance}"
+
+      # 10. Redeem NUSD to USDC via Router (instant)
+      # minCollateralAmount MUST be > 0 (at least 1), otherwise reverts with ZeroInput
+      - description: "Redeem NUSD to USDC via Neutrl Router"
+        target: "${constants.nusd_router_address}"
+        selector: "redeem(address,address,uint256,uint256,bytes)"
+        parameters:
+          - type: "address"
+            value: "${returns.caliber_address}"
+          - type: "address"
+            value: "${constants.usdc_address}"
+          - type: "uint256"
+            value: "${returns.nusd_balance}"
+          - type: "uint256"
+            value: "${input_slots.min_usdc_expected}"
+          - type: "bytes"
+            value: "0x"
+
+    input_slots:
+      min_usdc_expected:
+        type: "uint256"
+        description: "Min USDC expected to receive incl decimals (6)"

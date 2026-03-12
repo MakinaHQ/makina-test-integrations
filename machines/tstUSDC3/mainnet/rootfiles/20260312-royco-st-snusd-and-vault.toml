@@ -1,0 +1,2045 @@
+# this is a generated file - do not edit manually
+# root: 0x127862fa3a94ac7b067b13c9c295165bfe3cbfeab3b6c66973dceda503eb8393
+
+[tokens."${token_list.mainnet.PYUSD}"]
+chainId = 1
+address = "0x6c3ea9036406852006290770bedfcaba0e23a0e8"
+name = "PayPal USD"
+decimals = 6
+symbol = "PYUSD"
+
+[tokens."${token_list.mainnet.USDC}"]
+chainId = 1
+address = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+name = "USD Coin"
+decimals = 6
+symbol = "USDC"
+
+[tokens."${token_list.mainnet.eUSD}"]
+chainId = 1
+address = "0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f"
+name = "Electronic Dollar"
+decimals = 18
+symbol = "eUSD"
+
+[instructions.infinifi.account."liUSD 1-Week"]
+position_id = "2013457072841808719642938411712424809"
+description = "InfiniFi liUSD 1-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = ["0x12b004719fb632f1e7c010c6f5d6009fb4258442"]
+commands = [
+  "0xd737d0c701ff0000000000050f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x29eda9e5010502ff000000061d95cc100d6cd9c7bbdbd7cb328d99b3d6037ff7",
+  "0x10821ff90102ff00000000021d95cc100d6cd9c7bbdbd7cb328d99b3d6037ff7",
+  "0xaa9a091201060203ff0000023d623b199e290358416415ea7e05b635e442e3c0",
+  "0x8eaa6ac00104ff00000000047f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x00fdd58e010504ff000000047092a43ae5407666c78dbea657a1891f42b3dfcc",
+  "0x771602f7010204ff000000003d623b199e290358416415ea7e05b635e442e3c0",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+  "0xbbfbcd1a973261ae31499f08369f9c5dd4f21c359a61562bcdde45e3e03b5d12",
+  "0x",
+  "0x",
+]
+bitmap = "159507359494189904748456847233641349120"
+inputs_slots = []
+
+[instructions.infinifi.account."liUSD 4-Week"]
+position_id = "326610073814749020074569224194987031604"
+description = "InfiniFi liUSD 4-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = ["0x66bcf6151d5558afb47c38b20663589843156078"]
+commands = [
+  "0xd737d0c701ff0000000000050f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x29eda9e5010502ff000000061d95cc100d6cd9c7bbdbd7cb328d99b3d6037ff7",
+  "0x10821ff90102ff00000000021d95cc100d6cd9c7bbdbd7cb328d99b3d6037ff7",
+  "0xaa9a091201060203ff0000023d623b199e290358416415ea7e05b635e442e3c0",
+  "0x8eaa6ac00104ff00000000047f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x00fdd58e010504ff000000047092a43ae5407666c78dbea657a1891f42b3dfcc",
+  "0x771602f7010204ff000000003d623b199e290358416415ea7e05b635e442e3c0",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x0000000000000000000000000000000000000000000000000000000000000004",
+  "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+  "0x7a6ea5e1b398a04ea2f654f234f38e37ae428d1afc355abab0ac0a198e8df3ef",
+  "0x",
+  "0x",
+]
+bitmap = "159507359494189904748456847233641349120"
+inputs_slots = []
+
+[instructions.infinifi.complete_withdraw."liUSD 1-Week"]
+position_id = "2013457072841808719642938411712424809"
+description = "InfiniFi liUSD 1-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0x8eaa6ac00100ff00000000027f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010201ff000000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0xd2f46b650103ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xd737d0c701ff0000000000ff0f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x2e1a7d4d0102ff00000000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0xf71f7a25010001ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0xbbfbcd1a973261ae31499f08369f9c5dd4f21c359a61562bcdde45e3e03b5d12",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x",
+  "0x",
+]
+bitmap = "255211775190703847597530955573826158592"
+inputs_slots = []
+
+[instructions.infinifi.complete_withdraw."liUSD 4-Week"]
+position_id = "326610073814749020074569224194987031604"
+description = "InfiniFi liUSD 4-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0x8eaa6ac00100ff00000000027f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010201ff000000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0xd2f46b650103ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xd737d0c701ff0000000000ff0f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x2e1a7d4d0102ff00000000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0xf71f7a25010001ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0x7a6ea5e1b398a04ea2f654f234f38e37ae428d1afc355abab0ac0a198e8df3ef",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x",
+  "0x",
+]
+bitmap = "255211775190703847597530955573826158592"
+inputs_slots = []
+
+[instructions.infinifi.deposit_iusd."liUSD 1-Week"]
+position_id = "2013457072841808719642938411712424809"
+description = "InfiniFi liUSD 1-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000030f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ff48f9e38f3070ad8945dfeae3fa70987722e3d89c",
+  "0xed4254ec01000203ff0000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+]
+state = [
+  "0x08a6e2b63279b55ae885b8fa07863a44fee0f423ad66a283b0242ca969b8d0ae",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0x",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.infinifi.deposit_iusd."liUSD 1-Week".inputs_slots]]
+index = 0
+name = "iusd_amount"
+type = "Uint"
+
+[instructions.infinifi.deposit_iusd."liUSD 4-Week"]
+position_id = "326610073814749020074569224194987031604"
+description = "InfiniFi liUSD 4-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000030f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ff48f9e38f3070ad8945dfeae3fa70987722e3d89c",
+  "0xed4254ec01000203ff0000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+]
+state = [
+  "0x08a6e2b63279b55ae885b8fa07863a44fee0f423ad66a283b0242ca969b8d0ae",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000004",
+  "0x",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.infinifi.deposit_iusd."liUSD 4-Week".inputs_slots]]
+index = 0
+name = "iusd_amount"
+type = "Uint"
+
+[instructions.infinifi.deposit_usdc."liUSD 1-Week"]
+position_id = "2013457072841808719642938411712424809"
+description = "InfiniFi liUSD 1-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000030f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x26cf833801030002ff0000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+]
+state = [
+  "0xaaff9c2948d4833a16ba1854c6c9372f2439e1255f67ee0e7d86d8783c760dd6",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0x",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.infinifi.deposit_usdc."liUSD 1-Week".inputs_slots]]
+index = 0
+name = "usdc_amount"
+type = "Uint"
+
+[instructions.infinifi.deposit_usdc."liUSD 4-Week"]
+position_id = "326610073814749020074569224194987031604"
+description = "InfiniFi liUSD 4-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000030f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x26cf833801030002ff0000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+]
+state = [
+  "0xaaff9c2948d4833a16ba1854c6c9372f2439e1255f67ee0e7d86d8783c760dd6",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000004",
+  "0x",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.infinifi.deposit_usdc."liUSD 4-Week".inputs_slots]]
+index = 0
+name = "usdc_amount"
+type = "Uint"
+
+[instructions.infinifi.start_unwinding_relative."liUSD 1-Week"]
+position_id = "2013457072841808719642938411712424809"
+description = "InfiniFi liUSD 1-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0x8eaa6ac00105ff00000000067f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010601ff000000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x711ecf590106ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xd737d0c701ff0000000000060f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310106ff000000000612b004719fb632f1e7c010c6f5d6009fb4258442",
+  "0xaa9a091201060002ff0000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x095ea7b3010306ff000000ff12b004719fb632f1e7c010c6f5d6009fb4258442",
+  "0xc00716ea010604ff000000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0xadb6183201ff0000000000060f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0xf71f7a25010506ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0xd2dee54881c3b7edc80b8eecc4d491990b06114ad946a1882bb4cab5dc164e7e",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0xbbfbcd1a973261ae31499f08369f9c5dd4f21c359a61562bcdde45e3e03b5d12",
+  "0x",
+]
+bitmap = "164824271477329568240072075474762727424"
+
+[[instructions.infinifi.start_unwinding_relative."liUSD 1-Week".inputs_slots]]
+index = 0
+name = "bps_to_unwind"
+type = "Uint"
+
+[instructions.infinifi.start_unwinding_relative."liUSD 4-Week"]
+position_id = "326610073814749020074569224194987031604"
+description = "InfiniFi liUSD 4-Week Lock"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"]
+position_tokens = []
+commands = [
+  "0x8eaa6ac00105ff00000000067f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010601ff000000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x711ecf590106ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xd737d0c701ff0000000000060f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310106ff000000000666bcf6151d5558afb47c38b20663589843156078",
+  "0xaa9a091201060002ff0000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x095ea7b3010306ff000000ff66bcf6151d5558afb47c38b20663589843156078",
+  "0xc00716ea010604ff000000ff3f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0xadb6183201ff0000000000060f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0xf71f7a25010506ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0xd2dee54881c3b7edc80b8eecc4d491990b06114ad946a1882bb4cab5dc164e7e",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x0000000000000000000000003f04b65ddbd87f9ce0a2e7eb24d80e7fb87625b5",
+  "0x0000000000000000000000000000000000000000000000000000000000000004",
+  "0x7a6ea5e1b398a04ea2f654f234f38e37ae428d1afc355abab0ac0a198e8df3ef",
+  "0x",
+]
+bitmap = "164824271477329568240072075474762727424"
+
+[[instructions.infinifi.start_unwinding_relative."liUSD 4-Week".inputs_slots]]
+index = 0
+name = "bps_to_unwind"
+type = "Uint"
+
+[instructions.merkl.harvest.Merkl]
+position_id = "777"
+description = "Merkl Harvest"
+is_debt = false
+group_id = "0"
+instruction_type = 2
+affected_tokens = []
+position_tokens = []
+commands = ["0x71ee95c00180818283ff00ff3ef3d8ba38ebe18db133cec108f4d14ce00dd9ae"]
+state = [
+  "0xf8f2b2336f8f3139d343c33f49815a0c35e3c7a97a44fc9c538082a5c09c4dc3",
+  "0x1dca9170fb2417b0113118895cab68fdb33ddab264493656f2abd26bca5a91f4",
+  "0x1e58b0d11629f42685647974a200e9e62d553a9eb56dc6cc9130d61e10495de0",
+  "0xe027b98039a9275e4a147b3a9796d2521411ef59a5356320f3bbd4f66848455a",
+]
+bitmap = "0"
+
+[[instructions.merkl.harvest.Merkl.inputs_slots]]
+index = 0
+name = "merkl_claim_data.users"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.type]
+Array = "Address"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.meta_type]
+type = "MerklClaimData"
+name = "merkl_claim_data"
+field = "users"
+
+[[instructions.merkl.harvest.Merkl.inputs_slots]]
+index = 1
+name = "merkl_claim_data.tokens"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.type]
+Array = "Address"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.meta_type]
+type = "MerklClaimData"
+name = "merkl_claim_data"
+field = "tokens"
+
+[[instructions.merkl.harvest.Merkl.inputs_slots]]
+index = 2
+name = "merkl_claim_data.amounts"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.type]
+Array = "Uint"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.meta_type]
+type = "MerklClaimData"
+name = "merkl_claim_data"
+field = "amounts"
+
+[[instructions.merkl.harvest.Merkl.inputs_slots]]
+index = 3
+name = "merkl_claim_data.proofs"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.type.Array]
+Array = "FixedBytes32"
+
+[instructions.merkl.harvest.Merkl.inputs_slots.meta_type]
+type = "MerklClaimData"
+name = "merkl_claim_data"
+field = "proofs"
+
+[instructions.morpho.account_vault."Alpha USDC Core"]
+position_id = "239709107284824071718045124985443453227"
+description = "Morpho Vault Alpha USDC Core"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002b0f05e4de970a1aaf77f8c2f823953a367504ba9",
+  "0x4cdad5060102ff0000000000b0f05e4de970a1aaf77f8c2f823953a367504ba9",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."August V2 USDC"]
+position_id = "339036024154882929384800789080752706274"
+description = "Morpho Vault August  V2 USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff00000000027ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+  "0x4cdad5060102ff00000000007ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Clearstar High Yield USDC"]
+position_id = "32341175561873583173143000180086943391"
+description = "Morpho Vault Clearstar High Yield USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff00000000029b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+  "0x4cdad5060102ff00000000009b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Clearstar USDC Reactor"]
+position_id = "65156809519399163794989907631687589959"
+description = "Morpho Vault Clearstar USDC Reactor"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff000000000262fe596d59fb077c2df736df212e0affb522dc78",
+  "0x4cdad5060102ff000000000062fe596d59fb077c2df736df212e0affb522dc78",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Gauntlet Core eUSD"]
+position_id = "287972541400220405479010366660803291000"
+description = "Morpho Vault Gauntlet Core eUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002c080f56504e0278828a403269db945f6c6d6e014",
+  "0x4cdad5060102ff0000000000c080f56504e0278828a403269db945f6c6d6e014",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Gauntlet USDC Frontier"]
+position_id = "11232424494326814282538250204373920286"
+description = "Morpho Vault Gauntlet Frontier USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002c582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+  "0x4cdad5060102ff0000000000c582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Hyperithm Degen USDC"]
+position_id = "145181456680648690506099136127005140305"
+description = "Morpho Vault Hyperithm Degen USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002777791c4d6dc2ce140d00d2828a7c93503c67777",
+  "0x4cdad5060102ff0000000000777791c4d6dc2ce140d00d2828a7c93503c67777",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Hyperithm Midcurve USDC"]
+position_id = "145068745331462917611735104537565685879"
+description = "Morpho Vault Hyperithm Midcurve USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002cdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+  "0x4cdad5060102ff0000000000cdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."KPK USDC Prime"]
+position_id = "235947668492631263653814281790289094700"
+description = "Morpho Vault KPK USDC Prime"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002e108fbc04852b5df72f9e44d7c29f47e7a993add",
+  "0x4cdad5060102ff0000000000e108fbc04852b5df72f9e44d7c29f47e7a993add",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."MEV Capital PTS USDC"]
+position_id = "13197255701825927186251474242994749188"
+description = "Morpho Vault MEV Capital PTS USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002d41830d88dfd08678b0b886e0122193d54b02acc",
+  "0x4cdad5060102ff0000000000d41830d88dfd08678b0b886e0122193d54b02acc",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."MEV Capital USDC"]
+position_id = "30651621090656837837542443694366525060"
+description = "Morpho Vault MEV Capital USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002d63070114470f685b75b74d60eec7c1113d33a3d",
+  "0x4cdad5060102ff0000000000d63070114470f685b75b74d60eec7c1113d33a3d",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Sentora Main PYUSD"]
+position_id = "273739676753663843967743313854543738189"
+description = "Morpho Vault Sentora Main PYUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0x6c3ea9036406852006290770bedfcaba0e23a0e8"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002b576765fb15505433af24fee2c0325895c559fb2",
+  "0x4cdad5060102ff0000000000b576765fb15505433af24fee2c0325895c559fb2",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Smokehouse USDC"]
+position_id = "77590748279218246310796884579338401703"
+description = "Morpho Vault Smokehouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002beefff209270748ddd194831b3fa287a5386f5bc",
+  "0x4cdad5060102ff0000000000beefff209270748ddd194831b3fa287a5386f5bc",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.account_vault."Steakhouse USDC"]
+position_id = "317674047022373827182618653676880817492"
+description = "Morpho Vault Steakhouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000002beef01735c132ada46aa9aa4c54623caa92a64cb",
+  "0x4cdad5060102ff0000000000beef01735c132ada46aa9aa4c54623caa92a64cb",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+inputs_slots = []
+
+[instructions.morpho.deposit_vault."Alpha USDC Core"]
+position_id = "239709107284824071718045124985443453227"
+description = "Morpho Vault Alpha USDC Core"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffb0f05e4de970a1aaf77f8c2f823953a367504ba9",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000b0f05e4de970a1aaf77f8c2f823953a367504ba9",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Alpha USDC Core".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."August V2 USDC"]
+position_id = "339036024154882929384800789080752706274"
+description = "Morpho Vault August  V2 USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ff7ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x0000000000000000000000007ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."August V2 USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Clearstar High Yield USDC"]
+position_id = "32341175561873583173143000180086943391"
+description = "Morpho Vault Clearstar High Yield USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ff9b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x0000000000000000000000009b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Clearstar High Yield USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Clearstar USDC Reactor"]
+position_id = "65156809519399163794989907631687589959"
+description = "Morpho Vault Clearstar USDC Reactor"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ff62fe596d59fb077c2df736df212e0affb522dc78",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x00000000000000000000000062fe596d59fb077c2df736df212e0affb522dc78",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Clearstar USDC Reactor".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Gauntlet Core eUSD"]
+position_id = "287972541400220405479010366660803291000"
+description = "Morpho Vault Gauntlet Core eUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0d69e286b938e21cbf7e51d71f6a4c8918f482f",
+  "0x6e553f65010002ff000000ffc080f56504e0278828a403269db945f6c6d6e014",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000c080f56504e0278828a403269db945f6c6d6e014",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Gauntlet Core eUSD".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Gauntlet USDC Frontier"]
+position_id = "11232424494326814282538250204373920286"
+description = "Morpho Vault Gauntlet Frontier USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffc582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000c582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Gauntlet USDC Frontier".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Hyperithm Degen USDC"]
+position_id = "145181456680648690506099136127005140305"
+description = "Morpho Vault Hyperithm Degen USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ff777791c4d6dc2ce140d00d2828a7c93503c67777",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000777791c4d6dc2ce140d00d2828a7c93503c67777",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Hyperithm Degen USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Hyperithm Midcurve USDC"]
+position_id = "145068745331462917611735104537565685879"
+description = "Morpho Vault Hyperithm Midcurve USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffcdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000cdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Hyperithm Midcurve USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."KPK USDC Prime"]
+position_id = "235947668492631263653814281790289094700"
+description = "Morpho Vault KPK USDC Prime"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffe108fbc04852b5df72f9e44d7c29f47e7a993add",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000e108fbc04852b5df72f9e44d7c29f47e7a993add",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."KPK USDC Prime".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."MEV Capital PTS USDC"]
+position_id = "13197255701825927186251474242994749188"
+description = "Morpho Vault MEV Capital PTS USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffd41830d88dfd08678b0b886e0122193d54b02acc",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000d41830d88dfd08678b0b886e0122193d54b02acc",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."MEV Capital PTS USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."MEV Capital USDC"]
+position_id = "30651621090656837837542443694366525060"
+description = "Morpho Vault MEV Capital USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffd63070114470f685b75b74d60eec7c1113d33a3d",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000d63070114470f685b75b74d60eec7c1113d33a3d",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."MEV Capital USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Sentora Main PYUSD"]
+position_id = "273739676753663843967743313854543738189"
+description = "Morpho Vault Sentora Main PYUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x6c3ea9036406852006290770bedfcaba0e23a0e8"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ff6c3ea9036406852006290770bedfcaba0e23a0e8",
+  "0x6e553f65010002ff000000ffb576765fb15505433af24fee2c0325895c559fb2",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000b576765fb15505433af24fee2c0325895c559fb2",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Sentora Main PYUSD".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Smokehouse USDC"]
+position_id = "77590748279218246310796884579338401703"
+description = "Morpho Vault Smokehouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffbeefff209270748ddd194831b3fa287a5386f5bc",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000beefff209270748ddd194831b3fa287a5386f5bc",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."Steakhouse USDC"]
+position_id = "317674047022373827182618653676880817492"
+description = "Morpho Vault Steakhouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffbeef01735c132ada46aa9aa4c54623caa92a64cb",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000beef01735c132ada46aa9aa4c54623caa92a64cb",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.deposit_vault."Steakhouse USDC".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Alpha USDC Core"]
+position_id = "239709107284824071718045124985443453227"
+description = "Morpho Vault Alpha USDC Core"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffb0f05e4de970a1aaf77f8c2f823953a367504ba9",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Alpha USDC Core".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."August V2 USDC"]
+position_id = "339036024154882929384800789080752706274"
+description = "Morpho Vault August  V2 USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ff7ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."August V2 USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Clearstar High Yield USDC"]
+position_id = "32341175561873583173143000180086943391"
+description = "Morpho Vault Clearstar High Yield USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ff9b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Clearstar High Yield USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Clearstar USDC Reactor"]
+position_id = "65156809519399163794989907631687589959"
+description = "Morpho Vault Clearstar USDC Reactor"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ff62fe596d59fb077c2df736df212e0affb522dc78",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Clearstar USDC Reactor".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Gauntlet Core eUSD"]
+position_id = "287972541400220405479010366660803291000"
+description = "Morpho Vault Gauntlet Core eUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffc080f56504e0278828a403269db945f6c6d6e014",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Gauntlet Core eUSD".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Gauntlet USDC Frontier"]
+position_id = "11232424494326814282538250204373920286"
+description = "Morpho Vault Gauntlet Frontier USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffc582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Gauntlet USDC Frontier".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Hyperithm Degen USDC"]
+position_id = "145181456680648690506099136127005140305"
+description = "Morpho Vault Hyperithm Degen USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ff777791c4d6dc2ce140d00d2828a7c93503c67777",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Hyperithm Degen USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Hyperithm Midcurve USDC"]
+position_id = "145068745331462917611735104537565685879"
+description = "Morpho Vault Hyperithm Midcurve USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffcdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Hyperithm Midcurve USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."KPK USDC Prime"]
+position_id = "235947668492631263653814281790289094700"
+description = "Morpho Vault KPK USDC Prime"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffe108fbc04852b5df72f9e44d7c29f47e7a993add",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."KPK USDC Prime".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."MEV Capital PTS USDC"]
+position_id = "13197255701825927186251474242994749188"
+description = "Morpho Vault MEV Capital PTS USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffd41830d88dfd08678b0b886e0122193d54b02acc",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."MEV Capital PTS USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."MEV Capital USDC"]
+position_id = "30651621090656837837542443694366525060"
+description = "Morpho Vault MEV Capital USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffd63070114470f685b75b74d60eec7c1113d33a3d",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."MEV Capital USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Sentora Main PYUSD"]
+position_id = "273739676753663843967743313854543738189"
+description = "Morpho Vault Sentora Main PYUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x6c3ea9036406852006290770bedfcaba0e23a0e8"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffb576765fb15505433af24fee2c0325895c559fb2",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Sentora Main PYUSD".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Smokehouse USDC"]
+position_id = "77590748279218246310796884579338401703"
+description = "Morpho Vault Smokehouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffbeefff209270748ddd194831b3fa287a5386f5bc",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."Steakhouse USDC"]
+position_id = "317674047022373827182618653676880817492"
+description = "Morpho Vault Steakhouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000018590dece61a3feb53e87c499e0b30307684ed627",
+  "0xba08765201000101ff0000ffbeef01735c132ada46aa9aa4c54623caa92a64cb",
+]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x",
+]
+bitmap = "0"
+
+[[instructions.morpho.redeem_vault."Steakhouse USDC".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Alpha USDC Core"]
+position_id = "239709107284824071718045124985443453227"
+description = "Morpho Vault Alpha USDC Core"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003b0f05e4de970a1aaf77f8c2f823953a367504ba9",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffb0f05e4de970a1aaf77f8c2f823953a367504ba9",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Alpha USDC Core".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."August V2 USDC"]
+position_id = "339036024154882929384800789080752706274"
+description = "Morpho Vault August  V2 USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff00000000037ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ff7ceb0f01cb7187a2ebed5661ecc4d5701d8f2350",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."August V2 USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Clearstar High Yield USDC"]
+position_id = "32341175561873583173143000180086943391"
+description = "Morpho Vault Clearstar High Yield USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff00000000039b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ff9b5e92fd227876b4c07a8c02367e2cb23c639dfa",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Clearstar High Yield USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Clearstar USDC Reactor"]
+position_id = "65156809519399163794989907631687589959"
+description = "Morpho Vault Clearstar USDC Reactor"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff000000000362fe596d59fb077c2df736df212e0affb522dc78",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ff62fe596d59fb077c2df736df212e0affb522dc78",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Clearstar USDC Reactor".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Gauntlet Core eUSD"]
+position_id = "287972541400220405479010366660803291000"
+description = "Morpho Vault Gauntlet Core eUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003c080f56504e0278828a403269db945f6c6d6e014",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffc080f56504e0278828a403269db945f6c6d6e014",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Gauntlet Core eUSD".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Gauntlet USDC Frontier"]
+position_id = "11232424494326814282538250204373920286"
+description = "Morpho Vault Gauntlet Frontier USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003c582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffc582f04d8a82795aa2ff9c8bb4c1c889fe7b754e",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Gauntlet USDC Frontier".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Hyperithm Degen USDC"]
+position_id = "145181456680648690506099136127005140305"
+description = "Morpho Vault Hyperithm Degen USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003777791c4d6dc2ce140d00d2828a7c93503c67777",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ff777791c4d6dc2ce140d00d2828a7c93503c67777",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Hyperithm Degen USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Hyperithm Midcurve USDC"]
+position_id = "145068745331462917611735104537565685879"
+description = "Morpho Vault Hyperithm Midcurve USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003cdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffcdaea3dde6ce5969aa1414a82a3a681ced51ce72",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Hyperithm Midcurve USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."KPK USDC Prime"]
+position_id = "235947668492631263653814281790289094700"
+description = "Morpho Vault KPK USDC Prime"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003e108fbc04852b5df72f9e44d7c29f47e7a993add",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffe108fbc04852b5df72f9e44d7c29f47e7a993add",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."KPK USDC Prime".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."MEV Capital PTS USDC"]
+position_id = "13197255701825927186251474242994749188"
+description = "Morpho Vault MEV Capital PTS USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003d41830d88dfd08678b0b886e0122193d54b02acc",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffd41830d88dfd08678b0b886e0122193d54b02acc",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."MEV Capital PTS USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."MEV Capital USDC"]
+position_id = "30651621090656837837542443694366525060"
+description = "Morpho Vault MEV Capital USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003d63070114470f685b75b74d60eec7c1113d33a3d",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffd63070114470f685b75b74d60eec7c1113d33a3d",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."MEV Capital USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Sentora Main PYUSD"]
+position_id = "273739676753663843967743313854543738189"
+description = "Morpho Vault Sentora Main PYUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x6c3ea9036406852006290770bedfcaba0e23a0e8"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003b576765fb15505433af24fee2c0325895c559fb2",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffb576765fb15505433af24fee2c0325895c559fb2",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Sentora Main PYUSD".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Smokehouse USDC"]
+position_id = "77590748279218246310796884579338401703"
+description = "Morpho Vault Smokehouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003beefff209270748ddd194831b3fa287a5386f5bc",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffbeefff209270748ddd194831b3fa287a5386f5bc",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Smokehouse USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."Steakhouse USDC"]
+position_id = "317674047022373827182618653676880817492"
+description = "Morpho Vault Steakhouse USDC"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000028590dece61a3feb53e87c499e0b30307684ed627",
+  "0x70a082310102ff0000000003beef01735c132ada46aa9aa4c54623caa92a64cb",
+  "0xaa9a091201030001ff000003836c9007dbd73fcfc473190304c72b7e39babb91",
+  "0xba08765201030202ff0000ffbeef01735c132ada46aa9aa4c54623caa92a64cb",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault_relative."Steakhouse USDC".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.royco.account."Royco Senior USDC Vault"]
+position_id = "77193269991661848876305867781403351919453812421838418318184272304145351554219"
+description = "Royco Senior USDC Vault"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000060f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310106ff0000000007cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x8eaa6ac00102ff00000000027f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x8eaa6ac00103ff00000000037f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x771602f7010702ff000000023d623b199e290358416415ea7e05b635e442e3c0",
+  "0x07a2d13a0102ff0000000002cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x07a2d13a0107ff0000000007cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x227475de010603ff00000006cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x771602f7010706ff000000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x32148d73010304ff000000043d623b199e290358416415ea7e05b635e442e3c0",
+  "0xb0ad3a5f0104ff000000000400c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x3033bc100103ff0000000003cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x32148d73010305ff000000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0x9f6ee0fc010403ff0000000300c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x8a5f132b01030602ff0000003d623b199e290358416415ea7e05b635e442e3c0",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x84571920674a8c200526ccabdd7ec4fe7abb84884f6f2c89235567a40cc4bb3e",
+  "0xd69285ee5ef0a658b6347745729d22b0c32dccf09dc83c95443f7ddecc7b6508",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x0000000000000000000000000000000000000000000000000000000000000003",
+  "0x",
+  "0x",
+]
+bitmap = "164824271477329568240072075474762727424"
+inputs_slots = []
+
+[instructions.royco.complete_withdraw."Royco Senior USDC Vault"]
+position_id = "77193269991661848876305867781403351919453812421838418318184272304145351554219"
+description = "Royco Senior USDC Vault"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0x8eaa6ac00101ff00000000047f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010403ff000000053d623b199e290358416415ea7e05b635e442e3c0",
+  "0xd2f46b650105ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x3c256b9801fd0004fbff00ffcd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0xf71f7a25010103ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0xf71f7a25010203ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0xd69285ee5ef0a658b6347745729d22b0c32dccf09dc83c95443f7ddecc7b6508",
+  "0x84571920674a8c200526ccabdd7ec4fe7abb84884f6f2c89235567a40cc4bb3e",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x",
+  "0x",
+]
+bitmap = "148873535527910577765226390751398592512"
+inputs_slots = []
+
+[instructions.royco.deposit."Royco Senior USDC Vault"]
+position_id = "77193269991661848876305867781403351919453812421838418318184272304145351554219"
+description = "Royco Senior USDC Vault"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000020f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x6e553f65010002ff000000ffcd9f5907f92818bc06c9ad70217f089e190d2a32",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.royco.deposit."Royco Senior USDC Vault".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.royco.start_redeem_relative."Royco Senior USDC Vault"]
+position_id = "77193269991661848876305867781403351919453812421838418318184272304145351554219"
+description = "Royco Senior USDC Vault"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0x98b3abb401ff000000000005cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x711ecf590105ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xd737d0c701ff0000000000050f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310105ff0000000006cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0xaa9a091201060001ff0000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x72c5291c01ff000000000001cd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0x8eaa6ac00103ff00000000077f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010702ff000000023d623b199e290358416415ea7e05b635e442e3c0",
+  "0x32148d73010701ff000000073d623b199e290358416415ea7e05b635e442e3c0",
+  "0xf1f3da0e010207ff0000000700c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x711ecf590107ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0xba08765201060505ff0000ffcd9f5907f92818bc06c9ad70217f089e190d2a32",
+  "0xf71f7a25010301ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x8eaa6ac00104ff00000000017f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x771602f7010106ff000000013d623b199e290358416415ea7e05b635e442e3c0",
+  "0xf71f7a25010401ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0xd69285ee5ef0a658b6347745729d22b0c32dccf09dc83c95443f7ddecc7b6508",
+  "0x84571920674a8c200526ccabdd7ec4fe7abb84884f6f2c89235567a40cc4bb3e",
+  "0x",
+  "0x",
+  "0x",
+]
+bitmap = "159507359494189904748456847233641349120"
+
+[[instructions.royco.start_redeem_relative."Royco Senior USDC Vault".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.royco-st-snusd.account.ROY-ST-sNUSD]
+position_id = "64669931722063471303552936927417278696315463008939757339712096376901747772502"
+description = "Royco ST sNUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000080f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310108ff00000000093b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+  "0x07a2d13a8109ff00000000893b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+  "0x62de91e9018906ff000000096e2ed2f457c41f38556ab0c2b1185cc9e6563d8d",
+  "0x01320fe28108ff000000008808efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x62de91e9018802ff000000086e2ed2f457c41f38556ab0c2b1185cc9e6563d8d",
+  "0x07a2d13a0109ff000000000908efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x771602f7010908ff000000093d623b199e290358416415ea7e05b635e442e3c0",
+  "0xcee843eb010309ff00000009a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x8eaa6ac00105ff00000000037f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0xe1a0cc6f8103ff0000000088a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x62de91e9018804ff000000086e2ed2f457c41f38556ab0c2b1185cc9e6563d8d",
+  "0x5cf8301e0103ff0000000004a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x21e5749b010406ff000000043d623b199e290358416415ea7e05b635e442e3c0",
+  "0x8a5f132b01040608ff0000083d623b199e290358416415ea7e05b635e442e3c0",
+  "0x771602f7010908ff000000003d623b199e290358416415ea7e05b635e442e3c0",
+  "0x8a5f132b01040603ff0000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0xf71f7a25010503ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x8eaa6ac00107ff00000000037f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x8a5f132b01040603ff0000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0xf71f7a25010703ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x0000000000000000000000000000000000000000000000000000000000000005",
+  "0xd4d8db12f425526feaaf9bf61d62a8597635c431e2e0724dc779465bf567748f",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0xb69262d8af74c8ab236248634678d739fd06322638e98deaf03ffa32c4a5b678",
+  "0x",
+  "0x",
+]
+bitmap = "168811955464684315858783496655603761152"
+inputs_slots = []
+
+[instructions.royco-st-snusd.deposit.ROY-ST-sNUSD]
+position_id = "64669931722063471303552936927417278696315463008939757339712096376901747772502"
+description = "Royco ST sNUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000070f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x095ea7b3010100ff000000ffa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x52555702010702000384ffffa052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x70a082310107ff0000000004e556aba6fe6036275ec1f87eda296be72c811bce",
+  "0x095ea7b3010504ff000000ffe556aba6fe6036275ec1f87eda296be72c811bce",
+  "0x6e553f65010407ff0000000408efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x095ea7b3010604ff000000ff08efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x2e2d298401040707ff0000ff3b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x000000000000000000000000a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x00000000000000000000000008efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x0000000000000000000000003b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+  "0x",
+]
+bitmap = "167482727468899399985879689595323416576"
+
+[[instructions.royco-st-snusd.deposit.ROY-ST-sNUSD.inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+type = "Uint"
+
+[instructions.royco-st-snusd.redeem_st_and_cooldown_snusd.ROY-ST-sNUSD]
+position_id = "64669931722063471303552936927417278696315463008939757339712096376901747772502"
+description = "Royco ST sNUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000020f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310102ff000000000308efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x70a082310102ff00000000043b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+  "0xaa9a091201040001ff0000043d623b199e290358416415ea7e05b635e442e3c0",
+  "0xba08765201040202ff0000ff3b2df77f0eaa0ca98aaabffa96b03eaf08ec6c8e",
+  "0x70a082310102ff000000000208efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0xb67d77c5010203ff000000023d623b199e290358416415ea7e05b635e442e3c0",
+  "0x9343d9e10102ff00000000ff08efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x",
+  "0x",
+  "0x",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.royco-st-snusd.redeem_st_and_cooldown_snusd.ROY-ST-sNUSD.inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+type = "Uint"
+
+[instructions.royco-st-snusd.withdraw_snusd_usdc_instant.ROY-ST-sNUSD]
+position_id = "64669931722063471303552936927417278696315463008939757339712096376901747772502"
+description = "Royco ST sNUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000050f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x70a082310105ff0000000006e556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xf2888dbb0105ff00000000ff08efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x70a082310105ff0000000007e556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xb67d77c5010706ff000000073d623b199e290358416415ea7e05b635e442e3c0",
+  "0x6d02ba81010307ff00000006a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x32148d73010601ff000000063d623b199e290358416415ea7e05b635e442e3c0",
+  "0x711ecf590106ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x095ea7b3010207ff000000ffe556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xfb51c178010503070084ffffa052883ebee7354fc2aa0f9c727e657fdeca744a",
+]
+state = [
+  "0xcc4ac9b8b329c96fdb390ed57d22e7ea86d42bda7e274c28389141064823031a",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x000000000000000000000000a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x",
+  "0x",
+  "0x",
+]
+bitmap = "159507359494189904748456847233641349120"
+
+[[instructions.royco-st-snusd.withdraw_snusd_usdc_instant.ROY-ST-sNUSD.inputs_slots]]
+index = 0
+name = "min_usdc_expected"
+type = "Uint"
+
+[instructions.royco-st-snusd.withdraw_snusd_usdc_queued.ROY-ST-sNUSD]
+position_id = "64669931722063471303552936927417278696315463008939757339712096376901747772502"
+description = "Royco ST sNUSD"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"]
+position_tokens = []
+commands = [
+  "0xd737d0c701ff0000000000080f431322e1ff2500d4c5a4e090a7da7344f953be",
+  "0x8eaa6ac00105ff00000000097f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0x32148d73010901ff000000093d623b199e290358416415ea7e05b635e442e3c0",
+  "0x711ecf590109ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x70a082310108ff0000000009e556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xf2888dbb0108ff00000000ff08efcc2f3e61185d0ea7f8830b3fec9bfa2ee313",
+  "0x70a082310108ff000000000ae556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xb67d77c5010a09ff0000000a3d623b199e290358416415ea7e05b635e442e3c0",
+  "0x6d02ba8101030aff00000009a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x21e5749b010901ff000000093d623b199e290358416415ea7e05b635e442e3c0",
+  "0x711ecf590109ff00000000ff00c93e3b09ca2f544487d4298339765eadcd8353",
+  "0x0ee3defe01ff000000000009a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x095ea7b301020aff000000ffe556aba6fe6036275ec1f87eda296be72c811bce",
+  "0xfb51c1780108030a0084ffffa052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0xf71f7a25010506ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+  "0xf71f7a25010709ff000000ff7f49f751dc90e54199def7098f9e7d491a1df41c",
+]
+state = [
+  "0xcc4ac9b8b329c96fdb390ed57d22e7ea86d42bda7e274c28389141064823031a",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0x000000000000000000000000a052883ebee7354fc2aa0f9c727e657fdeca744a",
+  "0x000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "0xb69262d8af74c8ab236248634678d739fd06322638e98deaf03ffa32c4a5b678",
+  "0x0000000000000000000000000000000000000000000000000000000000000001",
+  "0xd4d8db12f425526feaaf9bf61d62a8597635c431e2e0724dc779465bf567748f",
+  "0x",
+  "0x",
+  "0x",
+]
+bitmap = "168811955464684315858783496655603761152"
+
+[[instructions.royco-st-snusd.withdraw_snusd_usdc_queued.ROY-ST-sNUSD.inputs_slots]]
+index = 0
+name = "min_usdc_expected"
+type = "Uint"

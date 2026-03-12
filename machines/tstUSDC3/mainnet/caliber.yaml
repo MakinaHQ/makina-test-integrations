@@ -14,7 +14,7 @@ config:
   key_value_store_address:
     type: "address"
     value: "0x7f49f751dc90e54199def7098f9e7d491a1df41c"
-    
+
 positions:
   # Morpho Vault Positions
   - id: "77590748279218246310796884579338401703"
@@ -152,6 +152,24 @@ positions:
       weeks: "4"
       share_token_address: "0x66bCF6151D5558AfB47c38B20663589843156078" # liUSD-4w
       kv_storage_key: "${keccak256(makina.mainnet.infinifi.liusd-4w)}"
+
+  # ── Royco Senior Tranches ──────────────────────────────────────────────
+  - id: "64669931722063471303552936927417278696315463008939757339712096376901747772502" # keccak256("rocyo-st-snusd")
+    group_id: "0"
+    description: "Royco ST sNUSD"
+    instructions: !include "../../../instructions/royco-st-snusd.yaml"
+
+  # ── Royco Vaults ──────────────────────────────────────────────
+  - id: "77193269991661848876305867781403351919453812421838418318184272304145351554219" # keccak256("rocyo-vault-0xcd9f5907f92818bc06c9ad70217f089e190d2a32")
+    group_id: "0"
+    description: "Royco Senior USDC Vault"
+    instructions: !include "../../../instructions/royco-vault.yaml"
+    vars:
+      label: "Royco Senior USDC Vault"
+      vault_address: "0xcd9f5907f92818bc06c9ad70217f089e190d2a32"
+      asset_address: ${token_list.mainnet.USDC}
+      kv_storage_key: "${keccak256(makina.mainnet.royco-vault.0xcd9f5907f92818bc06c9ad70217f089e190d2a32)}"
+      kv_pending_shares_key: "${keccak256(makina.mainnet.royco-vault.0xcd9f5907f92818bc06c9ad70217f089e190d2a32.pending_shares)}"
 
   # Other Positions
   - id: "777"

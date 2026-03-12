@@ -1,4 +1,3 @@
-
 config:
   aave_core_address:
     type: "address"
@@ -15,7 +14,7 @@ config:
   key_value_store_address:
     type: "address"
     value: "0x7f49f751dc90e54199def7098f9e7d491a1df41c"
-    
+
 positions:
   # Morpho Vault Positions
   - id: "77590748279218246310796884579338401703"
@@ -130,7 +129,6 @@ positions:
       vault_label: "Gauntlet Core eUSD"
       token_address: ${token_list.mainnet.eUSD}
       vault_address: "0xc080f56504e0278828a403269db945f6c6d6e014"
-
 
   # Other Positions
   - id: "777"
