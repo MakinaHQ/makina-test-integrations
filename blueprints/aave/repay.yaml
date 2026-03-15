@@ -5,7 +5,7 @@ inputs:
     type: "address"
   pool_address:
     type: "address"
-  context_helper_address:
+  caliber_address:
     type: "address"
 
 constants:
@@ -16,14 +16,6 @@ constants:
 actions:
   repay_asset:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Approve token to the Aave pool"
         target: "${inputs.token_address}"
         selector: "approve(address,uint256)"
@@ -44,7 +36,7 @@ actions:
           - type: "uint256"
             value: "${constants.interest_rate_mode}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       amount_to_repay:

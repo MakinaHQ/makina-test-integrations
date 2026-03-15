@@ -5,22 +5,14 @@ inputs:
     type: "address"
   pool_address:
     type: "address"
-  unsigned_math_helper:
+  caliber_address:
     type: "address"
-  context_helper_address:
+  unsigned_math_helper:
     type: "address"
 
 actions:
   withdraw_balanced:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Withdraw LP tokens from gauge with rewards claiming"
         target: "${inputs.gauge_address}"
         selector: "withdraw(uint256,bool)"
@@ -43,7 +35,7 @@ actions:
               - type: "uint256"
                 value: "${input_slots.min_token_b}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       amount_to_withdraw:
@@ -58,20 +50,12 @@ actions:
 
   withdraw_balanced_relative:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Get gauge balance"
         target: "${inputs.gauge_address}"
         selector: "balanceOf(address)"
         parameters:
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
         return:
           name: "gauge_balance"
           type: "uint256"
@@ -112,7 +96,7 @@ actions:
               - type: "uint256"
                 value: "${input_slots.min_token_b}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       bps_to_withdraw:

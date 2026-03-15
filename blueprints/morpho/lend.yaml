@@ -9,22 +9,14 @@ inputs:
     type: "bytes32"
   loan_token:
     type: "address"
-  unsigned_math_helper:
+  caliber_address:
     type: "address"
-  context_helper_address:
+  unsigned_math_helper:
     type: "address"
 
 actions:
   lend_to_market:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Approve loan token to Morpho"
         target: "${inputs.loan_token}"
         selector: "approve(address,uint256)"
@@ -125,7 +117,7 @@ actions:
           - type: "uint256"
             value: "0"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
           - type: "bytes"
             value: "0x"
 
@@ -136,14 +128,6 @@ actions:
 
   withdraw_from_market:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Get market parameters from ID"
         target: "${inputs.morpho}"
         selector: "idToMarketParams(bytes32)"
@@ -235,9 +219,9 @@ actions:
           - type: "uint256"
             value: "0"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       amount_to_withdraw:
@@ -246,14 +230,6 @@ actions:
 
   redeem_from_market_relative:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Get the caliber's position in the market"
         target: "${inputs.morpho}"
         selector: "position(bytes32,address)"
@@ -261,7 +237,7 @@ actions:
           - type: "bytes32"
             value: "${inputs.market_id}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
         return:
           name: "position_data"
           type: "(uint256,uint128,uint128)"
@@ -383,9 +359,9 @@ actions:
           - type: "uint256"
             value: "${returns.shares_to_redeem}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       bps_to_redeem:
