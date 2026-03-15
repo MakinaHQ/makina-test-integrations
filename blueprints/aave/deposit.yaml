@@ -3,24 +3,16 @@ protocol: "aavev3"
 inputs:
   aave_pool_instance:
     type: "address"
+  on_behalf_of:
+    type: "address"
   asset_address:
     type: "address"
   e_mode:
     type: "uint8"
-  context_helper_address:
-    type: "address"
 
 actions:
   add_collateral:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Approve the Aave pool to spend the asset"
         target: ${inputs.asset_address}
         selector: "approve(address,uint256)"
@@ -39,11 +31,19 @@ actions:
           - type: "uint256"
             value: ${input_slots.amount_to_deposit}
           - type: "address"
-            value: ${returns.caliber_address}
+            value: ${inputs.on_behalf_of}
           - type: "uint256"
             value: "0"
-
     input_slots:
       amount_to_deposit:
         type: "uint256"
         description: "The amount of tokens to add as collateral"
+
+  set_e_mode:
+    calls:
+      - description: "Set the e-mode for the user"
+        target: ${inputs.aave_pool_instance}
+        selector: "setUserEMode(uint8)"
+        parameters:
+          - type: "uint8"
+            value: ${inputs.e_mode}

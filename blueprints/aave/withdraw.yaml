@@ -3,22 +3,14 @@ protocol: "aavev3"
 inputs:
   aave_pool_instance:
     type: "address"
-  asset_address:
+  to:
     type: "address"
-  context_helper_address:
+  asset_address:
     type: "address"
 
 actions:
   withdraw_collateral:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Withdraw collateral from the Aave pool"
         target: ${inputs.aave_pool_instance}
         selector: "withdraw(address,uint256,address)"
@@ -28,8 +20,7 @@ actions:
           - type: "uint256"
             value: ${input_slots.amount_collateral_to_withdraw}
           - type: "address"
-            value: ${returns.caliber_address}
-
+            value: ${inputs.to}
     input_slots:
       amount_collateral_to_withdraw:
         type: "uint256"

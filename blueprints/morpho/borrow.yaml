@@ -7,20 +7,12 @@ inputs:
     type: "address"
   market_id:
     type: "bytes32"
-  context_helper_address:
+  caliber_address:
     type: "address"
 
 actions:
   borrow:
     calls:
-      - description: "Get caliber's address"
-        target: ${inputs.context_helper_address}
-        selector: "msgSender()"
-        parameters: []
-        return:
-          name: "caliber_address"
-          type: "address"
-
       - description: "Get market parameters from market ID"
         target: "${inputs.morpho}"
         selector: "idToMarketParams(bytes32)"
@@ -112,9 +104,9 @@ actions:
           - type: "uint256"
             value: "0"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
           - type: "address"
-            value: "${returns.caliber_address}"
+            value: "${inputs.caliber_address}"
 
     input_slots:
       amount_to_borrow:
