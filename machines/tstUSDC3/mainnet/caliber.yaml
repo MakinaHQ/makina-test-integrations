@@ -14,7 +14,7 @@ config:
   key_value_store_address:
     type: "address"
     value: "0x7f49f751dc90e54199def7098f9e7d491a1df41c"
-    
+
 positions:
   # Morpho Vault Positions
   - id: "77590748279218246310796884579338401703"

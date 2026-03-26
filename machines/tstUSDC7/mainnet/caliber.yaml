@@ -20,10 +20,10 @@ config:
   swap_module:
     type: "address"
     value: "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
-    
+
 positions:
 
-# ── Harvest-only ──────────────────────────────────────────────────
+  # ── Harvest-only ──────────────────────────────────────────────────
   - id: "777"
     group_id: "0"
     description: "Merkl Harvest"
@@ -87,7 +87,7 @@ positions:
       convex_reward_pool: "0xD1DdB0a0815fD28932fBb194C84003683AF8a824"
       coin0_scale_factor: "1000000"
 
-# ── Aave Umbrella ─────────────────────────────────────────────────
+  # ── Aave Umbrella ─────────────────────────────────────────────────
   - id: "176021688445186810403025048632929053161"
     group_id: "0"
     description: "Aave Umbrella USDC"
@@ -133,24 +133,6 @@ positions:
       label: "Steakhouse PYUSD"
       asset_address: "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8"
       vault_address: "0xbEEF02e5E13584ab96848af90261f0C8Ee04722a"
-  - id: "30651621090656837837542443694366525060"
-    group_id: "0"
-    description: "Morpho Vault USDC MEV Capital"
-    instructions: !include "../../../instructions/morpho-vault.yaml"
-    position_tokens: ["0xd63070114470f685b75B74D60EEc7c1113d33a3D"]
-    vars:
-      label: "MEV Capital USDC"
-      asset_address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-      vault_address: "0xd63070114470f685b75B74D60EEc7c1113d33a3D"
-  - id: "287972541400220405479010366660803291000"
-    group_id: "0"
-    description: "Morpho Vault eUSD Gauntlet Core"
-    instructions: !include "../../../instructions/morpho-vault.yaml"
-    position_tokens: ["0xc080f56504e0278828A403269DB945F6c6D6E014"]
-    vars:
-      label: "Gauntlet eUSD Core"
-      asset_address: "0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F"
-      vault_address: "0xc080f56504e0278828A403269DB945F6c6D6E014"
   - id: "77590748279218246310796884579338401703"
     group_id: "0"
     description: "Morpho Vault USDC Smokehouse"
@@ -160,24 +142,6 @@ positions:
       label: "Smokehouse USDC"
       asset_address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
       vault_address: "0xBEeFFF209270748ddd194831b3fa287a5386f5bC"
-  - id: "11232424494326814282538250204373920286"
-    group_id: "0"
-    description: "Morpho Vault USDC Gauntlet Frontier"
-    instructions: !include "../../../instructions/morpho-vault.yaml"
-    position_tokens: ["0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e"]
-    vars:
-      label: "Gauntlet USDC Frontier"
-      asset_address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-      vault_address: "0xc582F04d8a82795aa2Ff9c8bb4c1c889fe7b754e"
-  - id: "188442457890402398659043284211703237226"
-    group_id: "0"
-    description: "Morpho Vault USDC Gauntlet Core"
-    instructions: !include "../../../instructions/morpho-vault.yaml"
-    position_tokens: ["0x8eB67A509616cd6A7c1B3c8C21D48FF57df3d458"]
-    vars:
-      label: "Gauntlet USDC Core"
-      asset_address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-      vault_address: "0x8eB67A509616cd6A7c1B3c8C21D48FF57df3d458"
   - id: "128264429154381135287798106504544985667"
     group_id: "0"
     description: "Morpho Vault USDC Steakhouse Reservoir"
