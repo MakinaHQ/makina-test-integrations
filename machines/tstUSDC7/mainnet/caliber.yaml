@@ -20,7 +20,7 @@ config:
   swap_module:
     type: "address"
     value: "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
-    
+
 positions:
 
   # ── Harvest-only ──────────────────────────────────────────────────
