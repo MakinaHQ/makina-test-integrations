@@ -23,7 +23,7 @@ config:
     
 positions:
 
-# ── Harvest-only ──────────────────────────────────────────────────
+  # ── Harvest-only ──────────────────────────────────────────────────
   - id: "777"
     group_id: "0"
     description: "Merkl Harvest"
@@ -87,7 +87,7 @@ positions:
       convex_reward_pool: "0xD1DdB0a0815fD28932fBb194C84003683AF8a824"
       coin0_scale_factor: "1000000"
 
-# ── Aave Umbrella ─────────────────────────────────────────────────
+  # ── Aave Umbrella ─────────────────────────────────────────────────
   - id: "176021688445186810403025048632929053161"
     group_id: "0"
     description: "Aave Umbrella USDC"
