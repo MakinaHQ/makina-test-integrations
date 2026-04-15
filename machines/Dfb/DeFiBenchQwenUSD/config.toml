@@ -1,0 +1,36 @@
+name = "DeFiBenchQwenUSD"
+chain = "mainnet"
+address = "0xF8C2f574E27B8A1e72e8AF450c0df8258eC517ab"
+
+[calibers.mainnet]
+address = "0x39A6132a63dDA644Eb66Ae89499337C4Fb56B022"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/mainnet/rootfiles"
+
+[calibers.mainnet.accounting_token]
+address = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
+
+[calibers.arbitrum]
+address = "0x39A6132a63dDA644Eb66Ae89499337C4Fb56B022"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/arbitrum/rootfiles"
+
+[calibers.arbitrum.accounting_token]
+address = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
+
+[calibers.base]
+address = "0x39A6132a63dDA644Eb66Ae89499337C4Fb56B022"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/base/rootfiles"
+
+[calibers.base.accounting_token]
+address = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
