@@ -1,6 +1,6 @@
 name = "DeFiBenchGPTUSD"
 chain = "mainnet"
-address = "0x573F1f9ce9c60BF3E7B755b5a81E905d2d3A0704	"
+address = "0x573F1f9ce9c60BF3E7B755b5a81E905d2d3A0704"
 
 [calibers.mainnet]
 address = "0x1CB9AF0D4C5e788BFECf97e855e4D2F84Bc906E2"

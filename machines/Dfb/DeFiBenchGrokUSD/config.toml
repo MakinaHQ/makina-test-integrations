@@ -1,6 +1,6 @@
 name = "DeFiBenchGrokUSD"
 chain = "mainnet"
-address = "0x26FF4A430305e1F504640429e87869280ddafc25	"
+address = "0x26FF4A430305e1F504640429e87869280ddafc25"
 
 [calibers.mainnet]
 address = "0x7C620f2206287586EdA127020035a16D856d06A3"

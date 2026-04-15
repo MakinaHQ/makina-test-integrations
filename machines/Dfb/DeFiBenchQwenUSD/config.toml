@@ -1,6 +1,6 @@
 name = "DeFiBenchQwenUSD"
 chain = "mainnet"
-address = "0xF8C2f574E27B8A1e72e8AF450c0df8258eC517ab	"
+address = "0xF8C2f574E27B8A1e72e8AF450c0df8258eC517ab"
 
 [calibers.mainnet]
 address = "0x39A6132a63dDA644Eb66Ae89499337C4Fb56B022"

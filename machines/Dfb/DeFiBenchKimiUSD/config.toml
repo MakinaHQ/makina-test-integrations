@@ -1,6 +1,6 @@
 name = "DeFiBenchKimiUSD"
 chain = "mainnet"
-address = "0xE13c73FE21cCE958F961fC9777b1Ba944b199FB1	"
+address = "0xE13c73FE21cCE958F961fC9777b1Ba944b199FB1"
 
 [calibers.mainnet]
 address = "0x85144A1b15A11dB3B340D7e1A42bDb0781a01Dc6"
