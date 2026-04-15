@@ -5,7 +5,7 @@ address = "0x4Da9F9477D2D94EA0E5DAB010917b120764195c3"
 [calibers.mainnet]
 address = "0x6f5d73Df2e8ccc6A3E3f5949b10823b451DBed18"
 swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
-rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/mainnet/rootfiles"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/Dfb/DeFiBenchClaudeUSD/mainnet/rootfiles"
 
 [calibers.mainnet.accounting_token]
 address = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
@@ -16,7 +16,7 @@ symbol = "USDC"
 [calibers.arbitrum]
 address = "0x6f5d73Df2e8ccc6A3E3f5949b10823b451DBed18"
 swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
-rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/arbitrum/rootfiles"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/Dfb/DeFiBenchClaudeUSD/arbitrum/rootfiles"
 
 [calibers.arbitrum.accounting_token]
 address = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
@@ -27,7 +27,7 @@ symbol = "USDC"
 [calibers.base]
 address = "0x6f5d73Df2e8ccc6A3E3f5949b10823b451DBed18"
 swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
-rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC7/base/rootfiles"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/Dfb/DeFiBenchClaudeUSD/base/rootfiles"
 
 [calibers.base.accounting_token]
 address = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
