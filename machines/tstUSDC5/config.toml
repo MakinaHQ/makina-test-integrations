@@ -23,3 +23,26 @@ address = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
 decimals = 6
 name = "USD Coin"
 symbol = "USDC"
+
+[calibers.avalanche]
+address = "0x578E158804E4e0B3aE9A60d7Fb8D24c16229B89a"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC5/avalanche/rootfiles"
+
+[calibers.avalanche.accounting_token]
+address = "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
+
+
+[calibers.optimism]
+address = "0x578E158804E4e0B3aE9A60d7Fb8D24c16229B89a"
+swapper = "0xe403614F41554fC0f7A3dD581878D0024Dc978E9"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC5/optimism/rootfiles"
+
+[calibers.optimism.accounting_token]
+address = "0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
