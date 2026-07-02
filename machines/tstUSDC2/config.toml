@@ -12,3 +12,15 @@ address = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 decimals = 6
 name = "USD Coin"
 symbol = "USDC"
+
+[calibers.base]
+address = "0x690e587eD87D776793e98bDaD8f20B566999A44c"
+# TODO: set swapper - idk what the value is but without it it won't load
+swapper = "0x000000000000000000000000000000000000beef"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDC2/base/rootfiles"
+
+[calibers.base.accounting_token]
+address = "0x7e860098F58bBFC8648a4311b374B1D669a2bc6B"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
