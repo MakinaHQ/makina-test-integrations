@@ -18,9 +18,9 @@
       aave_pool_instance:
         type: "address"
         value: ${config.aave_core_address}
-      context_helper_address:
+      receiver:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}
 
 - is_debt: true
   instruction_type: "ACCOUNTING"
@@ -33,9 +33,9 @@
       aave_token:
         type: "address"
         value: "0x6df1C1E379bC5a00a7b4C6e67A203333772f45A8"
-      context_helper_address:
+      account:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}
 
 - is_debt: true
   instruction_type: "MANAGEMENT"
@@ -51,6 +51,6 @@
       pool_address:
         type: "address"
         value: ${config.aave_core_address}
-      context_helper_address:
+      caliber_address:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}

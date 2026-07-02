@@ -6,9 +6,9 @@
     label: "USDC (Horizon)"
     path: "../../../blueprints/aave/deposit.yaml:add_collateral"
     inputs:
-      context_helper_address:
+      on_behalf_of:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}
       asset_address:
         type: "address"
         value: ${token_list.mainnet.USDC}
@@ -24,9 +24,9 @@
     label: "USDC (Horizon)"
     path: "../../../blueprints/aave/withdraw.yaml:withdraw_collateral"
     inputs:
-      context_helper_address:
+      to:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}
       asset_address:
         type: "address"
         value: ${token_list.mainnet.USDC}
@@ -45,6 +45,6 @@
       aave_token:
         type: "address"
         value: "0x68215B6533c47ff9f7125aC95adf00fE4a62f79e"
-      context_helper_address:
+      account:
         type: "address"
-        value: ${config.context_helper_address}
+        value: ${config.caliber_address}
