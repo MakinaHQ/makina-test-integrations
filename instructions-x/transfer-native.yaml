@@ -26,7 +26,7 @@
 #   wrapped_native_address:  address  — the wrapper token (WETH, wHYPE, ...)
 #   unwrap_forwarder:        address  — the NativeUnwrapForwarder for that wrapper on this chain
 #   to:                      address  — the native-asset recipient. May be set to a config
-#                                       reference (e.g. "${config.operator_address}") when the
+#                                       reference (e.g. config.operator_address) when the
 #                                       recipient is machine identity rather than something the
 #                                       instruction author knows; it is resolved per machine at
 #                                       transpile time and still pinned in the root.
