@@ -1,6 +1,7 @@
 # makina-x generic ERC20 approval.
-# Management-only: no ACCOUNTING action — makina-x positions are not NAV-accounted
-# on-chain, so no account balanceOf step is emitted.
+# Management + a zero-valued ACCOUNTING action — makina-x approve positions are
+# NAV-accounted at constant zero because an allowance is not an asset; see
+# `account_approval` below. No balanceOf step is emitted, deliberately.
 #
 # Fully static: token, spender AND amount are all blueprint `inputs`, so all three are
 # baked into the merkle leaf and committed to the root at governance time. The action
