@@ -7,7 +7,7 @@
 # What the root pins: token and recipient (both blueprint `inputs`, hashed into the leaf).
 # What stays open: the amount (`input_slots.amount_to_transfer`, operator-chosen at execution).
 # Instantiate once per (token, recipient) pair with a distinct label — the leaf path is
-# `transfer/transfer_to_spot_account/{label}`.
+# `transfer/transfer_to_address/{label}`.
 #
 # Expected position vars:
 #   label:          string   — e.g. "USDC - Binance spot"
@@ -17,14 +17,14 @@
 # Expected config:
 #   safe_address  (implicit holder — not referenced directly by this template)
 
-- name: transfer_to
+- name: transfer_to_address
   is_debt: false
   instruction_type: "MANAGEMENT"
   affected_tokens:
     - ${position.asset_address}
   instruction:
     label: ${position.label}
-    path: "../../../blueprints-x/transfer/transfer.yaml:transfer_to_spot_account"
+    path: "../../../blueprints-x/transfer/transfer.yaml:transfer_to_address"
     inputs:
       asset_address:
         type: "address"

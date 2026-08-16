@@ -14,7 +14,7 @@ inputs:
     type: "address"
 
 actions:
-  transfer_to_spot_account:
+  transfer_to_address:
     calls:
       - description: "Transfer the asset from the Safe to the destination account"
         target: ${inputs.asset_address}

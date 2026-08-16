@@ -54,7 +54,7 @@ machines/
 
 Currently included:
 
-- `blueprints-x/transfer/transfer.yaml` — generic ERC20 transfer out of the Safe (`transfer_to_spot_account`)
+- `blueprints-x/transfer/transfer.yaml` — generic ERC20 transfer out of the Safe (`transfer_to_address`)
 - `blueprints-x/transfer/transfer-native.yaml` — unwrap wrapped native + forward via `NativeUnwrapForwarder` (`unwrap_and_transfer_native`, `unwrap_and_transfer_native_fixed`)
 - `blueprints-x/approve/approve.yaml` — fully static ERC20 approval (`approve_spender`) and revoke (`cancel_approval`)
 
@@ -62,7 +62,7 @@ Currently included:
 
 | Template                              | Entries (`name:`)                                                | Blueprint                                    |
 | ------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------- |
-| `instructions-x/transfer.yaml`        | `transfer_to`                                                    | `blueprints-x/transfer/transfer.yaml`        |
+| `instructions-x/transfer.yaml`        | `transfer_to_address`                                            | `blueprints-x/transfer/transfer.yaml`        |
 | `instructions-x/transfer-native.yaml` | `unwrap_and_transfer_native`, `unwrap_and_transfer_native_fixed` | `blueprints-x/transfer/transfer-native.yaml` |
 | `instructions-x/approve.yaml`         | `approve_spender`, `cancel_approval`                             | `blueprints-x/approve/approve.yaml`          |
 
