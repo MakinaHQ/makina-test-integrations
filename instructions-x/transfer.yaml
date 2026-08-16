@@ -1,0 +1,34 @@
+# makina-x generic ERC20 transfer out of the Safe.
+#
+# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
+# ACCOUNTING entry. The token is held by the Safe (config.safe_address); the module executes
+# the ERC20 `transfer` on the Safe's behalf, moving it out to the pinned recipient.
+#
+# What the root pins: token and recipient (both blueprint `inputs`, hashed into the leaf).
+# What stays open: the amount (`input_slots.amount_to_transfer`, operator-chosen at execution).
+# Instantiate once per (token, recipient) pair with a distinct label — the leaf path is
+# `transfer/transfer_to_spot_account/{label}`.
+#
+# Expected position vars:
+#   label:          string   — e.g. "USDC - Binance spot"
+#   asset_address:  address  — the ERC20 to move
+#   to:             address  — the recipient (e.g. a CEX deposit address)
+#
+# Expected config:
+#   safe_address  (implicit holder — not referenced directly by this template)
+
+- name: transfer_to
+  is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - ${position.asset_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/transfer/transfer.yaml:transfer_to_spot_account"
+    inputs:
+      asset_address:
+        type: "address"
+        value: ${position.asset_address}
+      to:
+        type: "address"
+        value: ${position.to}
