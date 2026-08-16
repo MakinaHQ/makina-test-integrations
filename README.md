@@ -15,6 +15,14 @@ blueprints/                                                 # contains boilerpla
 ├── [protocol-name-2]/
 └── ...
 
+blueprints-x/                                               # makina-x (Safe module) blueprints: same layout, MANAGEMENT-only (no account.yaml)
+├── approve/
+│   └── approve.yaml
+├── transfer/
+│   ├── transfer.yaml
+│   └── transfer-native.yaml
+└── ...
+
 machines/
 ├── [machine-name-1]/
 │   ├── config.toml
@@ -29,6 +37,16 @@ machines/
 │   └── ...
 └── ...
 ```
+
+### Blueprints-x (makina-x)
+
+[MakinaX](https://github.com/MakinaHQ/makina-x) is the lightweight version of the Makina protocol that runs as a Safe module. Its calibers are configured with `safe_address` + `makina_lite_module` (not `caliber_address`), positions are held by the Safe, and they are **not** NAV-accounted on-chain. `blueprints-x/` is the makina-x parallel to `blueprints/`: same per-protocol/per-action layout, but MANAGEMENT-only (no `account.yaml`). Compile makina-x calibers with the transpiler `--lite` flag.
+
+Currently included:
+
+- `blueprints-x/transfer/transfer.yaml` — generic ERC20 transfer out of the Safe (`transfer_to_spot_account`)
+- `blueprints-x/transfer/transfer-native.yaml` — unwrap wrapped native + forward via `NativeUnwrapForwarder` (`unwrap_and_transfer_native`, `unwrap_and_transfer_native_fixed`)
+- `blueprints-x/approve/approve.yaml` — fully static ERC20 approval (`approve_spender`) and revoke (`cancel_approval`)
 
 ### Machines
 
