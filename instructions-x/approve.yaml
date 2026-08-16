@@ -1,0 +1,57 @@
+# makina-x generic ERC20 approval — grant a pinned allowance, and revoke it.
+#
+# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
+# ACCOUNTING entry. The allowance is granted from the Safe (config.safe_address, the token
+# holder) to `spender`; the module issues the `approve` on the Safe's behalf.
+#
+# Both entries are fully static — no `input_slots` — so the operator supplies nothing at
+# execution time:
+#   approve_spender   TOKEN.approve(SPENDER, AMOUNT), all three pinned in the leaf
+#   cancel_approval   TOKEN.approve(SPENDER, 0), token and spender pinned
+# Instantiate once per (token, spender, amount) triple with a distinct label; the revoke leg
+# rides along with the same (token, spender). An unlimited allowance is an instance with
+# amount "115792089237316195423570985008687907853269984665640564039457584007913129639935".
+#
+# Expected position vars:
+#   label:          string   — e.g. "USDC -> Morpho"
+#   token_address:  address  — the ERC20 being approved
+#   spender:        address  — the address receiving the allowance
+#   amount:         uint256  — the exact allowance to grant (approve_spender only)
+#
+# Expected config:
+#   safe_address  (implicit holder — not referenced directly by this template)
+
+- name: approve_spender
+  is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - ${position.token_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/approve/approve.yaml:approve_spender"
+    inputs:
+      token_address:
+        type: "address"
+        value: ${position.token_address}
+      spender:
+        type: "address"
+        value: ${position.spender}
+      amount:
+        type: "uint256"
+        value: ${position.amount}
+
+- name: cancel_approval
+  is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - ${position.token_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/approve/approve.yaml:cancel_approval"
+    inputs:
+      token_address:
+        type: "address"
+        value: ${position.token_address}
+      spender:
+        type: "address"
+        value: ${position.spender}

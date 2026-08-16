@@ -1,0 +1,77 @@
+# makina-x native-asset transfer — unwrap the wrapped native asset held by the Safe and forward
+# it to a recipient, atomically, via a NativeUnwrapForwarder. This is the path for anything an
+# ERC20 transfer cannot do, e.g. gas top-ups of EOAs.
+#
+# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
+# ACCOUNTING entry. The Safe never holds the native asset: it approves the forwarder for
+# exactly the amount, the forwarder pulls the wrapper, unwraps, and forwards in the same
+# weiroll script. See the blueprint header for the full rationale.
+#
+# Its own stem (`transfer-native`), not folded into ./transfer.yaml: different blueprint,
+# different inputs (the forwarder), different audit surface — even though both share the
+# `transfer` protocol namespace in the generated rootfile.
+#
+# ONE FORWARDER PER (CHAIN, WRAPPER): `wrapped_native_address` MUST equal the forwarder's
+# immutable `wrapper()` (mainnet WETH/ETH, HyperEVM wHYPE/HYPE), or the approve lands on the
+# wrong token and the pull reverts.
+#
+# Two entries mirroring the blueprint's pair:
+#   unwrap_and_transfer_native        recipient pinned, amount operator-chosen (`input_slots`)
+#                                     — the top-up shape
+#   unwrap_and_transfer_native_fixed  recipient AND amount pinned; no `input_slots`, the
+#                                     operator supplies nothing
+#
+# Expected position vars:
+#   label:                   string   — e.g. "ETH - operator gas"
+#   wrapped_native_address:  address  — the wrapper token (WETH, wHYPE, ...)
+#   unwrap_forwarder:        address  — the NativeUnwrapForwarder for that wrapper on this chain
+#   to:                      address  — the native-asset recipient. May be set to a config
+#                                       reference (e.g. "${config.operator_address}") when the
+#                                       recipient is machine identity rather than something the
+#                                       instruction author knows; it is resolved per machine at
+#                                       transpile time and still pinned in the root.
+#   amount:                  uint256  — the pinned amount (unwrap_and_transfer_native_fixed only)
+#
+# Expected config:
+#   safe_address  (implicit holder — not referenced directly by this template)
+
+- name: unwrap_and_transfer_native
+  is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - ${position.wrapped_native_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/transfer/transfer-native.yaml:unwrap_and_transfer_native"
+    inputs:
+      wrapped_native_address:
+        type: "address"
+        value: ${position.wrapped_native_address}
+      unwrap_forwarder:
+        type: "address"
+        value: ${position.unwrap_forwarder}
+      to:
+        type: "address"
+        value: ${position.to}
+
+- name: unwrap_and_transfer_native_fixed
+  is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - ${position.wrapped_native_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/transfer/transfer-native.yaml:unwrap_and_transfer_native_fixed"
+    inputs:
+      wrapped_native_address:
+        type: "address"
+        value: ${position.wrapped_native_address}
+      unwrap_forwarder:
+        type: "address"
+        value: ${position.unwrap_forwarder}
+      to:
+        type: "address"
+        value: ${position.to}
+      amount:
+        type: "uint256"
+        value: ${position.amount}
