@@ -1,6 +1,7 @@
 # makina-x generic ERC20 approval.
-# Management-only: no ACCOUNTING action — makina-x positions are not NAV-accounted
-# on-chain, so no account balanceOf step is emitted.
+# Management + a zero-valued ACCOUNTING action — makina-x approve positions are
+# NAV-accounted at constant zero because an allowance is not an asset; see
+# `account_approval` below. No balanceOf step is emitted, deliberately.
 #
 # Fully static: token, spender AND amount are all blueprint `inputs`, so all three are
 # baked into the merkle leaf and committed to the root at governance time. The action
@@ -58,3 +59,26 @@ actions:
             value: ${inputs.spender}
           - type: "uint256"
             value: "0"
+
+  # ACCOUNTING — an allowance is not an asset, so this position is worth zero.
+  #
+  # The transpiler requires exactly one ACCOUNTING instruction per MANAGEMENT
+  # position. That requirement is about VALUING the position, and the honest
+  # value here is 0: `approve` grants a spending right and moves nothing. The
+  # tokens the allowance is drawn against are the Safe's and are already valued
+  # wherever they actually sit.
+  #
+  # ⚠ IT MUST NOT READ `balanceOf`. Valuing this position at the caliber's token
+  # balance would count that balance TWICE — once here and once through whatever
+  # position or feed already prices it — and NAV is the denominator of every
+  # risk gate, so overstating it loosens all of them at once.
+  #
+  # Slot layout matches every shipped accounting action (`blueprints/morpho/
+  # account.yaml` and the rest): the value, then UINT256_MAX.
+  account_approval:
+    calls: []
+    reserved_slots:
+      - type: "uint256"
+        value: "0"
+      - type: "uint256"
+        value: "${builtins.UINT256_MAX}"
