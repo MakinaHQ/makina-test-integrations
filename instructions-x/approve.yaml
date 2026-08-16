@@ -1,10 +1,11 @@
 # makina-x generic ERC20 approval — grant a pinned allowance, and revoke it.
 #
-# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
-# ACCOUNTING entry. The allowance is granted from the Safe (config.safe_address, the token
-# holder) to `spender`; the module issues the `approve` on the Safe's behalf.
+# Two MANAGEMENT entries plus one ACCOUNTING entry (`account_approval`) that values the
+# position at a constant zero — an allowance is not an asset; see the blueprint for why it
+# must not read balanceOf. The allowance is granted from the Safe (config.safe_address, the
+# token holder) to `spender`; the module issues the `approve` on the Safe's behalf.
 #
-# Both entries are fully static — no `input_slots` — so the operator supplies nothing at
+# Both MANAGEMENT entries are fully static — no `input_slots` — so the operator supplies nothing at
 # execution time:
 #   approve_spender   TOKEN.approve(SPENDER, AMOUNT), all three pinned in the leaf
 #   cancel_approval   TOKEN.approve(SPENDER, 0), token and spender pinned
@@ -55,3 +56,16 @@
       spender:
         type: "address"
         value: ${position.spender}
+
+- name: account_approval
+  is_debt: false
+  instruction_type: "ACCOUNTING"
+  affected_tokens:
+    - ${position.token_address}
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/approve/approve.yaml:account_approval"
+    inputs:
+      token_address:
+        type: "address"
+        value: ${position.token_address}
