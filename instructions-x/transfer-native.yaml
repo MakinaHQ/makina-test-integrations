@@ -2,10 +2,29 @@
 # it to a recipient, atomically, via a NativeUnwrapForwarder. This is the path for anything an
 # ERC20 transfer cannot do, e.g. gas top-ups of EOAs.
 #
-# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
-# ACCOUNTING entry. The Safe never holds the native asset: it approves the forwarder for
-# exactly the amount, the forwarder pulls the wrapper, unwraps, and forwards in the same
-# weiroll script. See the blueprint header for the full rationale.
+# HARVEST-typed, per Ale's ruling of 2026-08-17. A makina-x egress is not a
+# venue position: nothing is held afterwards, so there is nothing to account.
+# `_harvest` in the module runs a type check, a merkle allowlist check and the
+# instruction — no value check, no accounting instruction, no cooldown. That is
+# why this file carries no ACCOUNTING entry and must not be given one: a
+# constant-zero accounting on a MANAGEMENT egress does not "book a loss", it
+# makes the transfer REVERT (MaxValueLossExceeded), measured.
+#
+# ⚠ WHAT CONSTRAINS THIS ON-CHAIN, AND WHAT DOES NOT.
+#   constrained: the RECIPIENT, committed to the owner-signed merkle leaf.
+#                A different recipient has no valid proof.
+#   NOT constrained: the AMOUNT (an input slot, operator-chosen at execution —
+#                `unwrap_and_transfer_native`; the `_fixed` entry pins it),
+#                the RATE (no cooldown on the harvest path), the SIZE (no cap).
+# One signed leaf authorises every amount to that recipient, repeatedly, in a
+# single block. The mandate's per-target and per-period caps and its
+# above-threshold pause are the only brakes, and they are off-chain by design.
+# Owner consent is the fixed recipient in the leaf — that is the consent
+# surface, so the recipient must be an address the owner attested to.
+#
+# The Safe never holds the native asset: it approves the forwarder for exactly the amount,
+# the forwarder pulls the wrapper, unwraps, and forwards in the same weiroll script. See the
+# blueprint header for the full rationale.
 #
 # Its own stem (`transfer-native`), not folded into ./transfer.yaml: different blueprint,
 # different inputs (the forwarder), different audit surface — even though both share the
@@ -37,9 +56,8 @@
 
 - name: unwrap_and_transfer_native
   is_debt: false
-  instruction_type: "MANAGEMENT"
-  affected_tokens:
-    - ${position.wrapped_native_address}
+  instruction_type: "HARVEST"
+  affected_tokens: []
   instruction:
     label: ${position.label}
     path: "../../../blueprints-x/transfer/transfer-native.yaml:unwrap_and_transfer_native"
@@ -56,9 +74,8 @@
 
 - name: unwrap_and_transfer_native_fixed
   is_debt: false
-  instruction_type: "MANAGEMENT"
-  affected_tokens:
-    - ${position.wrapped_native_address}
+  instruction_type: "HARVEST"
+  affected_tokens: []
   instruction:
     label: ${position.label}
     path: "../../../blueprints-x/transfer/transfer-native.yaml:unwrap_and_transfer_native_fixed"
