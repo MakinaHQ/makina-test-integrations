@@ -1,27 +1,36 @@
 # makina-x generic ERC20 transfer out of the Safe.
 #
-# MANAGEMENT-only: makina-x positions are not NAV-accounted on-chain, so there is no
-# ACCOUNTING entry. The token is held by the Safe (config.safe_address); the module executes
-# the ERC20 `transfer` on the Safe's behalf, moving it out to the pinned recipient.
+# HARVEST-typed, per Ale's ruling of 2026-08-17. A makina-x egress is not a
+# venue position: nothing is held afterwards, so there is nothing to account.
+# `_harvest` in the module runs a type check, a merkle allowlist check and the
+# instruction — no value check, no accounting instruction, no cooldown. That is
+# why this file carries no ACCOUNTING entry and must not be given one: a
+# constant-zero accounting on a MANAGEMENT egress does not "book a loss", it
+# makes the transfer REVERT (MaxValueLossExceeded), measured.
 #
-# What the root pins: token and recipient (both blueprint `inputs`, hashed into the leaf).
-# What stays open: the amount (`input_slots.amount_to_transfer`, operator-chosen at execution).
-# Instantiate once per (token, recipient) pair with a distinct label — the leaf path is
-# `transfer/transfer_to_address/{label}`.
+# ⚠ WHAT CONSTRAINS THIS ON-CHAIN, AND WHAT DOES NOT.
+#   constrained: the RECIPIENT, committed to the owner-signed merkle leaf.
+#                A different recipient has no valid proof.
+#   NOT constrained: the AMOUNT (an input slot, operator-chosen at execution),
+#                the RATE (no cooldown on the harvest path), the SIZE (no cap).
+# One signed leaf authorises every amount to that recipient, repeatedly, in a
+# single block. The mandate's per-target and per-period caps and its
+# above-threshold pause are the only brakes, and they are off-chain by design.
+# Owner consent is the fixed recipient in the leaf — that is the consent
+# surface, so the recipient must be an address the owner attested to.
 #
 # Expected position vars:
 #   label:          string   — e.g. "USDC - Binance spot"
 #   asset_address:  address  — the ERC20 to move
-#   to:             address  — the recipient (e.g. a CEX deposit address)
+#   to:             address  — the recipient (owner-attested, dedicated)
 #
 # Expected config:
 #   safe_address  (implicit holder — not referenced directly by this template)
 
 - name: transfer_to_address
   is_debt: false
-  instruction_type: "MANAGEMENT"
-  affected_tokens:
-    - ${position.asset_address}
+  instruction_type: "HARVEST"
+  affected_tokens: []
   instruction:
     label: ${position.label}
     path: "../../../blueprints-x/transfer/transfer.yaml:transfer_to_address"
