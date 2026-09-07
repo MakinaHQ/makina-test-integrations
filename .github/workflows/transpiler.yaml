@@ -1,0 +1,175 @@
+# Verifies that new rootfiles are correctly transpiled from their caliber.
+# For the latest added rootfile per (machine, chain), re-runs the transpiler
+# and diffs the output.
+#
+# Rules enforced:
+#   1. Existing rootfiles must not be modified (append-only history).
+#   2. Every added rootfile must be newer than all pre-existing files in its directory.
+#   3. The latest added rootfile per directory must match the transpiler output.
+
+name: Transpiler
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-run-transpiler:
+    name: Verify new rootfiles correctness with the transpiler
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout config repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # full history needed to diff against base branch
+
+      # Detect added and modified rootfiles using git diff instead of a
+      # third-party action to reduce attack surface.
+      - name: Get changed rootfiles
+        id: changed-rootfiles
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            ADDED_FILES=$(git diff --name-only --diff-filter=A "origin/$BASE_REF" -- 'machines/*/*/rootfiles/*.toml')
+            MODIFIED_FILES=$(git diff --name-only --diff-filter=M "origin/$BASE_REF" -- 'machines/*/*/rootfiles/*.toml')
+          else
+            ADDED_FILES=""
+            MODIFIED_FILES=""
+          fi
+
+          if [ -z "$ADDED_FILES" ]; then
+            echo "added_files=" >> "$GITHUB_OUTPUT"
+            echo "added_files_count=0" >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "added_files<<ROOTFILES_EOF"
+              echo "$ADDED_FILES"
+              echo "ROOTFILES_EOF"
+            } >> "$GITHUB_OUTPUT"
+            echo "added_files_count=$(echo "$ADDED_FILES" | wc -l | tr -d ' ')" >> "$GITHUB_OUTPUT"
+          fi
+
+          if [ -z "$MODIFIED_FILES" ]; then
+            echo "modified_files=" >> "$GITHUB_OUTPUT"
+            echo "modified_files_count=0" >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "modified_files<<ROOTFILES_EOF"
+              echo "$MODIFIED_FILES"
+              echo "ROOTFILES_EOF"
+            } >> "$GITHUB_OUTPUT"
+            echo "modified_files_count=$(echo "$MODIFIED_FILES" | wc -l | tr -d ' ')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Reject PR if existing rootfiles are modified
+        if: steps.changed-rootfiles.outputs.modified_files_count > 0
+        env:
+          MODIFIED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.modified_files }}
+        run: |
+          for file in ${MODIFIED_ROOTFILES}; do
+            echo "::error file=${file}::Existing rootfiles must not be modified."
+          done
+          exit 1
+
+      # Every added rootfile must be newer (lexicographically) than all
+      # pre-existing files in its directory. When bootstrapping a new machine
+      # all files are new so there is nothing to compare against.
+      - name: Verify added rootfiles are newer than existing
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        env:
+          ADDED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.added_files }}
+        run: |
+          export LC_ALL=C
+          for file in ${ADDED_ROOTFILES}; do
+            dir=$(cd -- "$(dirname -- "$file")" && pwd)
+            base=$(basename -- "$file")
+
+            # Find the newest pre-existing (non-added) file in this directory
+            newest_preexisting=""
+            for candidate in $(cd -- "$dir" && LC_ALL=C ls -1Ap | grep -v '/$' | LC_ALL=C sort -r); do
+              candidate_rel="$(dirname -- "$file")/$candidate"
+              if ! printf '%s\n' ${ADDED_ROOTFILES} | grep -qxF "${candidate_rel}"; then
+                newest_preexisting="$candidate"
+                break
+              fi
+            done
+
+            # Bootstrap: no pre-existing files — any name is fine
+            [[ -z "$newest_preexisting" ]] && continue
+
+            if [[ ! "$base" > "$newest_preexisting" ]]; then
+              echo "::error file=${file}::Added rootfile '$base' must be newer than existing '$newest_preexisting'."
+              exit 1
+            fi
+          done
+
+      # From all added rootfiles, keep only the latest (by name) per directory.
+      # Only the latest can be verified against the current caliber.
+      - name: Compute latest added rootfile per directory
+        id: latest-rootfiles
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        env:
+          ADDED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.added_files }}
+        run: |
+          export LC_ALL=C
+          # Sort added files by directory then filename descending, keep first per dir
+          LATEST=$(printf '%s\n' ${ADDED_ROOTFILES} | sort -t/ -k1,4 -k5,5r | awk -F/ '!seen[$1"/"$2"/"$3"/"$4]++')
+
+          if [ -z "$LATEST" ]; then
+            echo "latest_files=" >> "$GITHUB_OUTPUT"
+          else
+            {
+              echo "latest_files<<ROOTFILES_EOF"
+              echo "$LATEST"
+              echo "ROOTFILES_EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout transpiler repository
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        uses: actions/checkout@v6
+        with:
+          repository: MakinaHQ/transpiler
+          path: transpiler
+
+      - name: Install Rust toolchain
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: transpiler
+
+      - name: Build transpiler
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        working-directory: transpiler
+        run: cargo build --release
+
+      - name: Verify rootfiles match transpiler output
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
+        working-directory: transpiler
+        env:
+          LATEST_ROOTFILES: ${{ steps.latest-rootfiles.outputs.latest_files }}
+        run: |
+          for file in ${LATEST_ROOTFILES}; do
+            caliber="../$(dirname "$(dirname "$file")")/caliber.yaml"
+            generated="../$(dirname "$file")/generated.toml"
+            echo "::group::Verifying $file"
+            cargo run -r -- -i "$caliber" -o "$generated" -t "../token-lists/prod-token-list.json"
+            if ! diff "../$file" "$generated"; then
+              echo "::error file=${file}::Rootfile does not match transpiler output."
+              rm -f "$generated"
+              exit 1
+            fi
+            rm -f "$generated"
+            echo "::endgroup::"
+          done
+
+      - name: Skip when no rootfiles were added
+        if: steps.changed-rootfiles.outputs.added_files_count == 0
+        run: echo "No added rootfiles to verify."

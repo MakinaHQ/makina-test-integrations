@@ -1,0 +1,330 @@
+config:
+  caliber_address:
+    type: "address"
+    value: "0xd1a3c20488899c038b7daae1ede0c6da6c36c326"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x836C9007DbD73fcFC473190304C72b7E39BaBb91"
+  caliber_helper_address:
+    type: "address"
+    value: "0x6E2ED2f457c41F38556Ab0c2b1185cc9e6563d8D"
+  morpho_address:
+    type: "address"
+    value: "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
+  swap_module:
+    type: "address"
+    value: "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
+  aave_umbrella_batch_helper:
+    type: "address"
+    value: "0xCe6Ced23118EDEb23054E06118a702797b13fc2F"
+  aavev3_core_instance:
+    type: "address"
+    value: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
+  boolean_helper_address:
+    type: "address"
+    value: "0x00c93e3b09Ca2f544487d4298339765EadCD8353"
+  key_value_store_address:
+    type: "address"
+    value: "0x7CB36b14244c7a68C4fE291C88f75Bc915aaC262"
+  flash_loan_aggregator:
+    type: "address"
+    value: "0x820D35e62Ad73a5Dc7b81d54cE993080d2064065"
+
+positions:
+  # ── Harvest-only ──────────────────────────────────────────────────
+  - id: "777"
+    group_id: "0"
+    description: "Merkl Harvest"
+    instructions: !include "./instructions/merkl.yaml"
+  - id: "778"
+    group_id: "0"
+    description: "StakeDAO USDC/crvUSD Harvest"
+    instructions: !include "./instructions/stakedao-curve-usdc-crvusd-harvest.yaml"
+  - id: "779"
+    group_id: "0"
+    description: "StakeDAO USDT/crvUSD Harvest"
+    instructions: !include "./instructions/stakedao-curve-usdt-crvusd-harvest.yaml"
+  - id: "780"
+    group_id: "0"
+    description: "Convex tBTC/cbBTC Harvest"
+    instructions: !include "./instructions/convex-curve-tbtc-cbbtc-harvest.yaml"
+  - id: "781"
+    group_id: "0"
+    description: "Convex cbBTC/WBTC Harvest"
+    instructions: !include "./instructions/convex-curve-cbbtc-wbtc-harvest.yaml"
+  - id: "782"
+    group_id: "0"
+    description: "Fluid Rewards Harvest"
+    instructions: !include "./instructions/fluid-harvest.yaml"
+
+  # ── Morpho Borrow WBTC/USDT (group_id: 1) ─────────────────────────
+  - id: "267817327015029666442373327908997100870"
+    group_id: "1"
+    description: "Morpho WBTC collateral (market: 0xa921...df99)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      label: "WBTC/USDT (0xa921...df99)"
+      market_id: "0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99"
+      collateral_token: ${token_list.mainnet.WBTC}
+  - id: "228481923040099053229178665275904234712"
+    group_id: "1"
+    description: "Morpho USDT debt (market: 0xa921...df99)"
+    instructions: !include "../../../instructions/morpho-market-debt.yaml"
+    vars:
+      label: "WBTC/USDT (0xa921...df99)"
+      market_id: "0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99"
+      loan_token: ${token_list.mainnet.USDT}
+
+  # ── Morpho Vaults ─────────────────────────────────────────────────
+  - id: "276843631519342658565251846836976075217"
+    group_id: "0"
+    description: "Morpho Vault PYUSD Steakhouse"
+    instructions: !include "./instructions/morpho-vault-pyusd-steakhouse.yaml"
+    position_tokens: ["0xbEEF02e5E13584ab96848af90261f0C8Ee04722a"]
+  - id: "273739676753663843967743313854543738189"
+    group_id: "0"
+    description: "Morpho Vault Sentora PYUSD Main"
+    instructions: !include "./instructions/morpho-vault-pyusd-sentora.yaml"
+    position_tokens: ["0xb576765fB15505433aF24FEe2c0325895C559FB2"]
+  - id: "77590748279218246310796884579338401703"
+    group_id: "0"
+    description: "Morpho Vault USDC Smokehouse"
+    instructions: !include "./instructions/morpho-vault-usdc-smokehouse.yaml"
+    position_tokens: ["0xBEeFFF209270748ddd194831b3fa287a5386f5bC"]
+  - id: "17061035571148818108247152255835793366"
+    group_id: "0"
+    description: "Morpho Vault USDT Gauntlet Frontier"
+    instructions: !include "./instructions/morpho-vault-usdt-gauntlet-frontier.yaml"
+    position_tokens: ["0x79FD640000F8563A866322483524a4b48f1Ed702"]
+  - id: "154947354046260442958384373569470359355"
+    group_id: "0"
+    description: "Morpho Vault USDT Steakhouse High Yield Instant"
+    instructions: !include "./instructions/morpho-vault-usdt-steakhouse-hyi.yaml"
+    position_tokens: ["0xbeeff07d991C04CD640DE9F15C08ba59c4FEDEb7"]
+  - id: "128264429154381135287798106504544985667"
+    group_id: "0"
+    description: "Morpho Vault USDC Steakhouse Reservoir"
+    instructions: !include "./instructions/morpho-vault-usdc-steakhouse-reservoir.yaml"
+    position_tokens: ["0xbeEF346d7099865208Ff331e4f648f4154DDAa05"]
+
+  # ── Morpho Lending ────────────────────────────────────────────────
+  - id: "71113914840865297411820908650005851500"
+    group_id: "0"
+    description: "Morpho USDC loan (market: 0xe1b6...9f33)"
+    instructions: !include "./instructions/morpho-lend-usdc-0xe1b6-9f33.yaml"
+  - id: "198365794357713121663437391781507015468"
+    group_id: "0"
+    description: "Morpho USDC loan (market: 0xe83d...f52)"
+    instructions: !include "./instructions/morpho-lend-usdc-0xe83d-f52.yaml"
+  - id: "291062152605597837930353323194433330335"
+    group_id: "0"
+    description: "Morpho USDC loan (market: 0xbbf7...c99)"
+    instructions: !include "./instructions/morpho-lend-usdc-0xbbf7-c99.yaml"
+  - id: "164058979045362534424085566303319223179"
+    group_id: "0"
+    description: "Morpho USDC loan (market: 0x9bc9...d79)"
+    instructions: !include "./instructions/morpho-lend-usdc-0x9bc9-d79.yaml"
+  - id: "120965581111816380909241012581664688373"
+    group_id: "0"
+    description: "Morpho USDT loan (market: 0xfb83...6e28)"
+    instructions: !include "./instructions/morpho-lend-usdt-0xfb83-6e28.yaml"
+
+  # ── Aave Umbrella ─────────────────────────────────────────────────
+  # - id: "214758391026483752910384756102938475610"
+  #   group_id: "0"
+  #   description: "Aave Umbrella USDC"
+  #   instructions: !include "./instructions/aave-umbrella-usdc.yaml"
+  #   position_tokens: ["0x6bf183243FdD1e306ad2C4450BC7dcf6f0bf8Aa6"]
+  - id: "192837465019283746501928374650192837465"
+    group_id: "0"
+    description: "Aave Umbrella USDT"
+    instructions: !include "./instructions/aave-umbrella-usdt.yaml"
+    position_tokens: ["0xA484Ab92fe32B143AEE7019fC1502b1dAA522D31"]
+  # - id: "305917264830591726483059172648305917264"
+  #   group_id: "0"
+  #   description: "Aave Umbrella GHO"
+  #   instructions: !include "./instructions/aave-umbrella-gho.yaml"
+  #   position_tokens: ["0x4f827A63755855cDf3e8f3bcD20265C833f15033"]
+
+  # ── AaveV3 Supply (group_id: 2) ────────────────────────────────────
+  - id: "332697612920998824307877708016163852818"
+    group_id: "2"
+    description: "AaveV3 Supply USDC"
+    instructions: !include "../../../instructions/aavev3-supply.yaml"
+    position_tokens: ["0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c"]
+    vars:
+      label: "USDC - Lend"
+      asset_address: ${token_list.mainnet.USDC}
+      aave_token: "0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+  - id: "232678016241942897729445069841802885622"
+    group_id: "2"
+    description: "AaveV3 Supply USDT"
+    instructions: !include "./instructions/aavev3-supply-usdt.yaml"
+    position_tokens: ["0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a"]
+  - id: "154527051821373524649523573070693712755"
+    group_id: "2"
+    description: "AaveV3 Supply WBTC"
+    instructions: !include "../../../instructions/aavev3-supply.yaml"
+    position_tokens: ["0x5Ee5bf7ae06D1Be5997A1A72006FE6C607eC6DE8"]
+    vars:
+      label: "WBTC - Lend"
+      asset_address: ${token_list.mainnet.WBTC}
+      aave_token: "0x5Ee5bf7ae06D1Be5997A1A72006FE6C607eC6DE8"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+
+  # ── AaveV3 Borrow (group_id: 2) ──────────────────────────────────
+  - id: "227329230297595858214811008018294296109"
+    group_id: "2"
+    description: "AaveV3 Borrow USDC"
+    instructions: !include "../../../instructions/aavev3-borrow.yaml"
+    position_tokens: ["0x72E95b8931767C79bA4EeE721354d6E99a61D004"]
+    vars:
+      label: "USDC - Borrow"
+      asset_address: ${token_list.mainnet.USDC}
+      debt_token: "0x72E95b8931767C79bA4EeE721354d6E99a61D004"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+  - id: "117961051486591206861124901427435972709"
+    group_id: "2"
+    description: "AaveV3 Borrow USDT"
+    instructions: !include "../../../instructions/aavev3-borrow.yaml"
+    position_tokens: ["0x6df1C1E379bC5a00a7b4C6e67A203333772f45A8"]
+    vars:
+      label: "USDT - Borrow"
+      asset_address: ${token_list.mainnet.USDT}
+      debt_token: "0x6df1C1E379bC5a00a7b4C6e67A203333772f45A8"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+  - id: "111436238291175944391949776940670395617"
+    group_id: "2"
+    description: "AaveV3 Borrow USDtb"
+    instructions: !include "../../../instructions/aavev3-borrow.yaml"
+    position_tokens: ["0xeA85A065f87FE28aA8FBF0D6c7dEC472b106252c"]
+    vars:
+      label: "USDtb - Borrow"
+      asset_address: ${token_list.mainnet.USDtb}
+      debt_token: "0xeA85A065f87FE28aA8FBF0D6c7dEC472b106252c"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+  - id: "14670645297388805224525324151692762826"
+    group_id: "2"
+    description: "AaveV3 Borrow USDe"
+    instructions: !include "../../../instructions/aavev3-borrow.yaml"
+    position_tokens: ["0x015396E1F286289aE23a762088E863b3ec465145"]
+    vars:
+      label: "USDe - Borrow"
+      asset_address: ${token_list.mainnet.USDe}
+      debt_token: "0x015396E1F286289aE23a762088E863b3ec465145"
+      aave_pool_instance: "${config.aavev3_core_instance}"
+
+  # ── Fluid ─────────────────────────────────────────────────────────
+  - id: "338141752729787505783999544633498401629"
+    group_id: "0"
+    description: "Fluid GHO Vault position"
+    instructions: !include "./instructions/fluid-gho.yaml"
+    position_tokens: ["0x6A29A46E21C730DcA1d8b23d637c101cec605C5B"]
+
+  # ── Across ────────────────────────────────────────────────────────
+  - id: "123192521623976071645788415303197491355"
+    group_id: "0"
+    description: "Across V2 WBTC"
+    instructions: !include "./instructions/across-v2-wbtc.yaml"
+    position_tokens: ["0x59c1427c658e97a7d568541dac780b2e5c8affb4"]
+
+  # ── Makina ───────────────────────────────────────────────────────
+  - id: "257907866263469253975271928750178105060"
+    group_id: "0"
+    description: "Makina DUSD"
+    instructions: !include "../../../instructions/makina.yaml"
+    position_tokens: ["0x1e33E98AF620F1D563fCD3cfD3c75ACe841204ef"]
+    vars:
+      label: "DUSD"
+      machine_token: "0x1e33E98AF620F1D563fCD3cfD3c75ACe841204ef"
+      machine: "0x6b006870C83b1Cd49E766Ac9209f8d68763Df721"
+      depositor: "0x94B1828F91c150C5E6776198e170aCa4304903d7"
+      redeemer: "0x1303c26cFE06bac5bfEE29907f37919643DEF75c"
+      accounting_token: ${token_list.mainnet.USDC}
+      # keccak256("makina.mainnet.dusd.redemption_request_id")
+      redemption_request_id_key: "0x8134214dae542e89e9da9bf898cce9ad9d0bd9a3c9c8bc487ebc62a4e916fd3d"
+      # keccak256("makina.mainnet.dusd.pending_redemption_share_amount")
+      pending_redemption_share_amount_key: "0xac0ec79dcce79f61142b7d5733bbb493647dcc32c18fdc97d06e9a4b7d39eaef"
+
+  # ── Morpho Borrow cbBTC/USDC (group_id: 3) ────────────────────────
+  - id: "332394650277740717569616982865246707996"
+    group_id: "3"
+    description: "Morpho cbBTC collateral (market: 0x64d6...cc64)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      label: "cbBTC/USDC (0x64d6...cc64)"
+      market_id: "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+      collateral_token: ${token_list.mainnet.cbBTC}
+  - id: "312910479406993719554638769242155700507"
+    group_id: "3"
+    description: "Morpho USDC debt (market: 0x64d6...cc64)"
+    instructions: !include "../../../instructions/morpho-market-debt.yaml"
+    vars:
+      label: "cbBTC/USDC (0x64d6...cc64)"
+      market_id: "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+      loan_token: ${token_list.mainnet.USDC}
+
+  # ── Morpho Borrow cbBTC/PYUSD (group_id: 4) ──────────────────────
+  - id: "76187594814739504457272358549676087055"
+    group_id: "4"
+    description: "Morpho cbBTC collateral (market: 0xd8a8...2323)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      label: "cbBTC/PYUSD (0xd8a8...2323)"
+      market_id: "0xd8a8e6667f58aa9229e8979bd619742b1660ee856c200a93e407dbccb7222323"
+      collateral_token: ${token_list.mainnet.cbBTC}
+  - id: "36256656678408652350444967916537968508"
+    group_id: "4"
+    description: "Morpho PYUSD debt (market: 0xd8a8...2323)"
+    instructions: !include "../../../instructions/morpho-market-debt.yaml"
+    vars:
+      label: "cbBTC/PYUSD (0xd8a8...2323)"
+      market_id: "0xd8a8e6667f58aa9229e8979bd619742b1660ee856c200a93e407dbccb7222323"
+      loan_token: ${token_list.mainnet.PYUSD}
+
+  # ── Morpho Borrow cbBTC/RLUSD (group_id: 5) ──────────────────────
+  - id: "319451093531069235108309474750479960434"
+    group_id: "5"
+    description: "Morpho cbBTC collateral (market: 0xffd0...39bc)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      label: "cbBTC/RLUSD (0xffd0...39bc)"
+      market_id: "0xffd010618ed3cb39bb2c5de0e3e58d3d2ec9f52187a180f29723c31756a939bc"
+      collateral_token: ${token_list.mainnet.cbBTC}
+  - id: "180259573039435666454981564615824393430"
+    group_id: "5"
+    description: "Morpho RLUSD debt (market: 0xffd0...39bc)"
+    instructions: !include "../../../instructions/morpho-market-debt.yaml"
+    vars:
+      label: "cbBTC/RLUSD (0xffd0...39bc)"
+      market_id: "0xffd010618ed3cb39bb2c5de0e3e58d3d2ec9f52187a180f29723c31756a939bc"
+      loan_token: ${token_list.mainnet.RLUSD}
+
+  # ── Morpho Borrow WBTC/USDC (group_id: 6) ────────────────────────
+  - id: "171525091715730492381236890549564382999"
+    group_id: "6"
+    description: "Morpho WBTC collateral (market: 0x3a85...ee49)"
+    instructions: !include "../../../instructions/morpho-market-collateral.yaml"
+    vars:
+      label: "WBTC/USDC (0x3a85...ee49)"
+      market_id: "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+      collateral_token: ${token_list.mainnet.WBTC}
+  - id: "174766438193409983501201886336714776584"
+    group_id: "6"
+    description: "Morpho USDC debt (market: 0x3a85...ee49)"
+    instructions: !include "../../../instructions/morpho-market-debt.yaml"
+    vars:
+      label: "WBTC/USDC (0x3a85...ee49)"
+      market_id: "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49"
+      loan_token: ${token_list.mainnet.USDC}
+
+  # ── Morpho Loops ─────────────────────────────────────────────────
+  - id: "219384756102938475610293847561029384756"
+    group_id: "0"
+    description: "syrupUSDC/USDC Morpho Loop"
+    instructions: !include "./instructions/morpho-loop-syrupusdc-usdc.yaml"
+  - id: "318274659201837465920183746592018374659"
+    group_id: "0"
+    description: "syrupUSDT/USDT Morpho Loop"
+    instructions: !include "./instructions/morpho-loop-syrupusdt-usdt.yaml"

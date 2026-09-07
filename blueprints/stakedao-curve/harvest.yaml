@@ -1,0 +1,23 @@
+protocol: "stakedao-curve"
+
+inputs:
+  stakedao_accountant_address:
+    type: "address"
+  curve_gauge_address:
+    type: "address"
+
+actions:
+  harvest:
+    calls:
+      - description: "Claim rewards for Curve gauge from Accountant"
+        target: "${inputs.stakedao_accountant_address}"
+        selector: "claim(address[],bytes[])"
+        parameters:
+          - type: "address[]"
+            value:
+              - type: "address"
+                value: "${inputs.curve_gauge_address}"
+          - type: "bytes[]"
+            value:
+              - type: "bytes"
+                value: ""

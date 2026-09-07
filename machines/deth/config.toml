@@ -1,0 +1,61 @@
+name = "deth"
+chain = "mainnet"
+address = "0x0447d0ad7fd6a3409b48ecbb9ddb075c1e11d735"
+
+[calibers.mainnet]
+address = "0xd1a2d9df5db842da2ee81075fa441602b2352915"
+swapper = "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
+rootfiles = "github:MakinaHQ/makina-integrations/machines/deth/mainnet/rootfiles"
+
+[calibers.mainnet.accounting_token]
+address = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+decimals = 18
+name = "Wrapped Ether"
+symbol = "WETH"
+
+[calibers.base]
+address = "0xd1a2d9df5db842da2ee81075fa441602b2352915"
+swapper = "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
+rootfiles = "github:MakinaHQ/makina-integrations/machines/deth/base/rootfiles"
+
+[calibers.base.accounting_token]
+address = "0x4200000000000000000000000000000000000006"
+decimals = 18
+name = "Wrapped Ether"
+symbol = "WETH"
+
+[calibers.arbitrum]
+address = "0xd1a2d9df5db842da2ee81075fa441602b2352915"
+swapper = "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
+rootfiles = "github:MakinaHQ/makina-integrations/machines/deth/arbitrum/rootfiles"
+
+[calibers.arbitrum.accounting_token]
+address = "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+decimals = 18
+name = "Wrapped Ether"
+symbol = "WETH"
+
+[calibers.monad]
+address = "0xd1a2d9df5db842da2ee81075fa441602b2352915"
+swapper = "0x923c98b22F9c367A109E93f7dfBaCa28b20C17C3"
+rootfiles = "github:MakinaHQ/makina-integrations/machines/deth/monad/rootfiles"
+
+[calibers.monad.accounting_token]
+address = "0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242"
+decimals = 18
+name = "Wrapped Ether"
+symbol = "WETH"
+
+[ntt.mainnet]
+token = "0x871aB8E36CaE9AF35c6A3488B049965233DeB7ed"
+manager = "0x02eCA64b489847183Ccd4952e424314EF798Af5d"
+
+[ntt.mainnet.transceivers]
+wormhole = "0x7463f4d691e843e4Ab58C7e0A3f9c16c857091c0"
+
+[ntt.ink]
+token = "0x6Cfc4D189C2E7D7891c2E5934B7d3978bC70D1FE"
+manager = "0x02eCA64b489847183Ccd4952e424314EF798Af5d"
+
+[ntt.ink.transceivers]
+wormhole = "0x7463f4d691e843e4Ab58C7e0A3f9c16c857091c0"
