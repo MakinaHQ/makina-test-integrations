@@ -1,0 +1,23 @@
+# Gas Top Up: fixed recipient and amount only.
+# Derived from MakinaHQ/makina-test-integrations@b943c5fe65ac370998a104f5d8b18fd98c46b0d4.
+# Repetition is permitted; this is a per-call amount, not a cumulative cap.
+- name: unwrap_and_transfer_native_fixed
+  is_debt: false
+  instruction_type: "HARVEST"
+  affected_tokens: []
+  instruction:
+    label: ${position.label}
+    path: "../../../blueprints-x/transfer/transfer-native.yaml:unwrap_and_transfer_native_fixed"
+    inputs:
+      wrapped_native_address:
+        type: "address"
+        value: ${position.wrapped_native_address}
+      unwrap_forwarder:
+        type: "address"
+        value: ${position.unwrap_forwarder}
+      to:
+        type: "address"
+        value: ${position.to}
+      amount:
+        type: "uint256"
+        value: ${position.amount}
