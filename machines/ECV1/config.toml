@@ -1,0 +1,28 @@
+# Engine Canary V1 machine
+# https://operator.makina.finance/dashboard/strategies/0xabaa08944A8471DE0180dF0FD72f1153B285590d
+
+name = "ECV1"
+chain = "mainnet"
+address = "0xabaa08944A8471DE0180dF0FD72f1153B285590d"
+
+[calibers.mainnet]
+address = "0xD87Fe1f32565C7840603700D01129bceF060fc16"
+swapper = "0xab2022E642D6D16EC2Eb2a0a38DC27A83C4Aa940"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/ECV1/mainnet/rootfiles"
+
+[calibers.mainnet.accounting_token]
+address = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
+
+[calibers.base]
+address = "0xD87Fe1f32565C7840603700D01129bceF060fc16"
+swapper = "0xab2022E642D6D16EC2Eb2a0a38DC27A83C4Aa940"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/ECV1/base/rootfiles"
+
+[calibers.base.accounting_token]
+address = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
