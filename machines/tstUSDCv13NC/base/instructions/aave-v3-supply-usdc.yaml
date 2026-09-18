@@ -1,0 +1,50 @@
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+  instruction:
+    label: "USDC"
+    path: "../../../blueprints/aave/deposit.yaml:add_collateral"
+    inputs:
+      asset_address:
+        type: "address"
+        value: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      aave_pool_instance:
+        type: "address"
+        value: ${config.aave_v3_address}
+      on_behalf_of:
+        type: "address"
+        value: ${config.caliber_address}
+
+- is_debt: false
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+  instruction:
+    label: "USDC"
+    path: "../../../blueprints/aave/withdraw.yaml:withdraw_collateral"
+    inputs:
+      to:
+        type: "address"
+        value: ${config.caliber_address}
+      asset_address:
+        type: "address"
+        value: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      aave_pool_instance:
+        type: "address"
+        value: ${config.aave_v3_address}
+
+- is_debt: false
+  instruction_type: "ACCOUNTING"
+  affected_tokens:
+    - "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+  instruction:
+    label: "USDC"
+    path: "../../../blueprints/aave/account.yaml:account"
+    inputs:
+      aave_token:
+        type: "address"
+        value: "0x4e65fE4DbA92790696d040ac24Aa414708F5c0AB" # aBasUSDC
+      account:
+        type: "address"
+        value: ${config.caliber_address}

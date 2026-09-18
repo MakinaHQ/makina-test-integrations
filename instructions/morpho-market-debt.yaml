@@ -16,9 +16,9 @@
       executor_helper_address:
         type: "address"
         value: "${config.caliber_helper_address}"
-      context_helper_address:
+      caliber_address:
         type: "address"
-        value: ${config.context_helper_address}
+        value: "${config.caliber_address}"
 
 # repay asset
 - is_debt: true
@@ -41,9 +41,9 @@
       loan_token:
         type: "address"
         value: ${position.token_address}
-      context_helper_address:
+      caliber_address:
         type: "address"
-        value: ${config.context_helper_address}
+        value: "${config.caliber_address}"
 
 # account for position debt
 - is_debt: true
@@ -66,6 +66,6 @@
       unsigned_math_helper:
         type: "address"
         value: "${config.unsigned_math_helper_address}"
-      context_helper_address:
+      subject:
         type: "address"
-        value: ${config.context_helper_address}
+        value: "${config.caliber_address}"
