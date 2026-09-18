@@ -1,0 +1,56 @@
+- is_debt: true
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0x4200000000000000000000000000000000000006" # WETH
+  instruction:
+    label: "WETH"
+    path: "../../../blueprints/aave/borrow.yaml:borrow_asset"
+    inputs:
+      token:
+        type: "address"
+        value: "0x4200000000000000000000000000000000000006" # WETH
+      interest_rate_mode:
+        type: "uint256"
+        value: "2"
+      referral_code:
+        type: "uint256"
+        value: "0"
+      aave_pool_instance:
+        type: "address"
+        value: ${config.aave_v3_address}
+      receiver:
+        type: "address"
+        value: ${config.caliber_address}
+
+- is_debt: true
+  instruction_type: "ACCOUNTING"
+  affected_tokens:
+    - "0x4200000000000000000000000000000000000006" # WETH
+  instruction:
+    label: "WETH"
+    path: "../../../blueprints/aave/account.yaml:account"
+    inputs:
+      aave_token:
+        type: "address"
+        value: "0x24e6e0795b3c7c71D965fCc4f371803d1c1DcA1E" # variableDebtBasWETH
+      account:
+        type: "address"
+        value: ${config.caliber_address}
+
+- is_debt: true
+  instruction_type: "MANAGEMENT"
+  affected_tokens:
+    - "0x4200000000000000000000000000000000000006" # WETH
+  instruction:
+    label: "WETH"
+    path: "../../../blueprints/aave/repay.yaml:repay_asset"
+    inputs:
+      token_address:
+        type: "address"
+        value: "0x4200000000000000000000000000000000000006" # WETH
+      pool_address:
+        type: "address"
+        value: ${config.aave_v3_address}
+      caliber_address:
+        type: "address"
+        value: ${config.caliber_address}

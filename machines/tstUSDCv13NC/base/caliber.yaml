@@ -1,3 +1,53 @@
-config: {}
+config:
+  caliber_address:
+    type: "address"
+    value: "0x349e525Fa5D251D98980E387132D435608cFd9E4"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x3D623B199E290358416415eA7e05B635E442e3c0"
+  aave_v3_address:
+    type: "address"
+    value: "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5"
 
-positions: []
+positions:
+  # Morpho Vaults
+  - id: "72334253190077231487202040235925654714397780360015283900189589678848567849884" # keccak256("8453.1.vault.0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61")
+    group_id: "0"
+    description: "Morpho Vault Gauntlet USDC Prime"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "Gauntlet USDC Prime"
+      asset_address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      vault_address: "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+  - id: "4148667362119946134208228209463684324936996377358549328784300874760080848637" # keccak256("8453.1.vault.0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a")
+    group_id: "0"
+    description: "Morpho Vault Spark USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "Spark USDC"
+      asset_address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      vault_address: "0x7BfA7C4f149E7415b73bdeDfe609237e29CBF34A"
+  - id: "14523639472016899474685040679031268882804262248966173777422878776615686949418" # keccak256("8453.1.vault.0xbeefe94c8ad530842bfe7d8b397938ffc1cb83b2")
+    group_id: "0"
+    description: "Morpho Vault Steakhouse Prime USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "Steakhouse Prime USDC"
+      asset_address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      vault_address: "0xBEEFE94c8aD530842bfE7d8B397938fFc1cb83b2"
+
+  # Aave v3
+  - id: "332697612920998824307877708016163852818"
+    group_id: "1"
+    description: "Aave v3 Supply USDC"
+    instructions: !include "./instructions/aave-v3-supply-usdc.yaml"
+  - id: "117961051486591206861124901427435972709"
+    group_id: "1"
+    description: "Aave v3 Borrow WETH"
+    instructions: !include "./instructions/aave-v3-borrow-weth.yaml"
+
+  # Harvest
+  - id: "777"
+    group_id: "0"
+    description: "Merkl Harvest"
+    instructions: !include "./instructions/merkl.yaml"
