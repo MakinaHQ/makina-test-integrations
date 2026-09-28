@@ -75,8 +75,15 @@ actions:
   #
   # Slot layout matches every shipped accounting action (`blueprints/morpho/
   # account.yaml` and the rest): the value, then UINT256_MAX.
+  #
+  # The one call below exists only so the accounting compiles to a non-empty
+  # command list; its result is never read and the value stays the constant 0.
   account_approval:
-    calls: []
+    calls:
+      - description: "Read token decimals without assigning a result; allowance NAV remains constant zero"
+        target: ${inputs.token_address}
+        selector: "decimals()"
+        parameters: []
     reserved_slots:
       - type: "uint256"
         value: "0"
