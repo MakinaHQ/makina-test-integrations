@@ -1,0 +1,28 @@
+# Test machine deployed on the test v1.3 infrastructure
+# https://operator.makina.finance/dashboard/strategies/tstusdcv13c
+
+name = "tstUSDCv13C"
+chain = "mainnet"
+address = "0xc7d2928c763c3db3632c66E85607974A9807Be02"
+
+[calibers.mainnet]
+address = "0x6fC782CB975548094AFc662967Ab15b4D379F275"
+swapper = "0xab2022E642D6D16EC2Eb2a0a38DC27A83C4Aa940"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDCv13C/mainnet/rootfiles"
+
+[calibers.mainnet.accounting_token]
+address = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
+
+[calibers.base]
+address = "0x6fC782CB975548094AFc662967Ab15b4D379F275"
+swapper = "0xab2022E642D6D16EC2Eb2a0a38DC27A83C4Aa940"
+rootfiles = "github:MakinaHQ/makina-test-integrations/machines/tstUSDCv13C/base/rootfiles"
+
+[calibers.base.accounting_token]
+address = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+decimals = 6
+name = "USD Coin"
+symbol = "USDC"
