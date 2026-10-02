@@ -195,6 +195,7 @@ bitmap = "148873535527910577765226390751398592512"
 [[instructions."Aave Umbrella".stake.GHO.inputs_slots]]
 index = 0
 name = "amount_to_stake"
+description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
 
 [instructions."Aave Umbrella".stake.USDC]
@@ -220,6 +221,7 @@ bitmap = "148873535527910577765226390751398592512"
 [[instructions."Aave Umbrella".stake.USDC.inputs_slots]]
 index = 0
 name = "amount_to_stake"
+description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
 
 [instructions."Aave Umbrella".stake.USDT]
@@ -245,6 +247,7 @@ bitmap = "148873535527910577765226390751398592512"
 [[instructions."Aave Umbrella".stake.USDT.inputs_slots]]
 index = 0
 name = "amount_to_stake"
+description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
 
 [instructions."Aave Umbrella".start_cooldown.GHO]
@@ -344,6 +347,7 @@ bitmap = "159507359494189904748456847233641349120"
 [[instructions.aavev3.add_collateral.USDC.inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "The amount of tokens to add as collateral"
 type = "Uint"
 
 [instructions.aavev3.add_collateral.USDT]
@@ -370,6 +374,7 @@ bitmap = "159507359494189904748456847233641349120"
 [[instructions.aavev3.add_collateral.USDT.inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "The amount of tokens to add as collateral"
 type = "Uint"
 
 [instructions.aavev3.withdraw_collateral.USDC]
@@ -391,6 +396,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.aavev3.withdraw_collateral.USDC.inputs_slots]]
 index = 0
 name = "amount_collateral_to_withdraw"
+description = "The amount of collateral to withdraw"
 type = "Uint"
 
 [instructions.aavev3.withdraw_collateral.USDT]
@@ -412,6 +418,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.aavev3.withdraw_collateral.USDT.inputs_slots]]
 index = 0
 name = "amount_collateral_to_withdraw"
+description = "The amount of collateral to withdraw"
 type = "Uint"
 
 [instructions.convex-curve.account_in_coin0."USDC/crvUSD"]
@@ -504,16 +511,19 @@ bitmap = "39876839873547476187114211808410337280"
 [[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots]]
 index = 0
 name = "amount_tokena"
+description = "The amount of asset A to deposit in the Curve pool"
 type = "Uint"
 
 [[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
+description = "The amount of asset B to deposit in the Curve pool"
 type = "Uint"
 
 [[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
+description = "The minimum amount of LP tokens to receive from Curve"
 type = "Uint"
 
 [instructions.convex-curve.deposit."USDT/crvUSD"]
@@ -548,16 +558,19 @@ bitmap = "39876839873547476187114211808410337280"
 [[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots]]
 index = 0
 name = "amount_tokena"
+description = "The amount of asset A to deposit in the Curve pool"
 type = "Uint"
 
 [[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
+description = "The amount of asset B to deposit in the Curve pool"
 type = "Uint"
 
 [[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
+description = "The minimum amount of LP tokens to receive from Curve"
 type = "Uint"
 
 [instructions.convex-curve.harvest."USDC/crvUSD"]
@@ -618,16 +631,19 @@ bitmap = "21267647932558653966460912964485513216"
 [[instructions.convex-curve.withdraw_balanced."USDC/crvUSD".inputs_slots]]
 index = 0
 name = "amount_to_withdraw"
+description = "The amount of LP tokens to withdraw from Convex"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced."USDC/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.convex-curve.withdraw_balanced."USDT/crvUSD"]
@@ -656,16 +672,19 @@ bitmap = "21267647932558653966460912964485513216"
 [[instructions.convex-curve.withdraw_balanced."USDT/crvUSD".inputs_slots]]
 index = 0
 name = "amount_to_withdraw"
+description = "The amount of LP tokens to withdraw from Convex"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced."USDT/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced."USDT/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.convex-curve.withdraw_balanced_relative."USDC/crvUSD"]
@@ -698,16 +717,19 @@ bitmap = "37218383881977644441306597687849648128"
 [[instructions.convex-curve.withdraw_balanced_relative."USDC/crvUSD".inputs_slots]]
 index = 0
 name = "bps_to_withdraw"
+description = "The percentage of LP tokens to withdraw from Convex, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced_relative."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive (slippage protection)"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced_relative."USDC/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive (slippage protection)"
 type = "Uint"
 
 [instructions.convex-curve.withdraw_balanced_relative."USDT/crvUSD"]
@@ -740,16 +762,19 @@ bitmap = "37218383881977644441306597687849648128"
 [[instructions.convex-curve.withdraw_balanced_relative."USDT/crvUSD".inputs_slots]]
 index = 0
 name = "bps_to_withdraw"
+description = "The percentage of LP tokens to withdraw from Convex, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced_relative."USDT/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive (slippage protection)"
 type = "Uint"
 
 [[instructions.convex-curve.withdraw_balanced_relative."USDT/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive (slippage protection)"
 type = "Uint"
 
 [instructions.curve.account_in_coin0."PYUSD/crvUSD"]
@@ -841,16 +866,19 @@ bitmap = "26584559915698317458076141205606891520"
 [[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots]]
 index = 0
 name = "amount_tokena"
+description = "The amount of token A to deposit"
 type = "Uint"
 
 [[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
+description = "The amount of token B to deposit"
 type = "Uint"
 
 [[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
+description = "The minimum amount of LP tokens to receive"
 type = "Uint"
 
 [instructions.curve.deposit."USDC/RLUSD"]
@@ -884,16 +912,19 @@ bitmap = "26584559915698317458076141205606891520"
 [[instructions.curve.deposit."USDC/RLUSD".inputs_slots]]
 index = 0
 name = "amount_tokena"
+description = "The amount of token A to deposit"
 type = "Uint"
 
 [[instructions.curve.deposit."USDC/RLUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
+description = "The amount of token B to deposit"
 type = "Uint"
 
 [[instructions.curve.deposit."USDC/RLUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
+description = "The minimum amount of LP tokens to receive"
 type = "Uint"
 
 [instructions.curve.harvest."PYUSD/crvUSD"]
@@ -977,16 +1008,19 @@ bitmap = "26584559915698317458076141205606891520"
 [[instructions.curve.withdraw_balanced."PYUSD/crvUSD".inputs_slots]]
 index = 0
 name = "amount_to_withdraw"
+description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced."PYUSD/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced."PYUSD/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.curve.withdraw_balanced."USDC/RLUSD"]
@@ -1018,16 +1052,19 @@ bitmap = "26584559915698317458076141205606891520"
 [[instructions.curve.withdraw_balanced."USDC/RLUSD".inputs_slots]]
 index = 0
 name = "amount_to_withdraw"
+description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced."USDC/RLUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced."USDC/RLUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.curve.withdraw_balanced_relative."PYUSD/crvUSD"]
@@ -1063,16 +1100,19 @@ bitmap = "34559927890407812695498983567288958976"
 [[instructions.curve.withdraw_balanced_relative."PYUSD/crvUSD".inputs_slots]]
 index = 0
 name = "bps_to_withdraw"
+description = "The percentage of gauge position to withdraw, in basis points (10000 bps = 100%)"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced_relative."PYUSD/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced_relative."PYUSD/crvUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.curve.withdraw_balanced_relative."USDC/RLUSD"]
@@ -1108,16 +1148,19 @@ bitmap = "34559927890407812695498983567288958976"
 [[instructions.curve.withdraw_balanced_relative."USDC/RLUSD".inputs_slots]]
 index = 0
 name = "bps_to_withdraw"
+description = "The percentage of gauge position to withdraw, in basis points (10000 bps = 100%)"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced_relative."USDC/RLUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
+description = "Minimum amount of token A to receive"
 type = "Uint"
 
 [[instructions.curve.withdraw_balanced_relative."USDC/RLUSD".inputs_slots]]
 index = 2
 name = "min_token_b"
+description = "Minimum amount of token B to receive"
 type = "Uint"
 
 [instructions.fluid.account.GHO]
@@ -1163,11 +1206,13 @@ bitmap = "63802943797675961899382738893456539648"
 [[instructions.fluid.deposit.GHO.inputs_slots]]
 index = 0
 name = "asset_amount"
+description = "The amount of underlying asset to deposit into the Fluid vault"
 type = "Uint"
 
 [[instructions.fluid.deposit.GHO.inputs_slots]]
 index = 1
 name = "min_vault_shares"
+description = "The minimum amount of vault shares to receive (slippage protection)"
 type = "Uint"
 
 [instructions.fluid.harvest."ETH/USDC-USDT Fluid Rewards"]
@@ -1378,6 +1423,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.fluid.redeem.GHO.inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The exact amount of vault shares to redeem"
 type = "Uint"
 
 [instructions.fluid.redeem_relative.GHO]
@@ -1404,6 +1450,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.fluid.redeem_relative.GHO.inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "Basis points of vault share balance to redeem (10000 = 100%)"
 type = "Uint"
 
 [instructions.merkl.harvest.Merkl]
@@ -1593,6 +1640,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Sentora PYUSD".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.deposit_vault."Sentora RLUSD"]
@@ -1617,6 +1665,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Sentora RLUSD".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.deposit_vault."Smokehouse Reservoir USDC"]
@@ -1641,6 +1690,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Smokehouse Reservoir USDC".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.deposit_vault."Smokehouse USDC"]
@@ -1665,6 +1715,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.deposit_vault."Steakhouse PYUSD"]
@@ -1689,6 +1740,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Steakhouse PYUSD".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Sentora PYUSD"]
@@ -1709,6 +1761,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Sentora PYUSD".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Sentora RLUSD"]
@@ -1729,6 +1782,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Sentora RLUSD".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Smokehouse Reservoir USDC"]
@@ -1749,6 +1803,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Smokehouse Reservoir USDC".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
@@ -1769,6 +1824,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Steakhouse PYUSD"]
@@ -1789,6 +1845,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Steakhouse PYUSD".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Sentora PYUSD"]
@@ -1815,6 +1872,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Sentora PYUSD".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Sentora RLUSD"]
@@ -1841,6 +1899,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Sentora RLUSD".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Smokehouse Reservoir USDC"]
@@ -1867,6 +1926,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Smokehouse Reservoir USDC".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Smokehouse USDC"]
@@ -1893,6 +1953,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Steakhouse PYUSD"]
@@ -1919,4 +1980,5 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Steakhouse PYUSD".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"

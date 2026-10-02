@@ -50,6 +50,7 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
@@ -70,6 +71,7 @@ bitmap = "85070591730234615865843651857942052864"
 [[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
 type = "Uint"
 
 [instructions.morpho.redeem_vault_relative."Smokehouse USDC"]
@@ -96,4 +98,5 @@ bitmap = "127605887595351923798765477786913079296"
 [[instructions.morpho.redeem_vault_relative."Smokehouse USDC".inputs_slots]]
 index = 0
 name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
 type = "Uint"
