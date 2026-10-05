@@ -198,6 +198,9 @@ name = "amount_to_stake"
 description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
 
+[instructions."Aave Umbrella".stake.GHO.inputs_slots.input_type.amount]
+token = "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f"
+
 [instructions."Aave Umbrella".stake.USDC]
 position_id = "176021688445186810403025048632929053161"
 description = "Aave Umbrella USDC"
@@ -224,6 +227,9 @@ name = "amount_to_stake"
 description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
 
+[instructions."Aave Umbrella".stake.USDC.inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions."Aave Umbrella".stake.USDT]
 position_id = "293691712937964969352275672791079139559"
 description = "Aave Umbrella USDT"
@@ -249,6 +255,9 @@ index = 0
 name = "amount_to_stake"
 description = "The amount of the underlying asset to deposit into Aave Umbrella module."
 type = "Uint"
+
+[instructions."Aave Umbrella".stake.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
 
 [instructions."Aave Umbrella".start_cooldown.GHO]
 position_id = "229457643934747132111107431329088218367"
@@ -350,6 +359,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral.USDC.inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.add_collateral.USDT]
 position_id = "232678016241942897729445069841802885622"
 description = "AaveV3 Supply USDT"
@@ -377,6 +389,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+
 [instructions.aavev3.withdraw_collateral.USDC]
 position_id = "332697612920998824307877708016163852818"
 description = "AaveV3 Supply USDC"
@@ -399,6 +414,9 @@ name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
 
+[instructions.aavev3.withdraw_collateral.USDC.inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.withdraw_collateral.USDT]
 position_id = "232678016241942897729445069841802885622"
 description = "AaveV3 Supply USDT"
@@ -420,6 +438,9 @@ index = 0
 name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
+
+[instructions.aavev3.withdraw_collateral.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
 
 [instructions.convex-curve.account_in_coin0."USDC/crvUSD"]
 position_id = "325002806383600319439358862074549790880"
@@ -514,17 +535,26 @@ name = "amount_tokena"
 description = "The amount of asset A to deposit in the Curve pool"
 type = "Uint"
 
+[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of asset B to deposit in the Curve pool"
 type = "Uint"
 
+[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+
 [[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive from Curve"
 type = "Uint"
+
+[instructions.convex-curve.deposit."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0x4dece678ceceb27446b35c672dc7d61f30bad69e"
 
 [instructions.convex-curve.deposit."USDT/crvUSD"]
 position_id = "222242215405885945120043212563500173272"
@@ -561,17 +591,26 @@ name = "amount_tokena"
 description = "The amount of asset A to deposit in the Curve pool"
 type = "Uint"
 
+[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+
 [[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of asset B to deposit in the Curve pool"
 type = "Uint"
 
+[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+
 [[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive from Curve"
 type = "Uint"
+
+[instructions.convex-curve.deposit."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0x390f3595bca2df7d23783dfd126427cceb997bf4"
 
 [instructions.convex-curve.harvest."USDC/crvUSD"]
 position_id = "325002806383600319439358862074549790880"
@@ -634,6 +673,9 @@ name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from Convex"
 type = "Uint"
 
+[instructions.convex-curve.withdraw_balanced."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0x4dece678ceceb27446b35c672dc7d61f30bad69e"
+
 [[instructions.convex-curve.withdraw_balanced."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
@@ -674,6 +716,9 @@ index = 0
 name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from Convex"
 type = "Uint"
+
+[instructions.convex-curve.withdraw_balanced."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0x390f3595bca2df7d23783dfd126427cceb997bf4"
 
 [[instructions.convex-curve.withdraw_balanced."USDT/crvUSD".inputs_slots]]
 index = 1
@@ -869,17 +914,26 @@ name = "amount_tokena"
 description = "The amount of token A to deposit"
 type = "Uint"
 
+[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots.input_type.amount]
+token = "0x6c3ea9036406852006290770bedfcaba0e23a0e8"
+
 [[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of token B to deposit"
 type = "Uint"
 
+[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots.input_type.amount]
+token = "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+
 [[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive"
 type = "Uint"
+
+[instructions.curve.deposit."PYUSD/crvUSD".inputs_slots.input_type.amount]
+token = "0x625e92624bc2d88619accc1788365a69767f6200"
 
 [instructions.curve.deposit."USDC/RLUSD"]
 position_id = "54562872644924688465793884662053422151"
@@ -915,17 +969,26 @@ name = "amount_tokena"
 description = "The amount of token A to deposit"
 type = "Uint"
 
+[instructions.curve.deposit."USDC/RLUSD".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [[instructions.curve.deposit."USDC/RLUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of token B to deposit"
 type = "Uint"
 
+[instructions.curve.deposit."USDC/RLUSD".inputs_slots.input_type.amount]
+token = "0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
+
 [[instructions.curve.deposit."USDC/RLUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive"
 type = "Uint"
+
+[instructions.curve.deposit."USDC/RLUSD".inputs_slots.input_type.amount]
+token = "0xd001ae433f254283fece51d4acce8c53263aa186"
 
 [instructions.curve.harvest."PYUSD/crvUSD"]
 position_id = "82192343698835691382596586281665913315"
@@ -1011,6 +1074,9 @@ name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
 
+[instructions.curve.withdraw_balanced."PYUSD/crvUSD".inputs_slots.input_type.amount]
+token = "0x625e92624bc2d88619accc1788365a69767f6200"
+
 [[instructions.curve.withdraw_balanced."PYUSD/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
@@ -1054,6 +1120,9 @@ index = 0
 name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
+
+[instructions.curve.withdraw_balanced."USDC/RLUSD".inputs_slots.input_type.amount]
+token = "0xd001ae433f254283fece51d4acce8c53263aa186"
 
 [[instructions.curve.withdraw_balanced."USDC/RLUSD".inputs_slots]]
 index = 1
@@ -1209,11 +1278,17 @@ name = "asset_amount"
 description = "The amount of underlying asset to deposit into the Fluid vault"
 type = "Uint"
 
+[instructions.fluid.deposit.GHO.inputs_slots.input_type.amount]
+token = "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f"
+
 [[instructions.fluid.deposit.GHO.inputs_slots]]
 index = 1
 name = "min_vault_shares"
 description = "The minimum amount of vault shares to receive (slippage protection)"
 type = "Uint"
+
+[instructions.fluid.deposit.GHO.inputs_slots.input_type.amount]
+token = "0x6a29a46e21c730dca1d8b23d637c101cec605c5b"
 
 [instructions.fluid.harvest."ETH/USDC-USDT Fluid Rewards"]
 position_id = "782"
@@ -1425,6 +1500,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The exact amount of vault shares to redeem"
 type = "Uint"
+
+[instructions.fluid.redeem.GHO.inputs_slots.input_type.amount]
+token = "0x6a29a46e21c730dca1d8b23d637c101cec605c5b"
 
 [instructions.fluid.redeem_relative.GHO]
 position_id = "187487145492373933671944618718033568251"
@@ -1643,6 +1721,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Sentora PYUSD".inputs_slots.input_type.amount]
+token = "0x6c3ea9036406852006290770bedfcaba0e23a0e8"
+
 [instructions.morpho.deposit_vault."Sentora RLUSD"]
 position_id = "101479911391298992514073662718338576961"
 description = "Morpho Vault RLUSD Sentora"
@@ -1667,6 +1748,9 @@ index = 0
 name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
+
+[instructions.morpho.deposit_vault."Sentora RLUSD".inputs_slots.input_type.amount]
+token = "0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
 
 [instructions.morpho.deposit_vault."Smokehouse Reservoir USDC"]
 position_id = "128264429154381135287798106504544985667"
@@ -1693,6 +1777,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Smokehouse Reservoir USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.deposit_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
 description = "Morpho Vault USDC Smokehouse"
@@ -1717,6 +1804,9 @@ index = 0
 name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
+
+[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 
 [instructions.morpho.deposit_vault."Steakhouse PYUSD"]
 position_id = "276843631519342658565251846836976075217"
@@ -1743,6 +1833,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Steakhouse PYUSD".inputs_slots.input_type.amount]
+token = "0x6c3ea9036406852006290770bedfcaba0e23a0e8"
+
 [instructions.morpho.redeem_vault."Sentora PYUSD"]
 position_id = "273739676753663843967743313854543738189"
 description = "Morpho Vault PYUSD Sentora"
@@ -1763,6 +1856,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Sentora PYUSD".inputs_slots.input_type.amount]
+token = "0xb576765fb15505433af24fee2c0325895c559fb2"
 
 [instructions.morpho.redeem_vault."Sentora RLUSD"]
 position_id = "101479911391298992514073662718338576961"
@@ -1785,6 +1881,9 @@ name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
 
+[instructions.morpho.redeem_vault."Sentora RLUSD".inputs_slots.input_type.amount]
+token = "0x6dc58a0fdfc8d694e571dc59b9a52eeea780e6bf"
+
 [instructions.morpho.redeem_vault."Smokehouse Reservoir USDC"]
 position_id = "128264429154381135287798106504544985667"
 description = "Morpho Vault USDC Steakhouse Reservoir"
@@ -1805,6 +1904,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Smokehouse Reservoir USDC".inputs_slots.input_type.amount]
+token = "0xbeef346d7099865208ff331e4f648f4154ddaa05"
 
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
@@ -1827,6 +1929,9 @@ name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
 
+[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xbeefff209270748ddd194831b3fa287a5386f5bc"
+
 [instructions.morpho.redeem_vault."Steakhouse PYUSD"]
 position_id = "276843631519342658565251846836976075217"
 description = "Morpho Vault PYUSD Steakhouse"
@@ -1847,6 +1952,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Steakhouse PYUSD".inputs_slots.input_type.amount]
+token = "0xbeef02e5e13584ab96848af90261f0c8ee04722a"
 
 [instructions.morpho.redeem_vault_relative."Sentora PYUSD"]
 position_id = "273739676753663843967743313854543738189"
