@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout config repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -53,7 +53,7 @@ jobs:
 
       - name: Checkout transpiler repository
         if: steps.changed-rootfiles.outputs.added_files_count > 0 || steps.changed-rootfiles.outputs.modified_files_count > 0
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: MakinaHQ/transpiler
           ref: 2df47bfa6e49887d11072ebe266c5efcee6a102a
