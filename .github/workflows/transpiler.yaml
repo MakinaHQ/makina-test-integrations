@@ -1,12 +1,8 @@
 name: Transpiler
 
-# specs:
-# - if a new rootfile[s] is added, the timestamp should be the most recent one
-#  - for that rootfile, find the clostest caliber and run the transpiler on it
-#  - if the transpiler fails, the PR should fail
-#  - if the transpiler succeeds, compare that with the current rootfile
-#  - if the new rootfile is different, the PR should fail
-#  - if the new rootfile is the same, the PR should pass
+# Rootfile Merkle roots are immutable. Existing rootfiles may only be modified
+# when their transpiler-computed roots remain unchanged. New rootfiles must be
+# the most recent in their directory and exactly match regenerated output.
 
 on:
   pull_request:
@@ -14,29 +10,20 @@ on:
 
 jobs:
   build-and-run-transpiler:
-    name: Verify new rootfiles correctness with the transpiler
+    name: Verify rootfiles with the transpiler
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout config repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       - name: Get changed rootfiles files
         id: changed-rootfiles
         uses: tj-actions/changed-files@ed68ef82c095e0d48ec87eccea555d944a631a4c # v46
         with:
           files: machines/**/rootfiles/**.toml
-
-      # We don't allow anyone to modify existing rootfiles, only to add new ones.
-      - name: Reject PR if existing rootfiles are modified
-        if: steps.changed-rootfiles.outputs.modified_files_count > 0
-        env:
-          MODIFIED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.modified_files }}
-        run: |
-          for file in ${MODIFIED_ROOTFILES}; do
-            echo "Error: $file was modified. Existing rootfiles are not allowed to be modified."
-          done
-          exit 1
 
       # Rootfiles filename format: YYYYMMDDHHMMSS-<name>.toml
       # New rootfiles should start with the most recent timestamp in the directory
@@ -65,24 +52,55 @@ jobs:
           done
 
       - name: Checkout transpiler repository
-        uses: actions/checkout@v5
+        if: steps.changed-rootfiles.outputs.added_files_count > 0 || steps.changed-rootfiles.outputs.modified_files_count > 0
+        uses: actions/checkout@v7
         with:
           repository: MakinaHQ/transpiler
+          ref: 2df47bfa6e49887d11072ebe266c5efcee6a102a
           path: transpiler
 
       - name: Install Rust toolchain
+        if: steps.changed-rootfiles.outputs.added_files_count > 0 || steps.changed-rootfiles.outputs.modified_files_count > 0
         uses: dtolnay/rust-toolchain@stable
 
       - name: Cache Cargo
+        if: steps.changed-rootfiles.outputs.added_files_count > 0 || steps.changed-rootfiles.outputs.modified_files_count > 0
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: transpiler
 
       - name: Build transpiler
+        if: steps.changed-rootfiles.outputs.added_files_count > 0 || steps.changed-rootfiles.outputs.modified_files_count > 0
         working-directory: transpiler
         run: cargo build --release
 
+      - name: Verify existing rootfile Merkle roots are unchanged
+        if: steps.changed-rootfiles.outputs.modified_files_count > 0
+        working-directory: transpiler
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          MODIFIED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.modified_files }}
+        run: |
+          set -euo pipefail
+          for file in ${MODIFIED_ROOTFILES}; do
+            base_rootfile=$(mktemp)
+            trap 'rm -f "$base_rootfile"' EXIT
+            git -C .. show "${BASE_SHA}:${file}" > "$base_rootfile"
+
+            base_root=$(./target/release/transpiler root --rootfile "$base_rootfile")
+            pr_root=$(./target/release/transpiler root --rootfile "../$file")
+
+            if [[ "$base_root" != "$pr_root" ]]; then
+              echo "Error: $file changed its Merkle root from $base_root to $pr_root. Existing rootfile roots are immutable." >&2
+              exit 1
+            fi
+
+            rm -f "$base_rootfile"
+            trap - EXIT
+          done
+
       - name: Run transpiler
+        if: steps.changed-rootfiles.outputs.added_files_count > 0
         working-directory: transpiler
         env:
           ADDED_ROOTFILES: ${{ steps.changed-rootfiles.outputs.added_files }}
