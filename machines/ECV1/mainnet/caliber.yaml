@@ -5,6 +5,12 @@ config:
   unsigned_math_helper_address:
     type: "address"
     value: "0x836C9007DbD73fcFC473190304C72b7E39BaBb91"
+  caliber_helper_address:
+    type: "address"
+    value: "0x6E2ED2f457c41F38556Ab0c2b1185cc9e6563d8D"
+  morpho_address:
+    type: "address"
+    value: "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb"
 
 positions:
   - id: "77590748279218246310796884579338401703"
@@ -15,3 +21,13 @@ positions:
       label: "Smokehouse USDC"
       asset_address: ${token_list.mainnet.USDC}
       vault_address: "0xBEeFFF209270748ddd194831b3fa287a5386f5bC"
+
+  # Direct market lend: no vault totalAssets() loop, cheapest path for the engine canary synth.
+  - id: "91108020639588379661499687897153902780"
+    group_id: "0"
+    description: "Morpho USDC loan (market: cbBTC/USDC 0x64d6...fcc64)"
+    instructions: !include "../../../instructions/morpho-lend.yaml"
+    vars:
+      label: "cbBTC/USDC (0x64d6...fcc64)"
+      market_id: "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+      loan_token: ${token_list.mainnet.USDC}
