@@ -15,3 +15,13 @@ positions:
       label: "Smokehouse USDC"
       asset_address: ${token_list.mainnet.USDC}
       vault_address: "0xBEeFFF209270748ddd194831b3fa287a5386f5bC"
+
+  # 4-market queue: ~5x cheaper totalAssets() than Smokehouse, for the engine canary synth.
+  - id: "91108020639588379661499687897153902780"
+    group_id: "0"
+    description: "Morpho Vault Vault Bridge USDC"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "Vault Bridge USDC"
+      asset_address: ${token_list.mainnet.USDC}
+      vault_address: "0xBEefb9f61CC44895d8AEc381373555a64191A9c4"
