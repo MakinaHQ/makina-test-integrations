@@ -53,6 +53,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
 description = "Morpho Vault Smokehouse USDC"
@@ -73,6 +76,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xbeefff209270748ddd194831b3fa287a5386f5bc"
 
 [instructions.morpho.redeem_vault_relative."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
