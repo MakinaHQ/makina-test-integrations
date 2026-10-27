@@ -41,6 +41,9 @@ actions:
     input_slots:
       shares_to_withdraw:
         type: "uint128"
+        input_type:
+          amount:
+            token: ${inputs.boring_vault_address}
         description: "The amount of vault shares to withdraw"
       seconds_to_deadline:
         type: "uint24"

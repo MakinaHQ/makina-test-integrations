@@ -107,6 +107,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral."USDC (Core)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.add_collateral."USDC (Horizon)"]
 position_id = "87224421864707228069930864185331520862"
 description = "Aave Horizon Supply USDC"
@@ -134,6 +137,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral."USDC (Horizon)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.borrow_asset.USDT]
 position_id = "117961051486591206861124901427435972709"
 description = "Aave Core Borrow USDT"
@@ -157,6 +163,9 @@ index = 0
 name = "amount_to_borrow"
 description = "The amount of tokens to borrow"
 type = "Uint"
+
+[instructions.aavev3.borrow_asset.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
 
 [instructions.aavev3.repay_asset.USDT]
 position_id = "117961051486591206861124901427435972709"
@@ -185,6 +194,9 @@ name = "amount_to_repay"
 description = "The amount to repay to the pool"
 type = "Uint"
 
+[instructions.aavev3.repay_asset.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+
 [instructions.aavev3.withdraw_collateral."USDC (Core)"]
 position_id = "332697612920998824307877708016163852818"
 description = "Aave Core Supply USDC"
@@ -207,6 +219,9 @@ name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
 
+[instructions.aavev3.withdraw_collateral."USDC (Core)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.withdraw_collateral."USDC (Horizon)"]
 position_id = "87224421864707228069930864185331520862"
 description = "Aave Horizon Supply USDC"
@@ -228,6 +243,9 @@ index = 0
 name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
+
+[instructions.aavev3.withdraw_collateral."USDC (Horizon)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 
 [instructions.curve.account_balanced."USDC/crvUSD"]
 position_id = "203336833608290082987101085377947340244"
@@ -327,17 +345,26 @@ name = "amount_tokena"
 description = "The amount of token A to deposit"
 type = "Uint"
 
+[instructions.curve.deposit_balanced."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [[instructions.curve.deposit_balanced."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of token B to deposit"
 type = "Uint"
 
+[instructions.curve.deposit_balanced."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+
 [[instructions.curve.deposit_balanced."USDC/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive"
 type = "Uint"
+
+[instructions.curve.deposit_balanced."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0x4dece678ceceb27446b35c672dc7d61f30bad69e"
 
 [instructions.curve.deposit_balanced."USDT/crvUSD"]
 position_id = "221614240530984971309101713062250192527"
@@ -373,17 +400,26 @@ name = "amount_tokena"
 description = "The amount of token A to deposit"
 type = "Uint"
 
+[instructions.curve.deposit_balanced."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+
 [[instructions.curve.deposit_balanced."USDT/crvUSD".inputs_slots]]
 index = 1
 name = "amount_tokenb"
 description = "The amount of token B to deposit"
 type = "Uint"
 
+[instructions.curve.deposit_balanced."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"
+
 [[instructions.curve.deposit_balanced."USDT/crvUSD".inputs_slots]]
 index = 2
 name = "min_mint_amount"
 description = "The minimum amount of LP tokens to receive"
 type = "Uint"
+
+[instructions.curve.deposit_balanced."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0x390f3595bca2df7d23783dfd126427cceb997bf4"
 
 [instructions.curve.harvest_from_minter."USDC/crvUSD"]
 position_id = "203336833608290082987101085377947340244"
@@ -442,6 +478,9 @@ name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
 
+[instructions.curve.withdraw_balanced."USDC/crvUSD".inputs_slots.input_type.amount]
+token = "0x4dece678ceceb27446b35c672dc7d61f30bad69e"
+
 [[instructions.curve.withdraw_balanced."USDC/crvUSD".inputs_slots]]
 index = 1
 name = "min_token_a"
@@ -484,6 +523,9 @@ index = 0
 name = "amount_to_withdraw"
 description = "The amount of LP tokens to withdraw from the gauge"
 type = "Uint"
+
+[instructions.curve.withdraw_balanced."USDT/crvUSD".inputs_slots.input_type.amount]
+token = "0x390f3595bca2df7d23783dfd126427cceb997bf4"
 
 [[instructions.curve.withdraw_balanced."USDT/crvUSD".inputs_slots]]
 index = 1
@@ -721,6 +763,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Gauntlet USDC Frontier".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.deposit_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
 description = "Morpho Vault Smokehouse USDC"
@@ -746,6 +791,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.redeem_vault."Gauntlet USDC Frontier"]
 position_id = "11232424494326814282538250204373920286"
 description = "Morpho Vault Gauntlet Frontier USDC"
@@ -767,6 +815,9 @@ name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
 
+[instructions.morpho.redeem_vault."Gauntlet USDC Frontier".inputs_slots.input_type.amount]
+token = "0xc582f04d8a82795aa2ff9c8bb4c1c889fe7b754e"
+
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
 description = "Morpho Vault Smokehouse USDC"
@@ -787,6 +838,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xbeefff209270748ddd194831b3fa287a5386f5bc"
 
 [instructions.morpho.redeem_vault_relative."Gauntlet USDC Frontier"]
 position_id = "11232424494326814282538250204373920286"
@@ -894,11 +948,17 @@ name = "amount_to_deposit"
 description = "The amount of base token to deposit into the vault"
 type = "Uint"
 
+[instructions.veda.deposit."Golden Goose wstETH".inputs_slots.input_type.amount]
+token = "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+
 [[instructions.veda.deposit."Golden Goose wstETH".inputs_slots]]
 index = 1
 name = "min_shares_out"
 description = "The minimum amount of vault shares to receive (slippage protection)"
 type = "Uint"
+
+[instructions.veda.deposit."Golden Goose wstETH".inputs_slots.input_type.amount]
+token = "0xef417fce1883c6653e7dc6af7c6f85ccde84aa09"
 
 [instructions.veda.request_withdraw_relative."Golden Goose wstETH"]
 position_id = "671"

@@ -62,6 +62,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral.USDC.inputs_slots.input_type.amount]
+token = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+
 [instructions.aavev3.borrow_asset.WETH]
 position_id = "117961051486591206861124901427435972709"
 description = "Aave v3 Borrow WETH"
@@ -85,6 +88,9 @@ index = 0
 name = "amount_to_borrow"
 description = "The amount of tokens to borrow"
 type = "Uint"
+
+[instructions.aavev3.borrow_asset.WETH.inputs_slots.input_type.amount]
+token = "0x4200000000000000000000000000000000000006"
 
 [instructions.aavev3.repay_asset.WETH]
 position_id = "117961051486591206861124901427435972709"
@@ -113,6 +119,9 @@ name = "amount_to_repay"
 description = "The amount to repay to the pool"
 type = "Uint"
 
+[instructions.aavev3.repay_asset.WETH.inputs_slots.input_type.amount]
+token = "0x4200000000000000000000000000000000000006"
+
 [instructions.aavev3.withdraw_collateral.USDC]
 position_id = "332697612920998824307877708016163852818"
 description = "Aave v3 Supply USDC"
@@ -134,6 +143,9 @@ index = 0
 name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
+
+[instructions.aavev3.withdraw_collateral.USDC.inputs_slots.input_type.amount]
+token = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
 
 [instructions.merkl.harvest.Merkl]
 position_id = "777"
@@ -285,6 +297,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Gauntlet USDC Prime".inputs_slots.input_type.amount]
+token = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+
 [instructions.morpho.deposit_vault."Spark USDC"]
 position_id = "4148667362119946134208228209463684324936996377358549328784300874760080848637"
 description = "Morpho Vault Spark USDC"
@@ -309,6 +324,9 @@ index = 0
 name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
+
+[instructions.morpho.deposit_vault."Spark USDC".inputs_slots.input_type.amount]
+token = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
 
 [instructions.morpho.deposit_vault."Steakhouse Prime USDC"]
 position_id = "14523639472016899474685040679031268882804262248966173777422878776615686949418"
@@ -335,6 +353,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Steakhouse Prime USDC".inputs_slots.input_type.amount]
+token = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+
 [instructions.morpho.redeem_vault."Gauntlet USDC Prime"]
 position_id = "72334253190077231487202040235925654714397780360015283900189589678848567849884"
 description = "Morpho Vault Gauntlet USDC Prime"
@@ -355,6 +376,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Gauntlet USDC Prime".inputs_slots.input_type.amount]
+token = "0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61"
 
 [instructions.morpho.redeem_vault."Spark USDC"]
 position_id = "4148667362119946134208228209463684324936996377358549328784300874760080848637"
@@ -377,6 +401,9 @@ name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
 
+[instructions.morpho.redeem_vault."Spark USDC".inputs_slots.input_type.amount]
+token = "0x7bfa7c4f149e7415b73bdedfe609237e29cbf34a"
+
 [instructions.morpho.redeem_vault."Steakhouse Prime USDC"]
 position_id = "14523639472016899474685040679031268882804262248966173777422878776615686949418"
 description = "Morpho Vault Steakhouse Prime USDC"
@@ -397,6 +424,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Steakhouse Prime USDC".inputs_slots.input_type.amount]
+token = "0xbeefe94c8ad530842bfe7d8b397938ffc1cb83b2"
 
 [instructions.morpho.redeem_vault_relative."Gauntlet USDC Prime"]
 position_id = "72334253190077231487202040235925654714397780360015283900189589678848567849884"

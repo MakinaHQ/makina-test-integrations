@@ -90,6 +90,9 @@ name = "amount_to_deposit"
 description = "The amount of tokens to add as collateral"
 type = "Uint"
 
+[instructions.aavev3.add_collateral."USDC (Core)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.aavev3.borrow_asset.USDT]
 position_id = "117961051486591206861124901427435972709"
 description = "Aave Core Borrow USDT"
@@ -113,6 +116,9 @@ index = 0
 name = "amount_to_borrow"
 description = "The amount of tokens to borrow"
 type = "Uint"
+
+[instructions.aavev3.borrow_asset.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
 
 [instructions.aavev3.repay_asset.USDT]
 position_id = "117961051486591206861124901427435972709"
@@ -141,6 +147,9 @@ name = "amount_to_repay"
 description = "The amount to repay to the pool"
 type = "Uint"
 
+[instructions.aavev3.repay_asset.USDT.inputs_slots.input_type.amount]
+token = "0xdac17f958d2ee523a2206206994597c13d831ec7"
+
 [instructions.aavev3.withdraw_collateral."USDC (Core)"]
 position_id = "332697612920998824307877708016163852818"
 description = "Aave Core Supply USDC"
@@ -162,6 +171,9 @@ index = 0
 name = "amount_collateral_to_withdraw"
 description = "The amount of collateral to withdraw"
 type = "Uint"
+
+[instructions.aavev3.withdraw_collateral."USDC (Core)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 
 [instructions.merkl.harvest.Merkl]
 position_id = "777"
@@ -427,6 +439,9 @@ name = "amount_to_deposit"
 description = "Amount of collateral to deposit"
 type = "Uint"
 
+[instructions.morpho.add_collateral."sUSDe/USDC (0x85c7...fcab)".inputs_slots.input_type.amount]
+token = "0x9d39a5de30e57443bff2a8307a4256c8797a3497"
+
 [instructions.morpho.add_collateral."tBTC/USDC (0xe4cf...3f08)"]
 position_id = "671"
 description = "Morpho tBTC Collateral (market: 0xe4cf...3f08)"
@@ -465,6 +480,9 @@ index = 0
 name = "amount_to_deposit"
 description = "Amount of collateral to deposit"
 type = "Uint"
+
+[instructions.morpho.add_collateral."tBTC/USDC (0xe4cf...3f08)".inputs_slots.input_type.amount]
+token = "0x18084fba666a33d37592fa2633fd49a74dd93a88"
 
 [instructions.morpho.borrow."sUSDe/USDC (0x85c7...fcab)"]
 position_id = "674"
@@ -565,6 +583,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Gauntlet USDC Frontier".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.deposit_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
 description = "Morpho Vault Smokehouse USDC"
@@ -589,6 +610,9 @@ index = 0
 name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
+
+[instructions.morpho.deposit_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 
 [instructions.morpho.deposit_vault."Steakhouse Reservoir USDC"]
 position_id = "128264429154381135287798106504544985667"
@@ -615,6 +639,9 @@ name = "amount_to_deposit"
 description = "Amount of asset to deposit into the vault"
 type = "Uint"
 
+[instructions.morpho.deposit_vault."Steakhouse Reservoir USDC".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.redeem_vault."Gauntlet USDC Frontier"]
 position_id = "11232424494326814282538250204373920286"
 description = "Morpho Vault Gauntlet Frontier USDC"
@@ -635,6 +662,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Gauntlet USDC Frontier".inputs_slots.input_type.amount]
+token = "0xc582f04d8a82795aa2ff9c8bb4c1c889fe7b754e"
 
 [instructions.morpho.redeem_vault."Smokehouse USDC"]
 position_id = "77590748279218246310796884579338401703"
@@ -657,6 +687,9 @@ name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
 
+[instructions.morpho.redeem_vault."Smokehouse USDC".inputs_slots.input_type.amount]
+token = "0xbeefff209270748ddd194831b3fa287a5386f5bc"
+
 [instructions.morpho.redeem_vault."Steakhouse Reservoir USDC"]
 position_id = "128264429154381135287798106504544985667"
 description = "Morpho Vault Steakhouse Reservoir USDC"
@@ -677,6 +710,9 @@ index = 0
 name = "shares_to_redeem"
 description = "The number of shares to redeem from the vault"
 type = "Uint"
+
+[instructions.morpho.redeem_vault."Steakhouse Reservoir USDC".inputs_slots.input_type.amount]
+token = "0xbeef346d7099865208ff331e4f648f4154ddaa05"
 
 [instructions.morpho.redeem_vault_relative."Gauntlet USDC Frontier"]
 position_id = "11232424494326814282538250204373920286"
@@ -799,6 +835,9 @@ name = "amount_to_repay"
 description = "The amount of loan token to repay"
 type = "Uint"
 
+[instructions.morpho.repay_asset."sUSDe/USDC (0x85c7...fcab)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+
 [instructions.morpho.repay_asset."tBTC/USDC (0xe4cf...3f08)"]
 position_id = "673"
 description = "Morpho USDC Debt (market: 0xe4cf...3f08)"
@@ -838,6 +877,9 @@ index = 0
 name = "amount_to_repay"
 description = "The amount of loan token to repay"
 type = "Uint"
+
+[instructions.morpho.repay_asset."tBTC/USDC (0xe4cf...3f08)".inputs_slots.input_type.amount]
+token = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
 
 [instructions.morpho.withdraw_collateral."sUSDe/USDC (0x85c7...fcab)"]
 position_id = "672"

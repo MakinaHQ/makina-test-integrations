@@ -27,4 +27,7 @@ actions:
     input_slots:
       amount_to_transfer:
         type: "uint256"
+        input_type:
+          amount:
+            token: ${inputs.asset_address}
         description: "The amount of tokens to transfer"

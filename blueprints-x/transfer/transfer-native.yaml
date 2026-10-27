@@ -67,6 +67,9 @@ actions:
     input_slots:
       amount_to_transfer:
         type: "uint256"
+        input_type:
+          amount:
+            token: ${inputs.wrapped_native_address}
         description: "The amount of wrapped native to unwrap and forward"
 
   # Fully static variant: `amount` comes from the blueprint inputs rather than a slot, so both

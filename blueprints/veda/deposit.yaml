@@ -45,7 +45,13 @@ actions:
     input_slots:
       amount_to_deposit:
         type: "uint256"
+        input_type:
+          amount:
+            token: ${inputs.asset_address}
         description: "The amount of base token to deposit into the vault"
       min_shares_out:
         type: "uint256"
+        input_type:
+          amount:
+            token: ${inputs.boring_vault_address}
         description: "The minimum amount of vault shares to receive (slippage protection)"
