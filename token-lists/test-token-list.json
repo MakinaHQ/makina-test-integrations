@@ -39,6 +39,13 @@
         "symbol": "USDC"
       },
       {
+        "chainId": 8453,
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "name": "USD Coin",
+        "decimals": 6,
+        "symbol": "USDC"
+      },
+      {
         "chainId": 1,
         "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
         "name": "Tether USD",
