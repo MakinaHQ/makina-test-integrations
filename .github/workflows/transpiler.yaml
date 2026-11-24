@@ -56,7 +56,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: MakinaHQ/transpiler
-          ref: 2df47bfa6e49887d11072ebe266c5efcee6a102a
+          ref: 6b51801ef4e335f80a685239e8c3dcb9b6f44748 # v0.2.8 (adds input_type amount + relative)
           path: transpiler
 
       - name: Install Rust toolchain

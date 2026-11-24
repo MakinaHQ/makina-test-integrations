@@ -7,6 +7,10 @@ inputs:
     type: "address"
   asset_address:
     type: "address"
+  aave_token:
+    type: "address"
+  unsigned_math_helper:
+    type: "address"
 
 actions:
   withdraw_collateral:
@@ -28,3 +32,44 @@ actions:
           amount:
             token: ${inputs.asset_address}
         description: "The amount of collateral to withdraw"
+
+  withdraw_collateral_relative:
+    calls:
+      - description: "Query our balance of aTokens"
+        target: ${inputs.aave_token}
+        selector: "balanceOf(address)"
+        parameters:
+          - type: "address"
+            value: ${inputs.to}
+        return:
+          name: "aave_token_balance"
+          type: "uint256"
+      - description: "Compute the amount to withdraw based on the input percentage"
+        target: ${inputs.unsigned_math_helper}
+        selector: "mulDiv(uint256,uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: ${returns.aave_token_balance}
+          - type: "uint256"
+            value: ${input_slots.bps_to_withdraw}
+          - type: "uint256"
+            value: "10000"
+        return:
+          name: "amount_to_withdraw"
+          type: "uint256"
+      - description: "Withdraw the computed amount from the Aave pool"
+        target: ${inputs.aave_pool_instance}
+        selector: "withdraw(address,uint256,address)"
+        parameters:
+          - type: "address"
+            value: ${inputs.asset_address}
+          - type: "uint256"
+            value: ${returns.amount_to_withdraw}
+          - type: "address"
+            value: ${inputs.to}
+    input_slots:
+      bps_to_withdraw:
+        type: "uint256"
+        input_type:
+          relative: {}
+        description: "The percentage of the aToken balance to withdraw, in basis points (bps), 10000 bps = 100%"

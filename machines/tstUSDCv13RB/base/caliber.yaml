@@ -1,3 +1,27 @@
-config: {}
+config:
+  caliber_address:
+    type: "address"
+    value: "0xd9A40814BAA42Cf6763A13074c9c519F0AdC8DDE"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x3D623B199E290358416415eA7e05B635E442e3c0"
+  aave_v3_address:
+    type: "address"
+    value: "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5"
 
-positions: []
+positions:
+  # Morpho Vaults
+  - id: "72334253190077231487202040235925654714397780360015283900189589678848567849884" # keccak256("8453.1.vault.0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61")
+    group_id: "0"
+    description: "Morpho Vault Gauntlet USDC Prime"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "Gauntlet USDC Prime"
+      asset_address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913" # USDC
+      vault_address: "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61"
+
+  # Aave v3
+  - id: "38161322151738797551687133094848790222267788177529044573951543665490442864582" # keccak256("8453.1.aave.0x4e65fe4dba92790696d040ac24aa414708f5c0ab")
+    group_id: "1"
+    description: "Aave v3 Supply USDC"
+    instructions: !include "./instructions/aave-v3-supply-usdc.yaml"
