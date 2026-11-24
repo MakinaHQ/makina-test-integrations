@@ -1,0 +1,180 @@
+# this is a generated file - do not edit manually
+# root: 0xf88b1eb6b75f7203d7941455c2978e88ad4e9744520a72f0d72bf1e29ebba87a
+
+[instructions.aavev3.account.USDC]
+position_id = "28780763045214923211416260720111609252898940208165340958747161283496116954519"
+description = "Aave v3 Supply USDC"
+is_debt = false
+group_id = "1"
+instruction_type = 1
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = ["0x70a082310102ff000000000035a73bacb179d3740395a3cecc87ff2e581d6042"]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+]
+bitmap = "127605887595351923798765477786913079296"
+inputs_slots = []
+
+[instructions.aavev3.add_collateral.USDC]
+position_id = "28780763045214923211416260720111609252898940208165340958747161283496116954519"
+description = "Aave v3 Supply USDC"
+is_debt = false
+group_id = "1"
+instruction_type = 0
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = [
+  "0x095ea7b3010100ff000000ff754704bc059f8c67012fed69bc8a327a5aafb603",
+  "0x617ba0370102000304ff00ff69a5f9ad4f96ebf0a0c792dd42a01cc5c0102fef",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x00000000000000000000000069a5f9ad4f96ebf0a0c792dd42a01cc5c0102fef",
+  "0x000000000000000000000000754704bc059f8c67012fed69bc8a327a5aafb603",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+  "0x0000000000000000000000000000000000000000000000000000000000000000",
+]
+bitmap = "159507359494189904748456847233641349120"
+
+[[instructions.aavev3.add_collateral.USDC.inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+description = "The amount of tokens to add as collateral"
+type = "Uint"
+
+[instructions.aavev3.add_collateral.USDC.inputs_slots.input_type.amount]
+token = "0x754704bc059f8c67012fed69bc8a327a5aafb603"
+
+[instructions.aavev3.withdraw_collateral_relative.USDC]
+position_id = "28780763045214923211416260720111609252898940208165340958747161283496116954519"
+description = "Aave v3 Supply USDC"
+is_debt = false
+group_id = "1"
+instruction_type = 0
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = [
+  "0x70a082310103ff000000000435a73bacb179d3740395a3cecc87ff2e581d6042",
+  "0xaa9a091201040001ff0000043d623b199e290358416415ea7e05b635e442e3c0",
+  "0x69328dec01020403ff0000ff69a5f9ad4f96ebf0a0c792dd42a01cc5c0102fef",
+]
+state = [
+  "0xe03955617d04c9ad72e38844b404f0293b4da0d20aaaa0b0fa9bc28814ec552d",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x000000000000000000000000754704bc059f8c67012fed69bc8a327a5aafb603",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+  "0x",
+]
+bitmap = "148873535527910577765226390751398592512"
+
+[[instructions.aavev3.withdraw_collateral_relative.USDC.inputs_slots]]
+index = 0
+name = "bps_to_withdraw"
+description = "The percentage of the aToken balance to withdraw, in basis points (bps), 10000 bps = 100%"
+type = "Uint"
+
+[instructions.aavev3.withdraw_collateral_relative.USDC.inputs_slots.input_type.relative]
+
+[instructions.morpho.account_vault."August USDC V2"]
+position_id = "63955992514259748996421733842645931328782410150412238524687031962815092582717"
+description = "Morpho Vault August USDC V2"
+is_debt = false
+group_id = "0"
+instruction_type = 1
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = [
+  "0x70a082310102ff000000000280017bf0f793ebbe9679cd61ff0e395b62cabb59",
+  "0x4cdad5060102ff000000000080017bf0f793ebbe9679cd61ff0e395b62cabb59",
+]
+state = [
+  "0x",
+  "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+]
+bitmap = "127605887595351923798765477786913079296"
+inputs_slots = []
+
+[instructions.morpho.deposit_vault."August USDC V2"]
+position_id = "63955992514259748996421733842645931328782410150412238524687031962815092582717"
+description = "Morpho Vault August USDC V2"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = [
+  "0x095ea7b3010100ff000000ff754704bc059f8c67012fed69bc8a327a5aafb603",
+  "0x6e553f65010002ff000000ff80017bf0f793ebbe9679cd61ff0e395b62cabb59",
+]
+state = [
+  "0x4a444f324d327a31a252465094d0cf0bf263cc614b736fad77deec31792c3a1e",
+  "0x00000000000000000000000080017bf0f793ebbe9679cd61ff0e395b62cabb59",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.morpho.deposit_vault."August USDC V2".inputs_slots]]
+index = 0
+name = "amount_to_deposit"
+description = "Amount of asset to deposit into the vault"
+type = "Uint"
+
+[instructions.morpho.deposit_vault."August USDC V2".inputs_slots.input_type.amount]
+token = "0x754704bc059f8c67012fed69bc8a327a5aafb603"
+
+[instructions.morpho.redeem_vault."August USDC V2"]
+position_id = "63955992514259748996421733842645931328782410150412238524687031962815092582717"
+description = "Morpho Vault August USDC V2"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = ["0xba08765201000101ff0000ff80017bf0f793ebbe9679cd61ff0e395b62cabb59"]
+state = [
+  "0xb15298e086a78295e2256286b6732ccd460871f4fab230771100451e181985d6",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+]
+bitmap = "85070591730234615865843651857942052864"
+
+[[instructions.morpho.redeem_vault."August USDC V2".inputs_slots]]
+index = 0
+name = "shares_to_redeem"
+description = "The number of shares to redeem from the vault"
+type = "Uint"
+
+[instructions.morpho.redeem_vault."August USDC V2".inputs_slots.input_type.amount]
+token = "0x80017bf0f793ebbe9679cd61ff0e395b62cabb59"
+
+[instructions.morpho.redeem_vault_relative."August USDC V2"]
+position_id = "63955992514259748996421733842645931328782410150412238524687031962815092582717"
+description = "Morpho Vault August USDC V2"
+is_debt = false
+group_id = "0"
+instruction_type = 0
+affected_tokens = ["0x754704bc059f8c67012fed69bc8a327a5aafb603"]
+position_tokens = []
+commands = [
+  "0x70a082310102ff000000000380017bf0f793ebbe9679cd61ff0e395b62cabb59",
+  "0xaa9a091201030001ff0000033d623b199e290358416415ea7e05b635e442e3c0",
+  "0xba08765201030202ff0000ff80017bf0f793ebbe9679cd61ff0e395b62cabb59",
+]
+state = [
+  "0xc1f391695ad9edea00e1476e5c61b3c06bd63e06140b26c9bcd6e670140134df",
+  "0x0000000000000000000000000000000000000000000000000000000000002710",
+  "0x000000000000000000000000d9a40814baa42cf6763a13074c9c519f0adc8dde",
+  "0x",
+]
+bitmap = "127605887595351923798765477786913079296"
+
+[[instructions.morpho.redeem_vault_relative."August USDC V2".inputs_slots]]
+index = 0
+name = "bps_to_redeem"
+description = "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
+type = "Uint"
+
+[instructions.morpho.redeem_vault_relative."August USDC V2".inputs_slots.input_type.relative]

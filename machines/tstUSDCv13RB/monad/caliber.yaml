@@ -1,3 +1,27 @@
-config: {}
+config:
+  caliber_address:
+    type: "address"
+    value: "0xd9A40814BAA42Cf6763A13074c9c519F0AdC8DDE"
+  unsigned_math_helper_address:
+    type: "address"
+    value: "0x3D623B199E290358416415eA7e05B635E442e3c0"
+  aave_v3_address:
+    type: "address"
+    value: "0x69a5F9AD4f96ebf0a0C792dD42a01cC5C0102fef"
 
-positions: []
+positions:
+  # Morpho Vaults
+  - id: "63955992514259748996421733842645931328782410150412238524687031962815092582717" # keccak256("143.1.vault.0x80017bf0f793ebbe9679cd61ff0e395b62cabb59")
+    group_id: "0"
+    description: "Morpho Vault August USDC V2"
+    instructions: !include "../../../instructions/morpho-vault.yaml"
+    vars:
+      label: "August USDC V2"
+      asset_address: "0x754704Bc059F8C67012fEd69BC8A327a5aafb603" # USDC
+      vault_address: "0x80017bF0f793EBbE9679Cd61ff0e395B62CAbB59"
+
+  # Aave v3
+  - id: "28780763045214923211416260720111609252898940208165340958747161283496116954519" # keccak256("143.1.aave.0x35a73bacb179d3740395a3cecc87ff2e581d6042")
+    group_id: "1"
+    description: "Aave v3 Supply USDC"
+    instructions: !include "./instructions/aave-v3-supply-usdc.yaml"
