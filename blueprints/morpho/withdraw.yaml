@@ -172,4 +172,6 @@ actions:
     input_slots:
       bps_to_redeem:
         type: "uint256"
+        input_type:
+          relative: {}
         description: "The percentage of shares to redeem, in basis points (bps), 10000 bps = 100%"
