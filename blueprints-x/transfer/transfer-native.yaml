@@ -32,6 +32,32 @@
 #   unwrap_and_transfer_native_fixed  recipient AND amount both pinned in the leaf; no
 #                                     `input_slots` at all, so the root authorizes exactly one
 #                                     call and the operator supplies nothing
+#
+# A THIRD ACTION ADDS A MINIMUM INTERVAL BETWEEN SENDS:
+#   unwrap_and_transfer_native_fixed_cooldown
+#                                     as `_fixed`, and the script reverts unless at least
+#                                     `min_interval` seconds have passed since this Safe's last
+#                                     send under `cooldown_key`
+# A HARVEST leaf has no cooldown of its own in the module, so a `_fixed` leaf can be executed
+# any number of times in a row. The `_cooldown` action bounds that on-chain with six extra plain
+# CALLs in front of the same approve + unwrapAndSend pair:
+#   last   = store.get(cooldown_key)          0 if this Safe never sent under this key
+#   now    = context.blockTimestamp()
+#   next   = math.add(last, min_interval)     reverts on overflow, never wraps
+#   early  = math.gt(next, now)
+#   boolean.revertIfTrue(early)
+#   store.set(cooldown_key, now)              written BEFORE the native asset leaves the Safe
+# The script runs with the Safe as msg.sender of every call, so `kv_store_address` MUST be a
+# store that files records under msg.sender (get/set keyed by caller), NOT a per-caliber store:
+# the record then lives in the Safe's own namespace and no other account can write it.
+# `cooldown_key` and `min_interval` are pinned in the leaf: changing either means a new root.
+# Use one key per recipient so two recipients never share a timer. `min_interval` must be > 0
+# and far below 2^256 (the consumer is expected to bound it; `add` reverts on overflow).
+# EVERY HELPER ADDRESS MUST HAVE CODE ON THE CHAIN. `revertIfTrue` returns nothing, so a call to
+# an address without code succeeds and the interval is NOT enforced: check the code of
+# `kv_store_address`, `context_helper_address`, `math_helper_address` and
+# `boolean_helper_address` before a root with this action is signed.
+# The four `_cooldown` inputs are only read by that action; the two older actions ignore them.
 protocol: "transfer"
 
 inputs:
@@ -42,6 +68,19 @@ inputs:
   to:
     type: "address"
   amount:
+    type: "uint256"
+  # Only read by `unwrap_and_transfer_native_fixed_cooldown`:
+  kv_store_address:
+    type: "address"
+  context_helper_address:
+    type: "address"
+  math_helper_address:
+    type: "address"
+  boolean_helper_address:
+    type: "address"
+  cooldown_key:
+    type: "bytes32"
+  min_interval:
     type: "uint256"
 
 actions:
@@ -74,6 +113,87 @@ actions:
   # supplies nothing at execution time. Instantiate once per (recipient, amount) pair.
   unwrap_and_transfer_native_fixed:
     calls:
+      - description: "Approve the forwarder to pull the pinned amount from the Safe"
+        target: ${inputs.wrapped_native_address}
+        selector: "approve(address,uint256)"
+        parameters:
+          - type: "address"
+            value: ${inputs.unwrap_forwarder}
+          - type: "uint256"
+            value: ${inputs.amount}
+
+      - description: "Unwrap and forward the pinned amount of native asset to the destination"
+        target: ${inputs.unwrap_forwarder}
+        selector: "unwrapAndSend(address,uint256)"
+        parameters:
+          - type: "address"
+            value: ${inputs.to}
+          - type: "uint256"
+            value: ${inputs.amount}
+
+  # `_fixed` with an on-chain minimum interval between sends (see the header). No `input_slots`:
+  # the operator supplies nothing, and every address, the key, the interval, the recipient and
+  # the amount are committed to the root.
+  unwrap_and_transfer_native_fixed_cooldown:
+    calls:
+      - description: "Read the time of this Safe's last send from the key-value store (0 if never)"
+        target: ${inputs.kv_store_address}
+        selector: "get(bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: ${inputs.cooldown_key}
+        return:
+          name: "last_top_up_timestamp"
+          type: "uint256"
+
+      - description: "Get the current block.timestamp"
+        target: ${inputs.context_helper_address}
+        selector: "blockTimestamp()"
+        parameters: []
+        return:
+          name: "current_timestamp"
+          type: "uint256"
+
+      - description: "Earliest time the next send is allowed: last send + pinned minimum interval"
+        target: ${inputs.math_helper_address}
+        selector: "add(uint256,uint256)"
+        parameters:
+          - type: "uint256"
+            value: ${returns.last_top_up_timestamp}
+          - type: "uint256"
+            value: ${inputs.min_interval}
+        return:
+          name: "next_allowed_timestamp"
+          type: "uint256"
+
+      - description: "Is it too early? (next allowed time > current time)"
+        target: ${inputs.math_helper_address}
+        selector: "gt(uint256,uint256)" # gt(a, b) = a > b
+        parameters:
+          - type: "uint256"
+            value: ${returns.next_allowed_timestamp}
+          - type: "uint256"
+            value: ${returns.current_timestamp}
+        return:
+          name: "is_too_early"
+          type: "bool"
+
+      - description: "Revert if the minimum interval has not passed"
+        target: ${inputs.boolean_helper_address}
+        selector: "revertIfTrue(bool)"
+        parameters:
+          - type: "bool"
+            value: ${returns.is_too_early}
+
+      - description: "Store the current block.timestamp as this Safe's last send"
+        target: ${inputs.kv_store_address}
+        selector: "set(bytes32,bytes32)"
+        parameters:
+          - type: "bytes32"
+            value: ${inputs.cooldown_key}
+          - type: "uint256"
+            value: ${returns.current_timestamp}
+
       - description: "Approve the forwarder to pull the pinned amount from the Safe"
         target: ${inputs.wrapped_native_address}
         selector: "approve(address,uint256)"
