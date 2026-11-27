@@ -11,33 +11,33 @@ inputs:
 actions:
   approve_spender:
     calls:
-    - description: Approve the spender to spend the exact pinned amount of the token
-      target: ${inputs.token_address}
-      selector: approve(address,uint256)
-      parameters:
-      - type: address
-        value: ${inputs.spender}
-      - type: uint256
-        value: ${inputs.amount}
+      - description: Approve the spender to spend the exact pinned amount of the token
+        target: ${inputs.token_address}
+        selector: approve(address,uint256)
+        parameters:
+          - type: address
+            value: ${inputs.spender}
+          - type: uint256
+            value: ${inputs.amount}
   cancel_approval:
     calls:
-    - description: Revoke the spender's allowance on the token (approve 0)
-      target: ${inputs.token_address}
-      selector: approve(address,uint256)
-      parameters:
-      - type: address
-        value: ${inputs.spender}
-      - type: uint256
-        value: '0'
+      - description: Revoke the spender's allowance on the token (approve 0)
+        target: ${inputs.token_address}
+        selector: approve(address,uint256)
+        parameters:
+          - type: address
+            value: ${inputs.spender}
+          - type: uint256
+            value: "0"
   account_approval:
     calls:
-    - description: Read token decimals without assigning a result; allowance NAV remains
-        constant zero
-      target: ${inputs.token_address}
-      selector: decimals()
-      parameters: []
+      - description: Read token decimals without assigning a result; allowance NAV remains
+          constant zero
+        target: ${inputs.token_address}
+        selector: decimals()
+        parameters: []
     reserved_slots:
-    - type: uint256
-      value: '0'
-    - type: uint256
-      value: ${builtins.UINT256_MAX}
+      - type: uint256
+        value: "0"
+      - type: uint256
+        value: ${builtins.UINT256_MAX}
